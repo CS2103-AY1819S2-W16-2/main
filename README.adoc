@@ -1,4 +1,6 @@
 = The Real App
+
+image:https://api.codacy.com/project/badge/Grade/6434e6ed7c5448e08944841c45161286[link="https://app.codacy.com/app/yongxiang1095/main?utm_source=github.com&utm_medium=referral&utm_content=cs2103-ay1819s2-w16-2/main&utm_campaign=Badge_Grade_Dashboard"]
 ifdef::env-github,env-browser[:relfileprefix: docs/]
 
 https://travis-ci.com/cs2103-ay1819s2-w16-2/main[image:https://travis-ci.com/cs2103-ay1819s2-w16-2/main.svg?branch=master[Build Status]]
