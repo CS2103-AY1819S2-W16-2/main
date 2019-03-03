@@ -1,9 +1,9 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]--><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="Asciidoctor 1.5.6.1"><title>AddressBook Level 4 - User Guide</title><link rel="stylesheet" href="stylesheets/gh-pages.css">
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]--><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="Asciidoctor 1.5.6.1"><title>The Real App - User Guide</title><link rel="stylesheet" href="stylesheets/gh-pages.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
-<link rel="stylesheet" href="stylesheets/coderay-asciidoctor.css"></head><body class="article"><div id="header"><h1>AddressBook Level 4 - User Guide</h1></div><div id="content"><div id="preamble">
+<link rel="stylesheet" href="stylesheets/coderay-asciidoctor.css"></head><body class="article"><div id="header"><h1>The Real App - User Guide</h1></div><div id="content"><div id="preamble">
 <div class="sectionbody">
 <div class="paragraph">
-<p>By: <code>Team SE-EDU</code>      Since: <code>Jun 2016</code>      Licence: <code>MIT</code></p>
+<p>By: <code>Team CS2103-AY1819S2-W16-2</code>      Since: <code>Mar 2019</code>      Licence: <code>MIT</code></p>
 </div>
 </div>
 <div id="toc" class="toc">
@@ -14,23 +14,32 @@
 <li><a href="#Features">3. Features</a>
 <ul class="sectlevel2">
 <li><a href="#viewing-help-code-help-code">3.1. Viewing help : <code>help</code></a></li>
-<li><a href="#adding-a-person-code-add-code">3.2. Adding a person: <code>add</code></a></li>
-<li><a href="#listing-all-persons-code-list-code">3.3. Listing all persons : <code>list</code></a></li>
-<li><a href="#editing-a-person-code-edit-code">3.4. Editing a person : <code>edit</code></a></li>
-<li><a href="#locating-persons-by-name-code-find-code">3.5. Locating persons by name: <code>find</code></a></li>
-<li><a href="#deleting-a-person-code-delete-code">3.6. Deleting a person : <code>delete</code></a></li>
-<li><a href="#selecting-a-person-code-select-code">3.7. Selecting a person : <code>select</code></a></li>
-<li><a href="#listing-entered-commands-code-history-code">3.8. Listing entered commands : <code>history</code></a></li>
-<li><a href="#undoing-previous-command-code-undo-code">3.9. Undoing previous command : <code>undo</code></a></li>
-<li><a href="#redoing-the-previously-undone-command-code-redo-code">3.10. Redoing the previously undone command : <code>redo</code></a></li>
-<li><a href="#clearing-all-entries-code-clear-code">3.11. Clearing all entries : <code>clear</code></a></li>
-<li><a href="#exiting-the-program-code-exit-code">3.12. Exiting the program : <code>exit</code></a></li>
-<li><a href="#saving-the-data">3.13. Saving the data</a></li>
-<li><a href="#encrypting-data-files-code-coming-in-v2-0-code">3.14. Encrypting data files <code>[coming in v2.0]</code></a></li>
+<li><a href="#adding-a-contact-code-add-code">3.2. Adding a contact : <code>add</code></a></li>
+<li><a href="#listing-all-contacts-code-list-code">3.3. Listing all contacts : <code>list</code></a></li>
+<li><a href="#displaying-a-sorted-list-of-contacts-by-specified-category-code-sort-code">3.4. Displaying a sorted list of contacts by specified category : <code>sort</code></a></li>
+<li><a href="#editing-a-contact-code-edit-code">3.5. Editing a contact : <code>edit</code></a></li>
+<li><a href="#finding-contact-s-by-keyword-s-code-find-code">3.6. Finding contact(s) by keyword(s) : <code>find</code></a></li>
+<li><a href="#deleting-a-contact-code-delete-code">3.7. Deleting a contact : <code>delete</code></a></li>
+<li><a href="#selecting-a-contact-code-select-code">3.8. Selecting a contact : <code>select</code></a></li>
+<li><a href="#pinning-a-contact-code-pin-code">3.9. Pinning a contact : <code>pin</code></a></li>
+<li><a href="#unpinning-a-contact-code-unpin-code">3.10. Unpinning a contact : <code>unpin</code></a></li>
+<li><a href="#archiving-a-contact-code-archive-code">3.11. Archiving a contact : <code>archive</code></a></li>
+<li><a href="#listing-all-archived-contacts-code-archivelist-code">3.12. Listing all archived contacts : <code>archivelist</code></a></li>
+<li><a href="#finding-archived-contact-s-code-archivefind-code">3.13. Finding archived contact(s) : <code>archivefind</code></a></li>
+<li><a href="#unarchiving-a-contact-code-unarchive-code">3.14. Unarchiving a contact : <code>unarchive</code></a></li>
+<li><a href="#listing-entered-commands-code-history-code">3.15. Listing entered commands : <code>history</code></a></li>
+<li><a href="#undoing-previous-command-code-undo-code">3.16. Undoing previous command : <code>undo</code></a></li>
+<li><a href="#redoing-the-previously-undone-command-code-redo-code">3.17. Redoing the previously undone command : <code>redo</code></a></li>
+<li><a href="#clearing-all-entries-code-clear-code">3.18. Clearing all entries : <code>clear</code></a></li>
+<li><a href="#exiting-the-app-code-exit-code">3.19. Exiting the app : <code>exit</code></a></li>
+<li><a href="#saving-the-data">3.20. Saving the data</a></li>
+<li><a href="#displaying-location-on-google-maps-code-coming-in-v2-0-code">3.21. Displaying location on Google Maps <code>[coming in v2.0]</code></a></li>
+<li><a href="#encrypting-data-files-code-coming-in-v2-0-code">3.22. Encrypting data files <code>[coming in v2.0]</code></a></li>
+<li><a href="#password-protected-login-code-coming-in-v2-0-code">3.23. Password-protected login <code>[coming in v2.0]</code></a></li>
 </ul>
 </li>
 <li><a href="#faq">4. FAQ</a></li>
-<li><a href="#command-summary">5. Command Summary</a></li>
+<li><a href="#Summary">5. Command Summary</a></li>
 </ul>
 </div>
 </div>
@@ -38,7 +47,7 @@
 <h2 id="introduction"><a class="link" href="#introduction">1. Introduction</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>AddressBook Level 4 (AB4) is for those who <strong>prefer to use a desktop app for managing contacts</strong>. More importantly, AB4 is <strong>optimized for those who prefer to work with a Command Line Interface</strong> (CLI) while still having the benefits of a Graphical User Interface (GUI). If you can type fast, AB4 can get your contact management tasks done faster than traditional GUI apps. Interested? Jump to the <a href="#quick-start">Section 2, &#8220;Quick Start&#8221;</a> to get started. Enjoy!</p>
+<p><strong>The Real App</strong> is an enhanced address book designed primarily for <strong>real estate agents</strong> who need to store large amount of customer contacts as well as property information. More importantly, this product is optimized for those who prefer to use a desktop app for managing contacts, and <strong>prefer to work with a Command Line Interface (CLI)</strong>, while still having the benefits of a Graphical User Interface (GUI). If you can type fast, this product can help you manage all your contact and property information quickly and securely. Interested? Jump to <a href="#quick-start">Section 2, &#8220;Quick Start&#8221;</a> to get started. Enjoy!</p>
 </div>
 </div>
 </div>
@@ -51,7 +60,7 @@
 <p>Ensure you have Java version <code>9</code> or later installed in your Computer.</p>
 </li>
 <li>
-<p>Download the latest <code>addressbook.jar</code> <a href="https://github.com/se-edu/addressbook-level4/releases">here</a>.</p>
+<p>Download the latest <code>therealapp.jar</code> <a href="https://github.com/cs2103-ay1819s2-w16-2/main/releases">here</a>.</p>
 </li>
 <li>
 <p>Copy the file to the folder you want to use as the home folder for your Address Book.</p>
@@ -76,7 +85,7 @@ e.g. typing <strong><code>help</code></strong> and pressing <kbd>Enter</kbd> wil
 <p><strong><code>list</code></strong> : lists all contacts</p>
 </li>
 <li>
-<p><strong><code>add</code></strong><code>n/John Doe p/98765432 e/johnd@example.com a/John street, block 123, #01-01</code> : adds a contact named <code>John Doe</code> to the Address Book.</p>
+<p><strong><code>add</code></strong><code>n/James Ho p/98765432 e/jamesho@example.com c/Seller a/123, Clementi Rd, S123456</code> : adds a contact named <code>James Ho</code> to the Address Book.</p>
 </li>
 <li>
 <p><strong><code>delete</code></strong><code>3</code> : deletes the 3rd contact shown in the current list</p>
@@ -89,6 +98,9 @@ e.g. typing <strong><code>help</code></strong> and pressing <kbd>Enter</kbd> wil
 </li>
 <li>
 <p>Refer to <a href="#Features">Section 3, &#8220;Features&#8221;</a> for details of each command.</p>
+</li>
+<li>
+<p>Refer to <a href="#Summary">Section 5, &#8220;Command Summary&#8221;</a> for a summary of all commands.</p>
 </li>
 </ol>
 </div>
@@ -105,10 +117,10 @@ e.g. typing <strong><code>help</code></strong> and pressing <kbd>Enter</kbd> wil
 <div class="ulist">
 <ul>
 <li>
-<p>Words in <code>UPPER_CASE</code> are the parameters to be supplied by the user e.g. in <code>add n/NAME</code>, <code>NAME</code> is a parameter which can be used as <code>add n/John Doe</code>.</p>
+<p>Words in <code>UPPER_CASE</code> are the parameters to be supplied by the user e.g. in <code>add n/NAME</code>, <code>NAME</code> is a parameter which can be used as <code>add n/James Ho</code>.</p>
 </li>
 <li>
-<p>Items in square brackets are optional e.g <code>n/NAME [t/TAG]</code> can be used as <code>n/John Doe t/friend</code> or as <code>n/John Doe</code>.</p>
+<p>Items in square brackets are optional e.g <code>n/NAME [t/TAG]</code> can be used as <code>n/James Ho t/friend</code> or as <code>n/James Ho</code>.</p>
 </li>
 <li>
 <p>Items with <code>…</code>​ after them can be used multiple times including zero times e.g. <code>[t/TAG]&#8230;&#8203;</code> can be used as <code>&#160;</code> (i.e. 0 times), <code>t/friend</code>, <code>t/friend t/family</code> etc.</p>
@@ -123,14 +135,29 @@ e.g. typing <strong><code>help</code></strong> and pressing <kbd>Enter</kbd> wil
 <div class="sect2">
 <h3 id="viewing-help-code-help-code"><a class="link" href="#viewing-help-code-help-code">3.1. Viewing help : <code>help</code></a></h3>
 <div class="paragraph">
-<p>Format: <code>help</code></p>
+<p>Views a pop-up of the User Guide<br>
+Format: <code>help</code></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="adding-a-person-code-add-code"><a class="link" href="#adding-a-person-code-add-code">3.2. Adding a person: <code>add</code></a></h3>
+<h3 id="adding-a-contact-code-add-code"><a class="link" href="#adding-a-contact-code-add-code">3.2. Adding a contact : <code>add</code></a></h3>
 <div class="paragraph">
-<p>Adds a person to the address book<br>
-Format: <code>add n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS [t/TAG]&#8230;&#8203;</code></p>
+<p>Adds a contact with property information to the address book<br>
+Format: <code>add n/NAME [p/PHONE_NUMBER] [e/EMAIL] [c/CUSTOMER_TYPE] [a/ADDRESS] [f/PRICE OF PROPERTY] [t/TAG]&#8230;&#8203;</code></p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Acceptable <code>CUSTOMER_TYPE</code>: <code>Buyer</code>, <code>Seller</code>, <code>Lessor</code>, <code>Lessee</code></p>
+</div>
+</td>
+</tr>
+</table>
 </div>
 <div class="admonitionblock tip">
 <table>
@@ -139,7 +166,7 @@ Format: <code>add n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS [t/TAG]&#8230;&#8203;<
 <i class="fa icon-tip" title="Tip"></i>
 </td>
 <td class="content">
-A person can have any number of tags (including 0)
+A contact can have any number of tags (including 0)
 </td>
 </tr>
 </table>
@@ -150,33 +177,84 @@ A person can have any number of tags (including 0)
 <div class="ulist">
 <ul>
 <li>
-<p><code>add n/John Doe p/98765432 e/johnd@example.com a/John street, block 123, #01-01</code></p>
+<p><code>add n/Tan Ah Beng p/87654321 e/tab@example.com a/Blk 456 Woodlands Ave 1, #10-10, S789456 c/Lessor t/nearSupermarket</code></p>
 </li>
 <li>
-<p><code>add n/Betsy Crowe t/friend e/betsycrowe@example.com a/Newgate Prison p/1234567 t/criminal</code></p>
+<p><code>add n/Ricky Young e/rickyyoung@example.com c/Buyer a/10 Ocean Dr, S000010 p/1234567 f/12000000 t/landed</code></p>
+</li>
+<li>
+<p><code>add n/James Ho p/98765432 e/jamesho@example.com c/Seller a/123, Clementi Rd, S123456 f/500000 t/MRT t/newlyRenovated</code></p>
 </li>
 </ul>
 </div>
 </div>
 <div class="sect2">
-<h3 id="listing-all-persons-code-list-code"><a class="link" href="#listing-all-persons-code-list-code">3.3. Listing all persons : <code>list</code></a></h3>
+<h3 id="listing-all-contacts-code-list-code"><a class="link" href="#listing-all-contacts-code-list-code">3.3. Listing all contacts : <code>list</code></a></h3>
 <div class="paragraph">
-<p>Shows a list of all persons in the address book.<br>
+<p>Shows a list of all contacts in the address book.<br>
 Format: <code>list</code></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="editing-a-person-code-edit-code"><a class="link" href="#editing-a-person-code-edit-code">3.4. Editing a person : <code>edit</code></a></h3>
+<h3 id="displaying-a-sorted-list-of-contacts-by-specified-category-code-sort-code"><a class="link" href="#displaying-a-sorted-list-of-contacts-by-specified-category-code-sort-code">3.4. Displaying a sorted list of contacts by specified category : <code>sort</code></a></h3>
 <div class="paragraph">
-<p>Edits an existing person in the address book.<br>
-Format: <code>edit INDEX [n/NAME] [p/PHONE] [e/EMAIL] [a/ADDRESS] [t/TAG]&#8230;&#8203;</code></p>
+<p>Shows a list of all contacts in the address book, sorted according to a specified category.<br>
+Format: <code>sort CATEGORY</code></p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p><code>CATEGORY</code> List: <code>NAME</code>, <code>CUSTOMER_TYPE</code>, <code>PRICE_OF_PROPERTY</code></p>
+</div>
+</td>
+</tr>
+</table>
 </div>
 <div class="sidebarblock">
 <div class="content">
 <div class="ulist">
 <ul>
 <li>
-<p>Edits the person at the specified <code>INDEX</code>. The index refers to the index number shown in the displayed person list. The index <strong>must be a positive integer</strong> 1, 2, 3, &#8230;&#8203;</p>
+<p>Sort methods:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Sort by name in alphabetical order</p>
+</li>
+<li>
+<p>Sort by customer type</p>
+</li>
+<li>
+<p>Sort by property price in increasing order</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>Example: <code>sort CUSTOMER_TYPE</code></p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="editing-a-contact-code-edit-code"><a class="link" href="#editing-a-contact-code-edit-code">3.5. Editing a contact : <code>edit</code></a></h3>
+<div class="paragraph">
+<p>Edits an existing contact in the address book.<br>
+Format: <code>edit INDEX [n/NAME] [p/PHONE_NUMBER] [e/EMAIL] [c/CUSTOMER_TYPE] [a/ADDRESS] [f/PRICE_OF_PROPERTY] [t/TAG]&#8230;&#8203;</code></p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>Edits the contact at the specified <code>INDEX</code>. The index refers to the index number shown in the displayed contact list. The index <strong>must be a positive integer</strong> 1, 2, 3, &#8230;&#8203;</p>
 </li>
 <li>
 <p>At least one of the optional fields must be provided.</p>
@@ -185,10 +263,10 @@ Format: <code>edit INDEX [n/NAME] [p/PHONE] [e/EMAIL] [a/ADDRESS] [t/TAG]&#8230;
 <p>Existing values will be updated to the input values.</p>
 </li>
 <li>
-<p>When editing tags, the existing tags of the person will be removed i.e adding of tags is not cumulative.</p>
+<p>When editing tags, the existing tags of the contact will be removed i.e adding of tags is not cumulative.</p>
 </li>
 <li>
-<p>You can remove all the person&#8217;s tags by typing <code>t/</code> without specifying any tags after it.</p>
+<p>You can remove all the contact&#8217;s tags by typing <code>t/</code> without specifying any tags after it.</p>
 </li>
 </ul>
 </div>
@@ -200,21 +278,40 @@ Format: <code>edit INDEX [n/NAME] [p/PHONE] [e/EMAIL] [a/ADDRESS] [t/TAG]&#8230;
 <div class="ulist">
 <ul>
 <li>
-<p><code>edit 1 p/91234567 e/johndoe@example.com</code><br>
-Edits the phone number and email address of the 1st person to be <code>91234567</code> and <code>johndoe@example.com</code> respectively.</p>
+<p><code>edit 1 p/91234567 e/abtan@example.com</code><br>
+Edits the phone number and email address of the 1st contact to be <code>91234567</code> and <code>abtan@example.com</code> respectively.</p>
 </li>
 <li>
-<p><code>edit 2 n/Betsy Crower t/</code><br>
-Edits the name of the 2nd person to be <code>Betsy Crower</code> and clears all existing tags.</p>
+<p><code>edit 2 n/Nicky Young t/</code><br>
+Edits the name of the 2nd contact to be <code>Nicky Young</code> and clears all existing tags.</p>
+</li>
+<li>
+<p><code>edit 3 n/James Lee e/jameslee@example.com</code><br>
+Edits the name and email address of the 3rd contact to be <code>James Lee</code> and <code>jameslee@example.com</code> respectively.</p>
 </li>
 </ul>
 </div>
 </div>
 <div class="sect2">
-<h3 id="locating-persons-by-name-code-find-code"><a class="link" href="#locating-persons-by-name-code-find-code">3.5. Locating persons by name: <code>find</code></a></h3>
+<h3 id="finding-contact-s-by-keyword-s-code-find-code"><a class="link" href="#finding-contact-s-by-keyword-s-code-find-code">3.6. Finding contact(s) by keyword(s) : <code>find</code></a></h3>
 <div class="paragraph">
-<p>Finds persons whose names contain any of the given keywords.<br>
-Format: <code>find KEYWORD [MORE_KEYWORDS]</code></p>
+<p>Finds contact(s) whose information contains any of the keyword(s).<br>
+e.g. search by name, search by address, search by tags etc.<br>
+Format: <code>find KEYWORD [KEYWORDS]&#8230;&#8203;</code></p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p><code>KEYWORD</code> List: <code>n/NAME</code>, <code>p/PHONE_NUMBER</code>, <code>e/EMAIL</code>, <code>c/CUSTOMER_TYPE</code>, <code>a/ADDRESS</code>, <code>f/PRICE_OF_PROPERTY</code>, <code>t/TAG</code></p>
+</div>
+</td>
+</tr>
+</table>
 </div>
 <div class="sidebarblock">
 <div class="content">
@@ -233,7 +330,7 @@ Format: <code>find KEYWORD [MORE_KEYWORDS]</code></p>
 <p>Only full words will be matched e.g. <code>Han</code> will not match <code>Hans</code></p>
 </li>
 <li>
-<p>Persons matching at least one keyword will be returned (i.e. <code>OR</code> search). e.g. <code>Hans Bo</code> will return <code>Hans Gruber</code>, <code>Bo Yang</code></p>
+<p>Contacts matching at least one keyword will be returned (i.e. <code>OR</code> search). e.g. <code>Hans Bo</code> will return <code>Hans Gruber</code>, <code>Bo Yang</code></p>
 </li>
 </ul>
 </div>
@@ -245,20 +342,24 @@ Format: <code>find KEYWORD [MORE_KEYWORDS]</code></p>
 <div class="ulist">
 <ul>
 <li>
-<p><code>find John</code><br>
-Returns <code>john</code> and <code>John Doe</code></p>
+<p><code>find n/James</code><br>
+Returns <code>James Lee</code> and <code>John James</code></p>
 </li>
 <li>
-<p><code>find Betsy Tim John</code><br>
-Returns any person having names <code>Betsy</code>, <code>Tim</code>, or <code>John</code></p>
+<p><code>find n/James n/Tan n/Young</code><br>
+Returns any contact having names <code>James</code>, <code>Tan</code>, or <code>Young</code></p>
+</li>
+<li>
+<p><code>find a/Woodlands c/Lessor</code><br>
+Returns any contact with address <code>Woodlands</code> and customer type <code>Lessor</code></p>
 </li>
 </ul>
 </div>
 </div>
 <div class="sect2">
-<h3 id="deleting-a-person-code-delete-code"><a class="link" href="#deleting-a-person-code-delete-code">3.6. Deleting a person : <code>delete</code></a></h3>
+<h3 id="deleting-a-contact-code-delete-code"><a class="link" href="#deleting-a-contact-code-delete-code">3.7. Deleting a contact : <code>delete</code></a></h3>
 <div class="paragraph">
-<p>Deletes the specified person from the address book.<br>
+<p>Deletes the specified contact from the address book.<br>
 Format: <code>delete INDEX</code></p>
 </div>
 <div class="sidebarblock">
@@ -266,10 +367,10 @@ Format: <code>delete INDEX</code></p>
 <div class="ulist">
 <ul>
 <li>
-<p>Deletes the person at the specified <code>INDEX</code>.</p>
+<p>Deletes the contact at the specified <code>INDEX</code>.</p>
 </li>
 <li>
-<p>The index refers to the index number shown in the displayed person list.</p>
+<p>The index refers to the index number shown in the displayed contact list.</p>
 </li>
 <li>
 <p>The index <strong>must be a positive integer</strong> 1, 2, 3, &#8230;&#8203;</p>
@@ -286,20 +387,25 @@ Format: <code>delete INDEX</code></p>
 <li>
 <p><code>list</code><br>
 <code>delete 2</code><br>
-Deletes the 2nd person in the address book.</p>
+Deletes the 2nd contact in the address book.</p>
 </li>
 <li>
-<p><code>find Betsy</code><br>
+<p><code>find James</code><br>
 <code>delete 1</code><br>
-Deletes the 1st person in the results of the <code>find</code> command.</p>
+Deletes the 1st contact in the results of the <code>find</code> command.</p>
+</li>
+<li>
+<p><code>sort</code><br>
+<code>delete 3</code><br>
+Deletes the 3rd contact in the sorted list displayed earlier.</p>
 </li>
 </ul>
 </div>
 </div>
 <div class="sect2">
-<h3 id="selecting-a-person-code-select-code"><a class="link" href="#selecting-a-person-code-select-code">3.7. Selecting a person : <code>select</code></a></h3>
+<h3 id="selecting-a-contact-code-select-code"><a class="link" href="#selecting-a-contact-code-select-code">3.8. Selecting a contact : <code>select</code></a></h3>
 <div class="paragraph">
-<p>Selects the person identified by the index number used in the displayed person list.<br>
+<p>Selects the contact identified by the index number used in the displayed contact list.<br>
 Format: <code>select INDEX</code></p>
 </div>
 <div class="sidebarblock">
@@ -307,10 +413,10 @@ Format: <code>select INDEX</code></p>
 <div class="ulist">
 <ul>
 <li>
-<p>Selects the person and loads the Google search page the person at the specified <code>INDEX</code>.</p>
+<p>Selects the contact at the specified <code>INDEX</code> and loads the Google Maps location of the contact in the applet window.</p>
 </li>
 <li>
-<p>The index refers to the index number shown in the displayed person list.</p>
+<p>The index refers to the index number shown in the displayed contact list.</p>
 </li>
 <li>
 <p>The index <strong>must be a positive integer</strong> <code>1, 2, 3, &#8230;&#8203;</code></p>
@@ -327,18 +433,246 @@ Format: <code>select INDEX</code></p>
 <li>
 <p><code>list</code><br>
 <code>select 2</code><br>
-Selects the 2nd person in the address book.</p>
+Selects the 2nd contact in the address book.</p>
 </li>
 <li>
-<p><code>find Betsy</code><br>
+<p><code>find James</code><br>
 <code>select 1</code><br>
-Selects the 1st person in the results of the <code>find</code> command.</p>
+Selects the 1st contact in the results of the <code>find</code> command.</p>
+</li>
+<li>
+<p><code>sort</code><br>
+<code>select 3</code><br>
+Selects the 3rd contact in the sorted list displayed earlier.</p>
 </li>
 </ul>
 </div>
 </div>
 <div class="sect2">
-<h3 id="listing-entered-commands-code-history-code"><a class="link" href="#listing-entered-commands-code-history-code">3.8. Listing entered commands : <code>history</code></a></h3>
+<h3 id="pinning-a-contact-code-pin-code"><a class="link" href="#pinning-a-contact-code-pin-code">3.9. Pinning a contact : <code>pin</code></a></h3>
+<div class="paragraph">
+<p>Pins a contact.<br>
+These contacts will always be showing in a pinned list at the top of the side panel.<br>
+Format: <code>pin INDEX</code></p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>Pins the contact at the specified <code>INDEX</code>.</p>
+</li>
+<li>
+<p>The index refers to the index number shown in the displayed contact list.</p>
+</li>
+<li>
+<p>The index <strong>must be a positive integer</strong> 1, 2, 3, &#8230;&#8203;</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>list</code><br>
+<code>pin 2</code><br>
+Pins the 2nd contact in the address book.</p>
+</li>
+<li>
+<p><code>find James</code><br>
+<code>pin 1</code><br>
+Pins the 1st contact in the results of the <code>find</code> command.</p>
+</li>
+<li>
+<p><code>sort</code><br>
+<code>pin 3</code><br>
+Pins the 3rd contact in the sorted list displayed earlier.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="unpinning-a-contact-code-unpin-code"><a class="link" href="#unpinning-a-contact-code-unpin-code">3.10. Unpinning a contact : <code>unpin</code></a></h3>
+<div class="paragraph">
+<p>Unpins a pinned contact.<br>
+Format: <code>unpin INDEX</code></p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>Unpins the contact at the specified <code>INDEX</code>.</p>
+</li>
+<li>
+<p>The index refers to the index number <strong>shown in the pinned list</strong> on the side panel.</p>
+</li>
+<li>
+<p>The index <strong>must be a positive integer</strong> 1, 2, 3, &#8230;&#8203;</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>Example:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>unpin 1</code><br>
+Unpins the 1st contact in the pinned list.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="archiving-a-contact-code-archive-code"><a class="link" href="#archiving-a-contact-code-archive-code">3.11. Archiving a contact : <code>archive</code></a></h3>
+<div class="paragraph">
+<p>Moves the specified contact to the archive from the normal address book.<br>
+Archived contacts can <strong>only</strong> be accessed through a archive search function.<br>
+Format: <code>archive INDEX</code></p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Archived contacts <strong>cannot</strong> be displayed in a sorted list or be pinned.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>Archives the contact at the specified <code>INDEX</code>.</p>
+</li>
+<li>
+<p>The index refers to the index number shown in the displayed contact list.</p>
+</li>
+<li>
+<p>The index <strong>must be a positive integer</strong> 1, 2, 3, &#8230;&#8203;</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>list</code><br>
+<code>archive 2</code><br>
+Archives the 2nd contact in the address book.</p>
+</li>
+<li>
+<p><code>find James</code><br>
+<code>archive 1</code><br>
+Archives the 1st contact in the results of the <code>find</code> command.</p>
+</li>
+<li>
+<p><code>sort</code><br>
+<code>archive 3</code><br>
+Archives the 3rd contact in the sorted list displayed earlier.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="listing-all-archived-contacts-code-archivelist-code"><a class="link" href="#listing-all-archived-contacts-code-archivelist-code">3.12. Listing all archived contacts : <code>archivelist</code></a></h3>
+<div class="paragraph">
+<p>Lists all the contacts in the archive.<br>
+Format: <code>archivelist</code></p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="finding-archived-contact-s-code-archivefind-code"><a class="link" href="#finding-archived-contact-s-code-archivefind-code">3.13. Finding archived contact(s) : <code>archivefind</code></a></h3>
+<div class="paragraph">
+<p>Searches the archive and finds contact(s) whose information contains any of the keyword(s).<br>
+Format: <code>archivefind KEYWORD [KEYWORD]&#8230;&#8203;</code></p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p><code>KEYWORD</code> List: <code>n/NAME</code>, <code>p/PHONE_NUMBER</code>, <code>e/EMAIL</code>, <code>c/CUSTOMER_TYPE</code>, <code>a/ADDRESS</code>, <code>f/PRICE_OF_PROPERTY</code>, <code>t/TAG</code></p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Example:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>archivefind n/James c/Seller</code><br>
+Returns any contact having name <code>James</code> and customer type <code>Seller</code></p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="unarchiving-a-contact-code-unarchive-code"><a class="link" href="#unarchiving-a-contact-code-unarchive-code">3.14. Unarchiving a contact : <code>unarchive</code></a></h3>
+<div class="paragraph">
+<p>Moves the specified contact from the archive back into the normal address book.<br>
+Format: <code>unarchive INDEX</code></p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>Unarchives the contact at the specified <code>INDEX</code>.</p>
+</li>
+<li>
+<p>The index refers to the index number shown in the displayed <strong>archived</strong> contact list.</p>
+</li>
+<li>
+<p>The index <strong>must be a positive integer</strong> 1, 2, 3, &#8230;&#8203;</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>Example:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>archivelist</code><br>
+<code>unarchive 2</code><br>
+Moves the the 2nd contact from the archived contacts list back into the address book.</p>
+</li>
+<li>
+<p><code>archivefind James</code><br>
+<code>select 1</code><br>
+Moves the 1st contact in the results of the <code>archivefind</code> command from the archive back into the address book.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="listing-entered-commands-code-history-code"><a class="link" href="#listing-entered-commands-code-history-code">3.15. Listing entered commands : <code>history</code></a></h3>
 <div class="paragraph">
 <p>Lists all the commands that you have entered in reverse chronological order.<br>
 Format: <code>history</code></p>
@@ -359,7 +693,7 @@ Format: <code>history</code></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="undoing-previous-command-code-undo-code"><a class="link" href="#undoing-previous-command-code-undo-code">3.9. Undoing previous command : <code>undo</code></a></h3>
+<h3 id="undoing-previous-command-code-undo-code"><a class="link" href="#undoing-previous-command-code-undo-code">3.16. Undoing previous command : <code>undo</code></a></h3>
 <div class="paragraph">
 <p>Restores the address book to the state before the previous <em>undoable</em> command was executed.<br>
 Format: <code>undo</code></p>
@@ -372,7 +706,7 @@ Format: <code>undo</code></p>
 </td>
 <td class="content">
 <div class="paragraph">
-<p>Undoable commands: those commands that modify the address book&#8217;s content (<code>add</code>, <code>delete</code>, <code>edit</code> and <code>clear</code>).</p>
+<p>Undoable commands: those commands that modify the address book&#8217;s content (<code>add</code>, <code>delete</code>, <code>edit</code>, <code>archive</code>, <code>unarchive</code> and <code>clear</code>).</p>
 </div>
 </td>
 </tr>
@@ -404,7 +738,7 @@ The <code>undo</code> command fails as there are no undoable commands executed p
 </div>
 </div>
 <div class="sect2">
-<h3 id="redoing-the-previously-undone-command-code-redo-code"><a class="link" href="#redoing-the-previously-undone-command-code-redo-code">3.10. Redoing the previously undone command : <code>redo</code></a></h3>
+<h3 id="redoing-the-previously-undone-command-code-redo-code"><a class="link" href="#redoing-the-previously-undone-command-code-redo-code">3.17. Redoing the previously undone command : <code>redo</code></a></h3>
 <div class="paragraph">
 <p>Reverses the most recent <code>undo</code> command.<br>
 Format: <code>redo</code></p>
@@ -436,30 +770,42 @@ The <code>redo</code> command fails as there are no <code>undo</code> commands e
 </div>
 </div>
 <div class="sect2">
-<h3 id="clearing-all-entries-code-clear-code"><a class="link" href="#clearing-all-entries-code-clear-code">3.11. Clearing all entries : <code>clear</code></a></h3>
+<h3 id="clearing-all-entries-code-clear-code"><a class="link" href="#clearing-all-entries-code-clear-code">3.18. Clearing all entries : <code>clear</code></a></h3>
 <div class="paragraph">
 <p>Clears all entries from the address book.<br>
 Format: <code>clear</code></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="exiting-the-program-code-exit-code"><a class="link" href="#exiting-the-program-code-exit-code">3.12. Exiting the program : <code>exit</code></a></h3>
+<h3 id="exiting-the-app-code-exit-code"><a class="link" href="#exiting-the-app-code-exit-code">3.19. Exiting the app : <code>exit</code></a></h3>
 <div class="paragraph">
-<p>Exits the program.<br>
+<p>Exits the app.<br>
 Format: <code>exit</code></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="saving-the-data"><a class="link" href="#saving-the-data">3.13. Saving the data</a></h3>
+<h3 id="saving-the-data"><a class="link" href="#saving-the-data">3.20. Saving the data</a></h3>
 <div class="paragraph">
 <p>Address book data are saved in the hard disk automatically after any command that changes the data.<br>
 There is no need to save manually.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="encrypting-data-files-code-coming-in-v2-0-code"><a class="link" href="#encrypting-data-files-code-coming-in-v2-0-code">3.14. Encrypting data files <code>[coming in v2.0]</code></a></h3>
+<h3 id="displaying-location-on-google-maps-code-coming-in-v2-0-code"><a class="link" href="#displaying-location-on-google-maps-code-coming-in-v2-0-code">3.21. Displaying location on Google Maps <code>[coming in v2.0]</code></a></h3>
 <div class="paragraph">
-<p><em>{explain how the user can enable/disable data encryption}</em></p>
+<p>Double-clicking the contact will bring up the Google Maps location of the contact in the applet window.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="encrypting-data-files-code-coming-in-v2-0-code"><a class="link" href="#encrypting-data-files-code-coming-in-v2-0-code">3.22. Encrypting data files <code>[coming in v2.0]</code></a></h3>
+<div class="paragraph">
+<p>The database will be saved in an encrypted format.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="password-protected-login-code-coming-in-v2-0-code"><a class="link" href="#password-protected-login-code-coming-in-v2-0-code">3.23. Password-protected login <code>[coming in v2.0]</code></a></h3>
+<div class="paragraph">
+<p>User can set a password, which will be required when logging into the app.</p>
 </div>
 </div>
 </div>
@@ -474,49 +820,154 @@ There is no need to save manually.</p>
 </div>
 </div>
 <div class="sect1">
-<h2 id="command-summary"><a class="link" href="#command-summary">5. Command Summary</a></h2>
+<h2 id="Summary"><a class="link" href="#Summary">5. Command Summary</a></h2>
 <div class="sectionbody">
 <div class="ulist">
 <ul>
 <li>
-<p><strong>Add</strong> <code>add n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS [t/TAG]&#8230;&#8203;</code><br>
-e.g. <code>add n/James Ho p/22224444 e/jamesho@example.com a/123, Clementi Rd, 1234665 t/friend t/colleague</code></p>
+<p><strong>Add</strong> : <code>add n/NAME [p/PHONE_NUMBER] [e/EMAIL] [c/CUSTOMER_TYPE] [a/ADDRESS] [f/PRICE OF PROPERTY] [t/TAG]&#8230;&#8203;</code></p>
+<div class="ulist">
+<ul>
+<li>
+<p>e.g. <code>add n/James Ho p/98765432 e/jamesho@example.com c/Seller a/123, Clementi Rd, S123456 f/500000 t/MRT t/newlyRenovated</code></p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Archive</strong> : <code>archive INDEX</code></p>
+<div class="ulist">
+<ul>
+<li>
+<p>e.g. <code>archive 1</code></p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Archive list</strong> : <code>archivelist</code></p>
+</li>
+<li>
+<p><strong>Archive search</strong> : <code>archivefind KEYWORD [KEYWORD]&#8230;&#8203;</code></p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>KEYWORD</code> List: <code>n/NAME</code>, <code>p/PHONE_NUMBER</code>, <code>e/EMAIL</code>, <code>c/CUSTOMER_TYPE</code>, <code>a/ADDRESS</code>, <code>f/PRICE_OF_PROPERTY</code>, <code>t/TAG</code></p>
+</li>
+<li>
+<p>e.g. <code>archivefind n/James c/Seller</code></p>
+</li>
+</ul>
+</div>
 </li>
 <li>
 <p><strong>Clear</strong> : <code>clear</code></p>
 </li>
 <li>
-<p><strong>Delete</strong> : <code>delete INDEX</code><br>
-e.g. <code>delete 3</code></p>
+<p><strong>Delete</strong> : <code>delete INDEX</code></p>
+<div class="ulist">
+<ul>
+<li>
+<p>e.g. <code>delete 3</code></p>
+</li>
+</ul>
+</div>
 </li>
 <li>
-<p><strong>Edit</strong> : <code>edit INDEX [n/NAME] [p/PHONE_NUMBER] [e/EMAIL] [a/ADDRESS] [t/TAG]&#8230;&#8203;</code><br>
-e.g. <code>edit 2 n/James Lee e/jameslee@example.com</code></p>
+<p><strong>Edit</strong> : <code>edit INDEX [n/NAME] [p/PHONE_NUMBER] [e/EMAIL] [c/CUSTOMER_TYPE] [a/ADDRESS] [f/PRICE_OF_PROPERTY] [t/TAG]&#8230;&#8203;</code></p>
+<div class="ulist">
+<ul>
+<li>
+<p>e.g. <code>edit 2 n/James Lee e/jameslee@example.com</code></p>
+</li>
+</ul>
+</div>
 </li>
 <li>
-<p><strong>Find</strong> : <code>find KEYWORD [MORE_KEYWORDS]</code><br>
-e.g. <code>find James Jake</code></p>
+<p><strong>Exit</strong>: <code>exit</code></p>
 </li>
 <li>
-<p><strong>List</strong> : <code>list</code></p>
+<p><strong>Find</strong> : <code>find KEYWORD [KEYWORD]&#8230;&#8203;</code></p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>KEYWORD</code> List: <code>n/NAME</code>, <code>p/PHONE_NUMBER</code>, <code>e/EMAIL</code>, <code>c/CUSTOMER_TYPE</code>, <code>a/ADDRESS</code>, <code>f/PRICE_OF_PROPERTY</code>, <code>t/TAG</code></p>
+</li>
+<li>
+<p>e.g. <code>find n/James n/Tan n/Young</code></p>
+</li>
+</ul>
+</div>
 </li>
 <li>
 <p><strong>Help</strong> : <code>help</code></p>
 </li>
 <li>
-<p><strong>Select</strong> : <code>select INDEX</code><br>
-e.g.<code>select 2</code></p>
+<p><strong>History</strong> : <code>history</code></p>
 </li>
 <li>
-<p><strong>History</strong> : <code>history</code></p>
+<p><strong>List</strong> : <code>list</code></p>
+</li>
+<li>
+<p><strong>Pin</strong> : <code>pin INDEX</code></p>
+<div class="ulist">
+<ul>
+<li>
+<p>e.g. <code>pin 3</code></p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Redo</strong> : <code>redo</code></p>
+</li>
+<li>
+<p><strong>Select</strong> : <code>select INDEX</code></p>
+<div class="ulist">
+<ul>
+<li>
+<p>e.g.<code>select 2</code></p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Sort</strong> : <code>sort CATEGORY</code></p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>CATEGORY</code> List: <code>NAME</code>, <code>CUSTOMER_TYPE</code>, <code>PRICE_OF_PROPERTY</code></p>
+</li>
+<li>
+<p>e.g. <code>sort CUSTOMER_TYPE</code></p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Unarchive</strong> : <code>unarchive INDEX</code></p>
+<div class="ulist">
+<ul>
+<li>
+<p>e.g. <code>unarchive 1</code></p>
+</li>
+</ul>
+</div>
 </li>
 <li>
 <p><strong>Undo</strong> : <code>undo</code></p>
 </li>
 <li>
-<p><strong>Redo</strong> : <code>redo</code></p>
+<p><strong>Unpin</strong> : <code>unpin INDEX</code></p>
+<div class="ulist">
+<ul>
+<li>
+<p>e.g. <code>unpin 1</code></p>
+</li>
+</ul>
+</div>
 </li>
 </ul>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-02-22 06:03:04 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-03-03 09:22:06 UTC</div></div></div></body></html>
