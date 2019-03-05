@@ -73,12 +73,11 @@
 <li><a href="#use-cases">Appendix D: Use Cases</a></li>
 <li><a href="#non-functional-requirements">Appendix E: Non Functional Requirements</a></li>
 <li><a href="#glossary">Appendix F: Glossary</a></li>
-<li><a href="#product-survey">Appendix G: Product Survey</a></li>
-<li><a href="#instructions-for-manual-testing">Appendix H: Instructions for Manual Testing</a>
+<li><a href="#instructions-for-manual-testing">Appendix G: Instructions for Manual Testing</a>
 <ul class="sectlevel2">
-<li><a href="#launch-and-shutdown">H.1. Launch and Shutdown</a></li>
-<li><a href="#deleting-a-person">H.2. Deleting a person</a></li>
-<li><a href="#saving-data">H.3. Saving data</a></li>
+<li><a href="#launch-and-shutdown">G.1. Launch and Shutdown</a></li>
+<li><a href="#deleting-a-person">G.2. Deleting a person</a></li>
+<li><a href="#saving-data">G.3. Saving data</a></li>
 </ul>
 </li>
 </ul>
@@ -2076,6 +2075,12 @@ With a proper address book app, real estate agents can quickly and conveniently 
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>* *</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">efficient user</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">display contacts sorted by specific categories</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">locate contacts and/or properties easily</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* *</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">real estate agent</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">add and update financial information of properties that can be bought/sold/rented</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">use the information to better determine which properties to buy/sell based on price, and match customers who are looking for certain prices</p></td>
@@ -2089,14 +2094,20 @@ With a proper address book app, real estate agents can quickly and conveniently 
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>* *</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">forgetful user</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">add lease period information for lessees</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">be reminded when the lease agreement in expiring</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">add rental period information for tenants</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">be reminded when the rental agreement is expiring</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>* *</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">efficient user</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">check all my properties sorted in ascending or descending order by price or size</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">compare across my properties to buy/sell based on price or size</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* *</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">real estate agent</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">link sellers to buyers, and landlords to tenants through properties</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">see all customers linked to a certain property</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>* *</code></p></td>
@@ -2118,9 +2129,15 @@ With a proper address book app, real estate agents can quickly and conveniently 
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>*</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">detailed user</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">add a remark to a contact</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">record more miscellaneous details about a contact</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>*</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">efficient user</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">display contacts sorted by specific categories</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">locate contacts and/or properties easily</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">link multiple properties for each contact</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">keep track of all the properties linked to a contact</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>*</code></p></td>
@@ -2154,25 +2171,19 @@ With a proper address book app, real estate agents can quickly and conveniently 
 <h2 id="use-cases"><a class="link" href="#use-cases">Appendix D: Use Cases</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>(For all use cases below, the <strong>System</strong> is the <code>AddressBook</code> and the <strong>Actor</strong> is the <code>user</code>, unless specified otherwise)</p>
+<p>(For all use cases below, the <strong>System</strong> is the <code>TheRealApp</code> and the <strong>Actor</strong> is the <code>User</code>, unless specified otherwise)</p>
 </div>
-<h3 id="use-case-delete-person" class="discrete">Use case: Delete person</h3>
+<h3 id="use-case-add-contact" class="discrete">Use case: Add contact</h3>
 <div class="paragraph">
 <p><strong>MSS</strong></p>
 </div>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>User requests to list persons</p>
+<p>User requests to add contact, with any additional information.</p>
 </li>
 <li>
-<p>AddressBook shows a list of persons</p>
-</li>
-<li>
-<p>User requests to delete a specific person in the list</p>
-</li>
-<li>
-<p>AddressBook deletes the person</p>
+<p>TheRealApp adds contact into the contact list.</p>
 <div class="paragraph">
 <p>Use case ends.</p>
 </div>
@@ -2185,7 +2196,50 @@ With a proper address book app, real estate agents can quickly and conveniently 
 <div class="ulist none">
 <ul class="none">
 <li>
-<p>2a. The list is empty.</p>
+<p>1a. A field is invalid.</p>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>1a1. The RealApp shows an error message.</p>
+<div class="paragraph">
+<p>Use case resumes at step 1.</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<h3 id="use-case-archive-contact" class="discrete">Use case: Archive contact</h3>
+<div class="paragraph">
+<p><strong>MSS</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>User requests to list contacts.</p>
+</li>
+<li>
+<p>TheRealApp shows a list of contacts.</p>
+</li>
+<li>
+<p>User requests to archive a specific contact in the list.</p>
+</li>
+<li>
+<p>TheRealApp archives the contact.</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p><strong>Extensions</strong></p>
+</div>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>2a. The contact list is empty.</p>
 <div class="paragraph">
 <p>Use case ends.</p>
 </div>
@@ -2195,9 +2249,9 @@ With a proper address book app, real estate agents can quickly and conveniently 
 <div class="ulist none">
 <ul class="none">
 <li>
-<p>3a1. AddressBook shows an error message.</p>
+<p>3a1. TheRealApp shows an error message.</p>
 <div class="paragraph">
-<p>Use case resumes at step 2.</p>
+<p>Use case resumes at step 3.</p>
 </div>
 </li>
 </ul>
@@ -2205,8 +2259,609 @@ With a proper address book app, real estate agents can quickly and conveniently 
 </li>
 </ul>
 </div>
+<h3 id="use-case-display-archived-contact-list" class="discrete">Use case: Display archived contact list</h3>
 <div class="paragraph">
-<p><em>{More to be added}</em></p>
+<p><strong>MSS</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>User requests to list archived contacts.</p>
+</li>
+<li>
+<p>TheRealApp shows a list of archived contacts.</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p><strong>Extensions</strong></p>
+</div>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>1a. The archived contact list is empty.</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ul>
+</div>
+<h3 id="use-case-find-archived-contact" class="discrete">Use case: Find archived contact</h3>
+<div class="paragraph">
+<p><strong>MSS</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>User requests to find an archived contact by entering keyword(s).</p>
+</li>
+<li>
+<p>TheRealApp shows a list of archived contacts containing the keywords(s).</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p><strong>Extensions</strong></p>
+</div>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>1a. The keyword(s) is invalid.</p>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>1a1. The RealApp shows an error message.</p>
+<div class="paragraph">
+<p>Use case resumes from step 1.</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<h3 id="use-case-clear-contact-list" class="discrete">Use case: Clear contact list</h3>
+<div class="paragraph">
+<p><strong>MSS</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>User requests to clear the contact list.</p>
+</li>
+<li>
+<p>TheRealApp requests for confirmation.</p>
+</li>
+<li>
+<p>User confirms the request.</p>
+</li>
+<li>
+<p>TheRealApp clears the entire contact list.</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ol>
+</div>
+<h3 id="use-case-delete-contact" class="discrete">Use case: Delete contact</h3>
+<div class="paragraph">
+<p><strong>MSS</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>User requests to list contacts.</p>
+</li>
+<li>
+<p>TheRealApp shows a list of contacts.</p>
+</li>
+<li>
+<p>User requests to delete a specific contact in the list.</p>
+</li>
+<li>
+<p>TheRealApp deletes the contact.</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p><strong>Extensions</strong></p>
+</div>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>2a. The contact list is empty.</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+<li>
+<p>3a. The given index is invalid.</p>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>3a1. TheRealApp shows an error message.</p>
+<div class="paragraph">
+<p>Use case resumes at step 3.</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<h3 id="use-case-edit-contact" class="discrete">Use case: Edit contact</h3>
+<div class="paragraph">
+<p><strong>MSS</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>User requests to edit a contact, with new information.</p>
+</li>
+<li>
+<p>TheRealApp edits the contact in the contact list.</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p><strong>Extensions</strong></p>
+</div>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>1a. A field is invalid.</p>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>1a1. The RealApp shows an error message.</p>
+<div class="paragraph">
+<p>Use case resumes at step 1.</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>1b. The given index is invalid.</p>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>1b1. TheRealApp shows an error message.</p>
+<div class="paragraph">
+<p>Use case resumes at step 1.</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<h3 id="use-case-exit-app" class="discrete">Use case: Exit app</h3>
+<div class="paragraph">
+<p><strong>MSS</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>User requests to exit the app.</p>
+</li>
+<li>
+<p>TheRealApp requests to confirm the exit.</p>
+</li>
+<li>
+<p>User confirms the exit.</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ol>
+</div>
+<h3 id="use-case-find-contact" class="discrete">Use case: Find contact</h3>
+<div class="paragraph">
+<p><strong>MSS</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>User requests to find a contact by entering keyword(s).</p>
+</li>
+<li>
+<p>TheRealApp shows a list of contacts containing the keywords(s).</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p><strong>Extensions</strong></p>
+</div>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>1a. The keyword(s) is invalid.</p>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>1a1. The RealApp shows an error message.</p>
+<div class="paragraph">
+<p>Use case resumes from step 1.</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<h3 id="use-case-view-help" class="discrete">Use case: View help</h3>
+<div class="paragraph">
+<p><strong>MSS</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>User requests to view help.</p>
+</li>
+<li>
+<p>TheRealApp displays the User Guide.</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ol>
+</div>
+<h3 id="use-case-view-history" class="discrete">Use case: View history</h3>
+<div class="paragraph">
+<p><strong>MSS</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>User requests to view the history of previous commands.</p>
+</li>
+<li>
+<p>TheRealApp displays a history of previous commands in reverse chronological order.</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p><strong>Extensions</strong></p>
+</div>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>1a. The history list is empty.</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ul>
+</div>
+<h3 id="use-case-display-contact-list" class="discrete">Use case: Display contact list</h3>
+<div class="paragraph">
+<p><strong>MSS</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>User requests to list contacts.</p>
+</li>
+<li>
+<p>TheRealApp shows a list of contacts.</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p><strong>Extensions</strong></p>
+</div>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>1a. The contact list is empty.</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ul>
+</div>
+<h3 id="use-case-pin-contact" class="discrete">Use case: Pin contact</h3>
+<div class="paragraph">
+<p><strong>MSS</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>User requests to list contacts.</p>
+</li>
+<li>
+<p>TheRealApp shows a list of contacts.</p>
+</li>
+<li>
+<p>User requests to pin a specific contact in the list.</p>
+</li>
+<li>
+<p>TheRealApp pins the contact.</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p><strong>Extensions</strong></p>
+</div>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>2a. The contact list is empty.</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+<li>
+<p>3a. The given index is invalid.</p>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>3a1. TheRealApp shows an error message.</p>
+<div class="paragraph">
+<p>Use case resumes at step 3.</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<h3 id="use-case-redo" class="discrete">Use case: Redo</h3>
+<div class="paragraph">
+<p><strong>MSS</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>User requests to redo the previous undo.</p>
+</li>
+<li>
+<p>TheRealApp redoes the undo.</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p><strong>Extensions</strong></p>
+</div>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>1a. There is no previous undo command.</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ul>
+</div>
+<h3 id="use-case-select-contact" class="discrete">Use case: Select contact</h3>
+<div class="paragraph">
+<p><strong>MSS</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>User requests to select a contact.</p>
+</li>
+<li>
+<p>TheRealApp selects the contact and shows the information of the contact.</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p><strong>Extensions</strong></p>
+</div>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>1a. The given index is invalid.</p>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>1a1. TheRealApp shows an error message.</p>
+<div class="paragraph">
+<p>Use case resumes at step 1.</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<h3 id="use-case-display-contact-list-sorted-in-a-specific-category" class="discrete">Use case: Display contact list sorted in a specific category</h3>
+<div class="paragraph">
+<p><strong>MSS</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>User requests to list contacts sorted in a specific category.</p>
+</li>
+<li>
+<p>TheRealApp shows a list of contacts sorted in the requested category.</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p><strong>Extensions</strong></p>
+</div>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>1a. The contact list is empty.</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+<li>
+<p>1b. The category is invalid.</p>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>1b1. TheRealApp shows an error message.</p>
+<div class="paragraph">
+<p>Use case resumes at step 1.</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<h3 id="use-case-unarchive-contact" class="discrete">Use case: Unarchive contact</h3>
+<div class="paragraph">
+<p><strong>MSS</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>User requests to list archived contacts.</p>
+</li>
+<li>
+<p>TheRealApp shows a list of archived contacts.</p>
+</li>
+<li>
+<p>User requests to unarchive a specific contact in the archived list.</p>
+</li>
+<li>
+<p>TheRealApp unarchives the contact.</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p><strong>Extensions</strong></p>
+</div>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>2a. The archived contact list is empty.</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+<li>
+<p>3a. The given index is invalid.</p>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>3a1. TheRealApp shows an error message.</p>
+<div class="paragraph">
+<p>Use case resumes at step 3.</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<h3 id="use-case-undo" class="discrete">Use case: Undo</h3>
+<div class="paragraph">
+<p><strong>MSS</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>User requests to undo the previous undoable command.</p>
+</li>
+<li>
+<p>TheRealApp undoes the previous undoable command.</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p><strong>Extensions</strong></p>
+</div>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>1a. There is no previous undoable command.</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ul>
+</div>
+<h3 id="use-case-unpin-contact" class="discrete">Use case: Unpin contact</h3>
+<div class="paragraph">
+<p><strong>MSS</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>User requests to unpin a specific pinned contact in the pinned list.</p>
+</li>
+<li>
+<p>TheRealApp unpins the contact.</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p><strong>Extensions</strong></p>
+</div>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>1a. The pinned list is empty.</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+<li>
+<p>1b. The given index is invalid.</p>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>1b1. TheRealApp shows an error message.</p>
+<div class="paragraph">
+<p>Use case resumes at step 1.</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
 </div>
 </div>
 </div>
@@ -2248,44 +2903,7 @@ With a proper address book app, real estate agents can quickly and conveniently 
 </div>
 </div>
 <div class="sect1">
-<h2 id="product-survey"><a class="link" href="#product-survey">Appendix G: Product Survey</a></h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p><strong>Product Name</strong></p>
-</div>
-<div class="paragraph">
-<p>Author: &#8230;&#8203;</p>
-</div>
-<div class="paragraph">
-<p>Pros:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>&#8230;&#8203;</p>
-</li>
-<li>
-<p>&#8230;&#8203;</p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p>Cons:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>&#8230;&#8203;</p>
-</li>
-<li>
-<p>&#8230;&#8203;</p>
-</li>
-</ul>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="instructions-for-manual-testing"><a class="link" href="#instructions-for-manual-testing">Appendix H: Instructions for Manual Testing</a></h2>
+<h2 id="instructions-for-manual-testing"><a class="link" href="#instructions-for-manual-testing">Appendix G: Instructions for Manual Testing</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>Given below are instructions to test the app manually.</p>
@@ -2303,7 +2921,7 @@ These instructions only provide a starting point for testers to work on; testers
 </table>
 </div>
 <div class="sect2">
-<h3 id="launch-and-shutdown"><a class="link" href="#launch-and-shutdown">H.1. Launch and Shutdown</a></h3>
+<h3 id="launch-and-shutdown"><a class="link" href="#launch-and-shutdown">G.1. Launch and Shutdown</a></h3>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -2341,7 +2959,7 @@ Expected: The most recent window size and location is retained.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="deleting-a-person"><a class="link" href="#deleting-a-person">H.2. Deleting a person</a></h3>
+<h3 id="deleting-a-person"><a class="link" href="#deleting-a-person">G.2. Deleting a person</a></h3>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -2373,7 +2991,7 @@ Expected: Similar to previous.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="saving-data"><a class="link" href="#saving-data">H.3. Saving data</a></h3>
+<h3 id="saving-data"><a class="link" href="#saving-data">G.3. Saving data</a></h3>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -2393,4 +3011,4 @@ Expected: Similar to previous.</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-03-03 09:22:06 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-03-05 14:17:08 UTC</div></div></div></body></html>
