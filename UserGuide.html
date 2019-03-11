@@ -18,24 +18,25 @@
 <li><a href="#listing-all-contacts-code-list-code">3.3. Listing all contacts : <code>list</code></a></li>
 <li><a href="#displaying-a-sorted-list-of-contacts-by-specified-category-code-sort-code">3.4. Displaying a sorted list of contacts by specified category : <code>sort</code></a></li>
 <li><a href="#editing-a-contact-code-edit-code">3.5. Editing a contact : <code>edit</code></a></li>
-<li><a href="#finding-contact-s-by-keyword-s-code-find-code">3.6. Finding contact(s) by keyword(s) : <code>find</code></a></li>
-<li><a href="#deleting-a-contact-code-delete-code">3.7. Deleting a contact : <code>delete</code></a></li>
-<li><a href="#selecting-a-contact-code-select-code">3.8. Selecting a contact : <code>select</code></a></li>
-<li><a href="#pinning-a-contact-code-pin-code">3.9. Pinning a contact : <code>pin</code></a></li>
-<li><a href="#unpinning-a-contact-code-unpin-code">3.10. Unpinning a contact : <code>unpin</code></a></li>
-<li><a href="#archiving-a-contact-code-archive-code">3.11. Archiving a contact : <code>archive</code></a></li>
-<li><a href="#listing-all-archived-contacts-code-archivelist-code">3.12. Listing all archived contacts : <code>archivelist</code></a></li>
-<li><a href="#finding-archived-contact-s-code-archivefind-code">3.13. Finding archived contact(s) : <code>archivefind</code></a></li>
-<li><a href="#unarchiving-a-contact-code-unarchive-code">3.14. Unarchiving a contact : <code>unarchive</code></a></li>
-<li><a href="#listing-entered-commands-code-history-code">3.15. Listing entered commands : <code>history</code></a></li>
-<li><a href="#undoing-previous-command-code-undo-code">3.16. Undoing previous command : <code>undo</code></a></li>
-<li><a href="#redoing-the-previously-undone-command-code-redo-code">3.17. Redoing the previously undone command : <code>redo</code></a></li>
-<li><a href="#clearing-all-entries-code-clear-code">3.18. Clearing all entries : <code>clear</code></a></li>
-<li><a href="#exiting-the-app-code-exit-code">3.19. Exiting the app : <code>exit</code></a></li>
-<li><a href="#saving-the-data">3.20. Saving the data</a></li>
-<li><a href="#displaying-location-on-google-maps-code-coming-in-v2-0-code">3.21. Displaying location on Google Maps <code>[coming in v2.0]</code></a></li>
-<li><a href="#encrypting-data-files-code-coming-in-v2-0-code">3.22. Encrypting data files <code>[coming in v2.0]</code></a></li>
-<li><a href="#password-protected-login-code-coming-in-v2-0-code">3.23. Password-protected login <code>[coming in v2.0]</code></a></li>
+<li><a href="#matching-a-contact-to-a-property-code-match-code">3.6. Matching a contact to a property: <code>match</code></a></li>
+<li><a href="#finding-contact-s-by-keyword-s-code-find-code">3.7. Finding contact(s) by keyword(s) : <code>find</code></a></li>
+<li><a href="#deleting-a-contact-code-delete-code">3.8. Deleting a contact : <code>delete</code></a></li>
+<li><a href="#selecting-a-contact-code-select-code">3.9. Selecting a contact : <code>select</code></a></li>
+<li><a href="#pinning-a-contact-code-pin-code">3.10. Pinning a contact : <code>pin</code></a></li>
+<li><a href="#unpinning-a-contact-code-unpin-code">3.11. Unpinning a contact : <code>unpin</code></a></li>
+<li><a href="#archiving-a-contact-code-archive-code">3.12. Archiving a contact : <code>archive</code></a></li>
+<li><a href="#listing-all-archived-contacts-code-archivelist-code">3.13. Listing all archived contacts : <code>archivelist</code></a></li>
+<li><a href="#finding-archived-contact-s-code-archivefind-code">3.14. Finding archived contact(s) : <code>archivefind</code></a></li>
+<li><a href="#unarchiving-a-contact-code-unarchive-code">3.15. Unarchiving a contact : <code>unarchive</code></a></li>
+<li><a href="#listing-entered-commands-code-history-code">3.16. Listing entered commands : <code>history</code></a></li>
+<li><a href="#undoing-previous-command-code-undo-code">3.17. Undoing previous command : <code>undo</code></a></li>
+<li><a href="#redoing-the-previously-undone-command-code-redo-code">3.18. Redoing the previously undone command : <code>redo</code></a></li>
+<li><a href="#clearing-all-entries-code-clear-code">3.19. Clearing all entries : <code>clear</code></a></li>
+<li><a href="#exiting-the-app-code-exit-code">3.20. Exiting the app : <code>exit</code></a></li>
+<li><a href="#saving-the-data">3.21. Saving the data</a></li>
+<li><a href="#displaying-location-on-google-maps-code-coming-in-v2-0-code">3.22. Displaying location on Google Maps <code>[coming in v2.0]</code></a></li>
+<li><a href="#encrypting-data-files-code-coming-in-v2-0-code">3.23. Encrypting data files <code>[coming in v2.0]</code></a></li>
+<li><a href="#password-protected-login-code-coming-in-v2-0-code">3.24. Password-protected login <code>[coming in v2.0]</code></a></li>
 </ul>
 </li>
 <li><a href="#faq">4. FAQ</a></li>
@@ -85,7 +86,7 @@ e.g. typing <strong><code>help</code></strong> and pressing <kbd>Enter</kbd> wil
 <p><strong><code>list</code></strong> : lists all contacts</p>
 </li>
 <li>
-<p><strong><code>add</code></strong><code>n/James Ho p/98765432 e/jamesho@example.com c/Seller a/123, Clementi Rd, S123456</code> : adds a contact named <code>James Ho</code> to the Address Book.</p>
+<p><strong><code>add</code></strong><code>c/seller n/James Ho p/98765432 e/jamesho@example.com a/123, Clementi Rd, S123456</code> : adds a contact named <code>James Ho</code> and the associated property information to the address book.</p>
 </li>
 <li>
 <p><strong><code>delete</code></strong><code>3</code> : deletes the 3rd contact shown in the current list</p>
@@ -142,8 +143,7 @@ Format: <code>help</code></p>
 <div class="sect2">
 <h3 id="adding-a-contact-code-add-code"><a class="link" href="#adding-a-contact-code-add-code">3.2. Adding a contact : <code>add</code></a></h3>
 <div class="paragraph">
-<p>Adds a contact with property information to the address book<br>
-Format: <code>add n/NAME [p/PHONE_NUMBER] [e/EMAIL] [c/CUSTOMER_TYPE] [a/ADDRESS] [f/PRICE OF PROPERTY] [t/TAG]&#8230;&#8203;</code></p>
+<p>Adds a contact to the address book, with 4 variants of customer types. Adds the associated property information for sellers and landlords.</p>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -153,7 +153,8 @@ Format: <code>add n/NAME [p/PHONE_NUMBER] [e/EMAIL] [c/CUSTOMER_TYPE] [a/ADDRESS
 </td>
 <td class="content">
 <div class="paragraph">
-<p>Acceptable <code>CUSTOMER_TYPE</code>: <code>Buyer</code>, <code>Seller</code>, <code>Lessor</code>, <code>Lessee</code></p>
+<p>Accepted customer types: <code>seller</code>, <code>buyer</code>, <code>landlord</code>, <code>tenant</code><br>
+<code>ADDRESS</code> of property is compulsory for sellers and landlords.</p>
 </div>
 </td>
 </tr>
@@ -166,24 +167,33 @@ Format: <code>add n/NAME [p/PHONE_NUMBER] [e/EMAIL] [c/CUSTOMER_TYPE] [a/ADDRESS
 <i class="fa icon-tip" title="Tip"></i>
 </td>
 <td class="content">
-A contact can have any number of tags (including 0)
+A <strong>contact</strong> can only have one <code>REMARK</code> or none.<br>
+A <strong>property</strong> can have any number of <code>TAG</code> (including 0).
 </td>
 </tr>
 </table>
 </div>
-<div class="paragraph">
-<p>Examples:</p>
-</div>
 <div class="ulist">
 <ul>
 <li>
-<p><code>add n/Tan Ah Beng p/87654321 e/tab@example.com a/Blk 456 Woodlands Ave 1, #10-10, S789456 c/Lessor t/nearSupermarket</code></p>
+<p><strong>Seller:</strong><br>
+Format: <code>add c/seller n/NAME [p/PHONE_NUMBER] [e/EMAIL] [r/REMARKS] a/ADDRESS [sp/SELLING_PRICE_OF_PROPERTY] [t/TAG]&#8230;&#8203;</code><br>
+Example: <code>add c/seller n/James Ho p/98765432 e/jamesho@example.com r/need to sell by April 2018 a/123, Clementi Rd, S123456 sp/500000 t/MRT t/newlyRenovated</code></p>
 </li>
 <li>
-<p><code>add n/Ricky Young e/rickyyoung@example.com c/Buyer a/10 Ocean Dr, S000010 p/1234567 f/12000000 t/landed</code></p>
+<p><strong>Buyer:</strong><br>
+Format: <code>add c/buyer n/NAME [p/PHONE_NUMBER] [e/EMAIL] [r/REMARK]</code><br>
+Example: <code>add c/buyer n/James Ho p/98765432 e/jamesho@example.com r/looking for 3-room apartment</code></p>
 </li>
 <li>
-<p><code>add n/James Ho p/98765432 e/jamesho@example.com c/Seller a/123, Clementi Rd, S123456 f/500000 t/MRT t/newlyRenovated</code></p>
+<p><strong>Landlord:</strong><br>
+Format: <code>add c/landlord n/NAME [p/PHONE_NUMBER] [e/EMAIL] [r/REMARKS] a/ADDRESS [rp/RENTAL_PRICE_OF_PROPERTY] [t/TAG]&#8230;&#8203;</code><br>
+Example: <code>add c/landlord n/James Ho p/98765432 e/jamesho@example.com r/family friend  a/123, Clementi Rd, S123456 rp/1500 t/MRT t/newlyRenovated</code></p>
+</li>
+<li>
+<p><strong>Tenant:</strong><br>
+Format: <code>add c/tenant n/NAME [p/PHONE_NUMBER] [e/EMAIL] [r/REMARKS]</code><br>
+Example: <code>add c/tenant n/James Ho p/98765432 e/jamesho@example.com r/looking for 4-room apartment</code></p>
 </li>
 </ul>
 </div>
@@ -199,7 +209,7 @@ Format: <code>list</code></p>
 <h3 id="displaying-a-sorted-list-of-contacts-by-specified-category-code-sort-code"><a class="link" href="#displaying-a-sorted-list-of-contacts-by-specified-category-code-sort-code">3.4. Displaying a sorted list of contacts by specified category : <code>sort</code></a></h3>
 <div class="paragraph">
 <p>Shows a list of all contacts in the address book, sorted according to a specified category.<br>
-Format: <code>sort CATEGORY</code></p>
+Format: <code>sort CATEGORY ORDER</code></p>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -209,7 +219,8 @@ Format: <code>sort CATEGORY</code></p>
 </td>
 <td class="content">
 <div class="paragraph">
-<p><code>CATEGORY</code> List: <code>NAME</code>, <code>CUSTOMER_TYPE</code>, <code>PRICE_OF_PROPERTY</code></p>
+<p><code>CATEGORY</code> List: <code>n</code>, <code>sp</code>, <code>rp</code>
+<code>ORDER</code> List: <code>increasing</code>, <code>decreasing</code></p>
 </div>
 </td>
 </tr>
@@ -224,13 +235,13 @@ Format: <code>sort CATEGORY</code></p>
 <div class="ulist">
 <ul>
 <li>
-<p>Sort by name in alphabetical order</p>
+<p>Sort by contact name <code>n</code> in increasing/decreasing alphabetical order</p>
 </li>
 <li>
-<p>Sort by customer type</p>
+<p>Sort by selling price of property <code>sp</code> in increasing/decreasing order</p>
 </li>
 <li>
-<p>Sort by property price in increasing order</p>
+<p>Sort by rental price of property <code>rp</code> in increasing/decreasing order</p>
 </li>
 </ul>
 </div>
@@ -240,14 +251,14 @@ Format: <code>sort CATEGORY</code></p>
 </div>
 </div>
 <div class="paragraph">
-<p>Example: <code>sort CUSTOMER_TYPE</code></p>
+<p>Example: <code>sort n increasing</code><br>
+Displays the contact list sorted by name in forward alphabetical order.</p>
 </div>
 </div>
 <div class="sect2">
 <h3 id="editing-a-contact-code-edit-code"><a class="link" href="#editing-a-contact-code-edit-code">3.5. Editing a contact : <code>edit</code></a></h3>
 <div class="paragraph">
-<p>Edits an existing contact in the address book.<br>
-Format: <code>edit INDEX [n/NAME] [p/PHONE_NUMBER] [e/EMAIL] [c/CUSTOMER_TYPE] [a/ADDRESS] [f/PRICE_OF_PROPERTY] [t/TAG]&#8230;&#8203;</code></p>
+<p>Edits an existing contact and/or associated property (if any) in the address book, with 4 variants of customer types.</p>
 </div>
 <div class="sidebarblock">
 <div class="content">
@@ -266,38 +277,109 @@ Format: <code>edit INDEX [n/NAME] [p/PHONE_NUMBER] [e/EMAIL] [c/CUSTOMER_TYPE] [
 <p>When editing tags, the existing tags of the contact will be removed i.e adding of tags is not cumulative.</p>
 </li>
 <li>
-<p>You can remove all the contact&#8217;s tags by typing <code>t/</code> without specifying any tags after it.</p>
+<p>You can remove any optional field by typing <code>n/</code>, <code>p/</code>, <code>e/</code>, <code>r/</code>, <code>sp/</code> or <code>rp/</code> for its respective field without specifying any parameters after it.</p>
+</li>
+<li>
+<p>You can remove all the property&#8217;s tags by typing <code>t/</code> without specifying any tags after it.</p>
 </li>
 </ul>
 </div>
 </div>
 </div>
-<div class="paragraph">
-<p>Examples:</p>
-</div>
 <div class="ulist">
 <ul>
 <li>
-<p><code>edit 1 p/91234567 e/abtan@example.com</code><br>
-Edits the phone number and email address of the 1st contact to be <code>91234567</code> and <code>abtan@example.com</code> respectively.</p>
+<p><strong>Seller:</strong><br>
+Format: <code>edit INDEX [n/NAME] [p/PHONE_NUMBER] [e/EMAIL] [r/REMARKS] [a/ADDRESS] [sp/SELLING_PRICE_OF_PROPERTY] [t/TAG]&#8230;&#8203;</code><br>
+Example: <code>edit 2 n/James Lee e/jameslee@example.com sp/450000 t/</code></p>
+<div class="ulist">
+<ul>
+<li>
+<p>Edits the name and email address of the 2nd contact to be <code>James Lee</code> and <code>jameslee@example.com</code> respectively. Edits selling price of the associated property to be <code>450000</code> and clears all existing tags.</p>
+</li>
+</ul>
+</div>
 </li>
 <li>
-<p><code>edit 2 n/Nicky Young t/</code><br>
-Edits the name of the 2nd contact to be <code>Nicky Young</code> and clears all existing tags.</p>
+<p><strong>Buyer:</strong><br>
+Format: <code>edit INDEX [n/NAME] [p/PHONE_NUMBER] [e/EMAIL] [r/REMARKS]</code><br>
+Example: <code>edit 2 n/James Lee e/jameslee@example.com r/looking for houses in Woodlands</code><br></p>
+<div class="ulist">
+<ul>
+<li>
+<p>Edits the name, email address and remarks of the 2nd contact to be <code>James Lee</code>, <code>jameslee@example.com</code> and <code>looking for houses in Woodlands</code> respectively.</p>
+</li>
+</ul>
+</div>
 </li>
 <li>
-<p><code>edit 3 n/James Lee e/jameslee@example.com</code><br>
-Edits the name and email address of the 3rd contact to be <code>James Lee</code> and <code>jameslee@example.com</code> respectively.</p>
+<p><strong>Landlord:</strong><br>
+Format: <code>edit INDEX [n/NAME] [p/PHONE_NUMBER] [e/EMAIL] [r/REMARKS] [a/ADDRESS] [rp/RENTAL_PRICE_OF_PROPERTY] [t/TAG]&#8230;&#8203;</code><br>
+Example: <code>edit 2 n/James Lee p/87654321 rp/1700 t/MRT t/Park</code></p>
+<div class="ulist">
+<ul>
+<li>
+<p>Edits the name and phone number of the 2nd contact to be <code>James Lee</code> and <code>87654321</code> respectively. Edits rental price of the associated property to be <code>1700</code>, clears all existing tags and adds new tags <code>MRT</code> and <code>Park</code>.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Tenant:</strong><br>
+Format: <code>edit INDEX [n/NAME] [p/PHONE_NUMBER] [e/EMAIL] [r/REMARKS]</code><br>
+Example: <code>edit 2 n/James Lee p/87654321 r/</code></p>
+<div class="ulist">
+<ul>
+<li>
+<p>Edits the name and phone number of the 2nd contact to be <code>James Lee</code> and <code>87654321</code> respectively and clears existing remarks.</p>
+</li>
+</ul>
+</div>
 </li>
 </ul>
 </div>
 </div>
 <div class="sect2">
-<h3 id="finding-contact-s-by-keyword-s-code-find-code"><a class="link" href="#finding-contact-s-by-keyword-s-code-find-code">3.6. Finding contact(s) by keyword(s) : <code>find</code></a></h3>
+<h3 id="matching-a-contact-to-a-property-code-match-code"><a class="link" href="#matching-a-contact-to-a-property-code-match-code">3.6. Matching a contact to a property: <code>match</code></a></h3>
+<div class="paragraph">
+<p>Matches a buyer to a seller’s property or a tenant to a landlord’s property.<br>
+Both buyer and seller, or both tenant and landlord, must be listed prior to matching.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Buyer:</strong><br>
+Format: <code>match INDEX_BUYER INDEX_SELLER</code><br>
+Example: <code>match 1 8</code></p>
+<div class="ulist">
+<ul>
+<li>
+<p>Matches the buyer listed as index 1 to the property listed with the seller as index 8.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Tenant:</strong><br>
+Format: <code>match INDEX_TENANT INDEX_LANDLORD `<br>
+Example: `match 3 10</code></p>
+<div class="ulist">
+<ul>
+<li>
+<p>Matches the tenant listed as index 3 to the property listed with the landlord as index 10.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="finding-contact-s-by-keyword-s-code-find-code"><a class="link" href="#finding-contact-s-by-keyword-s-code-find-code">3.7. Finding contact(s) by keyword(s) : <code>find</code></a></h3>
 <div class="paragraph">
 <p>Finds contact(s) whose information contains any of the keyword(s).<br>
 e.g. search by name, search by address, search by tags etc.<br>
-Format: <code>find KEYWORD [KEYWORDS]&#8230;&#8203;</code></p>
+Format: <code>find KEYWORD [KEYWORD]&#8230;&#8203;</code></p>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -307,7 +389,7 @@ Format: <code>find KEYWORD [KEYWORDS]&#8230;&#8203;</code></p>
 </td>
 <td class="content">
 <div class="paragraph">
-<p><code>KEYWORD</code> List: <code>n/NAME</code>, <code>p/PHONE_NUMBER</code>, <code>e/EMAIL</code>, <code>c/CUSTOMER_TYPE</code>, <code>a/ADDRESS</code>, <code>f/PRICE_OF_PROPERTY</code>, <code>t/TAG</code></p>
+<p><code>KEYWORD</code> List: <code>c/CUSTOMER_TYPE</code>, <code>n/NAME</code>, <code>p/PHONE_NUMBER</code>, <code>e/EMAIL</code>, <code>a/ADDRESS</code>, <code>rp/RENTAL_PRICE_OF_PROPERTY</code>, <code>sp/SELLING_PRICE_OF_PROPERTY</code>, <code>t/TAG</code></p>
 </div>
 </td>
 </tr>
@@ -350,14 +432,14 @@ Returns <code>James Lee</code> and <code>John James</code></p>
 Returns any contact having names <code>James</code>, <code>Tan</code>, or <code>Young</code></p>
 </li>
 <li>
-<p><code>find a/Woodlands c/Lessor</code><br>
-Returns any contact with address <code>Woodlands</code> and customer type <code>Lessor</code></p>
+<p><code>find a/Woodlands c/Landlord</code><br>
+Returns any contact with address <code>Woodlands</code> and customer type <code>Landlord</code></p>
 </li>
 </ul>
 </div>
 </div>
 <div class="sect2">
-<h3 id="deleting-a-contact-code-delete-code"><a class="link" href="#deleting-a-contact-code-delete-code">3.7. Deleting a contact : <code>delete</code></a></h3>
+<h3 id="deleting-a-contact-code-delete-code"><a class="link" href="#deleting-a-contact-code-delete-code">3.8. Deleting a contact : <code>delete</code></a></h3>
 <div class="paragraph">
 <p>Deletes the specified contact from the address book.<br>
 Format: <code>delete INDEX</code></p>
@@ -403,7 +485,7 @@ Deletes the 3rd contact in the sorted list displayed earlier.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="selecting-a-contact-code-select-code"><a class="link" href="#selecting-a-contact-code-select-code">3.8. Selecting a contact : <code>select</code></a></h3>
+<h3 id="selecting-a-contact-code-select-code"><a class="link" href="#selecting-a-contact-code-select-code">3.9. Selecting a contact : <code>select</code></a></h3>
 <div class="paragraph">
 <p>Selects the contact identified by the index number used in the displayed contact list.<br>
 Format: <code>select INDEX</code></p>
@@ -449,7 +531,7 @@ Selects the 3rd contact in the sorted list displayed earlier.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="pinning-a-contact-code-pin-code"><a class="link" href="#pinning-a-contact-code-pin-code">3.9. Pinning a contact : <code>pin</code></a></h3>
+<h3 id="pinning-a-contact-code-pin-code"><a class="link" href="#pinning-a-contact-code-pin-code">3.10. Pinning a contact : <code>pin</code></a></h3>
 <div class="paragraph">
 <p>Pins a contact.<br>
 These contacts will always be showing in a pinned list at the top of the side panel.<br>
@@ -496,7 +578,7 @@ Pins the 3rd contact in the sorted list displayed earlier.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="unpinning-a-contact-code-unpin-code"><a class="link" href="#unpinning-a-contact-code-unpin-code">3.10. Unpinning a contact : <code>unpin</code></a></h3>
+<h3 id="unpinning-a-contact-code-unpin-code"><a class="link" href="#unpinning-a-contact-code-unpin-code">3.11. Unpinning a contact : <code>unpin</code></a></h3>
 <div class="paragraph">
 <p>Unpins a pinned contact.<br>
 Format: <code>unpin INDEX</code></p>
@@ -531,7 +613,7 @@ Unpins the 1st contact in the pinned list.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="archiving-a-contact-code-archive-code"><a class="link" href="#archiving-a-contact-code-archive-code">3.11. Archiving a contact : <code>archive</code></a></h3>
+<h3 id="archiving-a-contact-code-archive-code"><a class="link" href="#archiving-a-contact-code-archive-code">3.12. Archiving a contact : <code>archive</code></a></h3>
 <div class="paragraph">
 <p>Moves the specified contact to the archive from the normal address book.<br>
 Archived contacts can <strong>only</strong> be accessed through a archive search function.<br>
@@ -592,14 +674,14 @@ Archives the 3rd contact in the sorted list displayed earlier.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="listing-all-archived-contacts-code-archivelist-code"><a class="link" href="#listing-all-archived-contacts-code-archivelist-code">3.12. Listing all archived contacts : <code>archivelist</code></a></h3>
+<h3 id="listing-all-archived-contacts-code-archivelist-code"><a class="link" href="#listing-all-archived-contacts-code-archivelist-code">3.13. Listing all archived contacts : <code>archivelist</code></a></h3>
 <div class="paragraph">
 <p>Lists all the contacts in the archive.<br>
 Format: <code>archivelist</code></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="finding-archived-contact-s-code-archivefind-code"><a class="link" href="#finding-archived-contact-s-code-archivefind-code">3.13. Finding archived contact(s) : <code>archivefind</code></a></h3>
+<h3 id="finding-archived-contact-s-code-archivefind-code"><a class="link" href="#finding-archived-contact-s-code-archivefind-code">3.14. Finding archived contact(s) : <code>archivefind</code></a></h3>
 <div class="paragraph">
 <p>Searches the archive and finds contact(s) whose information contains any of the keyword(s).<br>
 Format: <code>archivefind KEYWORD [KEYWORD]&#8230;&#8203;</code></p>
@@ -612,7 +694,7 @@ Format: <code>archivefind KEYWORD [KEYWORD]&#8230;&#8203;</code></p>
 </td>
 <td class="content">
 <div class="paragraph">
-<p><code>KEYWORD</code> List: <code>n/NAME</code>, <code>p/PHONE_NUMBER</code>, <code>e/EMAIL</code>, <code>c/CUSTOMER_TYPE</code>, <code>a/ADDRESS</code>, <code>f/PRICE_OF_PROPERTY</code>, <code>t/TAG</code></p>
+<p><code>KEYWORD</code> List: <code>c/CUSTOMER_TYPE</code>, <code>n/NAME</code>, <code>p/PHONE_NUMBER</code>, <code>e/EMAIL</code>, <code>a/ADDRESS</code>, <code>rp/RENTAL_PRICE_OF_PROPERTY</code>, <code>sp/SELLING_PRICE_OF_PROPERTY</code>, <code>t/TAG</code></p>
 </div>
 </td>
 </tr>
@@ -631,7 +713,7 @@ Returns any contact having name <code>James</code> and customer type <code>Selle
 </div>
 </div>
 <div class="sect2">
-<h3 id="unarchiving-a-contact-code-unarchive-code"><a class="link" href="#unarchiving-a-contact-code-unarchive-code">3.14. Unarchiving a contact : <code>unarchive</code></a></h3>
+<h3 id="unarchiving-a-contact-code-unarchive-code"><a class="link" href="#unarchiving-a-contact-code-unarchive-code">3.15. Unarchiving a contact : <code>unarchive</code></a></h3>
 <div class="paragraph">
 <p>Moves the specified contact from the archive back into the normal address book.<br>
 Format: <code>unarchive INDEX</code></p>
@@ -672,7 +754,7 @@ Moves the 1st contact in the results of the <code>archivefind</code> command fro
 </div>
 </div>
 <div class="sect2">
-<h3 id="listing-entered-commands-code-history-code"><a class="link" href="#listing-entered-commands-code-history-code">3.15. Listing entered commands : <code>history</code></a></h3>
+<h3 id="listing-entered-commands-code-history-code"><a class="link" href="#listing-entered-commands-code-history-code">3.16. Listing entered commands : <code>history</code></a></h3>
 <div class="paragraph">
 <p>Lists all the commands that you have entered in reverse chronological order.<br>
 Format: <code>history</code></p>
@@ -693,7 +775,7 @@ Format: <code>history</code></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="undoing-previous-command-code-undo-code"><a class="link" href="#undoing-previous-command-code-undo-code">3.16. Undoing previous command : <code>undo</code></a></h3>
+<h3 id="undoing-previous-command-code-undo-code"><a class="link" href="#undoing-previous-command-code-undo-code">3.17. Undoing previous command : <code>undo</code></a></h3>
 <div class="paragraph">
 <p>Restores the address book to the state before the previous <em>undoable</em> command was executed.<br>
 Format: <code>undo</code></p>
@@ -738,7 +820,7 @@ The <code>undo</code> command fails as there are no undoable commands executed p
 </div>
 </div>
 <div class="sect2">
-<h3 id="redoing-the-previously-undone-command-code-redo-code"><a class="link" href="#redoing-the-previously-undone-command-code-redo-code">3.17. Redoing the previously undone command : <code>redo</code></a></h3>
+<h3 id="redoing-the-previously-undone-command-code-redo-code"><a class="link" href="#redoing-the-previously-undone-command-code-redo-code">3.18. Redoing the previously undone command : <code>redo</code></a></h3>
 <div class="paragraph">
 <p>Reverses the most recent <code>undo</code> command.<br>
 Format: <code>redo</code></p>
@@ -770,40 +852,40 @@ The <code>redo</code> command fails as there are no <code>undo</code> commands e
 </div>
 </div>
 <div class="sect2">
-<h3 id="clearing-all-entries-code-clear-code"><a class="link" href="#clearing-all-entries-code-clear-code">3.18. Clearing all entries : <code>clear</code></a></h3>
+<h3 id="clearing-all-entries-code-clear-code"><a class="link" href="#clearing-all-entries-code-clear-code">3.19. Clearing all entries : <code>clear</code></a></h3>
 <div class="paragraph">
 <p>Clears all entries from the address book.<br>
 Format: <code>clear</code></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="exiting-the-app-code-exit-code"><a class="link" href="#exiting-the-app-code-exit-code">3.19. Exiting the app : <code>exit</code></a></h3>
+<h3 id="exiting-the-app-code-exit-code"><a class="link" href="#exiting-the-app-code-exit-code">3.20. Exiting the app : <code>exit</code></a></h3>
 <div class="paragraph">
 <p>Exits the app.<br>
 Format: <code>exit</code></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="saving-the-data"><a class="link" href="#saving-the-data">3.20. Saving the data</a></h3>
+<h3 id="saving-the-data"><a class="link" href="#saving-the-data">3.21. Saving the data</a></h3>
 <div class="paragraph">
 <p>Address book data are saved in the hard disk automatically after any command that changes the data.<br>
 There is no need to save manually.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="displaying-location-on-google-maps-code-coming-in-v2-0-code"><a class="link" href="#displaying-location-on-google-maps-code-coming-in-v2-0-code">3.21. Displaying location on Google Maps <code>[coming in v2.0]</code></a></h3>
+<h3 id="displaying-location-on-google-maps-code-coming-in-v2-0-code"><a class="link" href="#displaying-location-on-google-maps-code-coming-in-v2-0-code">3.22. Displaying location on Google Maps <code>[coming in v2.0]</code></a></h3>
 <div class="paragraph">
 <p>Double-clicking the contact will bring up the Google Maps location of the contact in the applet window.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="encrypting-data-files-code-coming-in-v2-0-code"><a class="link" href="#encrypting-data-files-code-coming-in-v2-0-code">3.22. Encrypting data files <code>[coming in v2.0]</code></a></h3>
+<h3 id="encrypting-data-files-code-coming-in-v2-0-code"><a class="link" href="#encrypting-data-files-code-coming-in-v2-0-code">3.23. Encrypting data files <code>[coming in v2.0]</code></a></h3>
 <div class="paragraph">
 <p>The database will be saved in an encrypted format.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="password-protected-login-code-coming-in-v2-0-code"><a class="link" href="#password-protected-login-code-coming-in-v2-0-code">3.23. Password-protected login <code>[coming in v2.0]</code></a></h3>
+<h3 id="password-protected-login-code-coming-in-v2-0-code"><a class="link" href="#password-protected-login-code-coming-in-v2-0-code">3.24. Password-protected login <code>[coming in v2.0]</code></a></h3>
 <div class="paragraph">
 <p>User can set a password, which will be required when logging into the app.</p>
 </div>
@@ -822,14 +904,63 @@ There is no need to save manually.</p>
 <div class="sect1">
 <h2 id="Summary"><a class="link" href="#Summary">5. Command Summary</a></h2>
 <div class="sectionbody">
+<div class="ulist none">
+<ul class="none">
+<li>
+<p><strong>Add</strong> :</p>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>Seller:<br></p>
 <div class="ulist">
 <ul>
 <li>
-<p><strong>Add</strong> : <code>add n/NAME [p/PHONE_NUMBER] [e/EMAIL] [c/CUSTOMER_TYPE] [a/ADDRESS] [f/PRICE OF PROPERTY] [t/TAG]&#8230;&#8203;</code></p>
+<p><code>add c/seller n/NAME [p/PHONE_NUMBER] [e/EMAIL] [r/REMARKS] a/ADDRESS [sp/SELLING_PRICE_OF_PROPERTY] [t/TAG]&#8230;&#8203;</code><br></p>
+</li>
+<li>
+<p>e.g. <code>add c/seller n/James Ho p/98765432 e/jamesho@example.com r/need to sell by April 2018 a/123, Clementi Rd, S123456 sp/500000 t/MRT t/newlyRenovated</code></p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Buyer:<br></p>
 <div class="ulist">
 <ul>
 <li>
-<p>e.g. <code>add n/James Ho p/98765432 e/jamesho@example.com c/Seller a/123, Clementi Rd, S123456 f/500000 t/MRT t/newlyRenovated</code></p>
+<p><code>add c/buyer n/NAME [p/PHONE_NUMBER] [e/EMAIL] [r/REMARK]</code><br></p>
+</li>
+<li>
+<p>e.g. <code>add c/buyer n/James Ho p/98765432 e/jamesho@example.com r/looking for 3-room apartment</code></p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Landlord:<br></p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>add c/landlord n/NAME [p/PHONE_NUMBER] [e/EMAIL] [r/REMARKS] a/ADDRESS [rp/RENTAL_PRICE_OF_PROPERTY] [t/TAG]&#8230;&#8203;</code><br></p>
+</li>
+<li>
+<p>e.g. <code>add c/landlord n/James Ho p/98765432 e/jamesho@example.com r/family friend  a/123, Clementi Rd, S123456 rp/1500 t/MRT t/newlyRenovated</code></p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Tenant:<br></p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>add c/tenant n/NAME [p/PHONE_NUMBER] [e/EMAIL] [r/REMARKS]</code><br></p>
+</li>
+<li>
+<p>e.g. <code>add c/tenant n/James Ho p/98765432 e/jamesho@example.com r/looking for 4-room apartment</code></p>
+</li>
+</ul>
+</div>
 </li>
 </ul>
 </div>
@@ -852,7 +983,7 @@ There is no need to save manually.</p>
 <div class="ulist">
 <ul>
 <li>
-<p><code>KEYWORD</code> List: <code>n/NAME</code>, <code>p/PHONE_NUMBER</code>, <code>e/EMAIL</code>, <code>c/CUSTOMER_TYPE</code>, <code>a/ADDRESS</code>, <code>f/PRICE_OF_PROPERTY</code>, <code>t/TAG</code></p>
+<p><code>KEYWORD</code> List: <code>c/CUSTOMER_TYPE</code>, <code>n/NAME</code>, <code>p/PHONE_NUMBER</code>, <code>e/EMAIL</code>, <code>a/ADDRESS</code>, <code>rp/RENTAL_PRICE_OF_PROPERTY</code>, <code>sp/SELLING_PRICE_OF_PROPERTY</code>, <code>t/TAG</code></p>
 </li>
 <li>
 <p>e.g. <code>archivefind n/James c/Seller</code></p>
@@ -874,24 +1005,73 @@ There is no need to save manually.</p>
 </div>
 </li>
 <li>
-<p><strong>Edit</strong> : <code>edit INDEX [n/NAME] [p/PHONE_NUMBER] [e/EMAIL] [c/CUSTOMER_TYPE] [a/ADDRESS] [f/PRICE_OF_PROPERTY] [t/TAG]&#8230;&#8203;</code></p>
+<p><strong>Edit</strong> :</p>
 <div class="ulist">
 <ul>
 <li>
-<p>e.g. <code>edit 2 n/James Lee e/jameslee@example.com</code></p>
+<p>Seller:<br></p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>edit INDEX [n/NAME] [p/PHONE_NUMBER] [e/EMAIL] [r/REMARKS] [a/ADDRESS] [sp/SELLING_PRICE_OF_PROPERTY] [t/TAG]&#8230;&#8203;</code><br></p>
+</li>
+<li>
+<p>e.g. <code>edit 2 n/James Lee e/jameslee@example.com sp/450000 t/</code></p>
 </li>
 </ul>
 </div>
 </li>
 <li>
-<p><strong>Exit</strong>: <code>exit</code></p>
+<p>Buyer:<br></p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>edit INDEX [n/NAME] [p/PHONE_NUMBER] [e/EMAIL] [r/REMARKS]</code><br></p>
+</li>
+<li>
+<p>e.g. <code>edit 2 n/James Lee e/jameslee@example.com r/looking for houses in Woodlands</code></p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Landlord:<br></p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>edit INDEX [n/NAME] [p/PHONE_NUMBER] [e/EMAIL] [r/REMARKS] [a/ADDRESS] [rp/RENTAL_PRICE_OF_PROPERTY] [t/TAG]&#8230;&#8203;</code><br></p>
+</li>
+<li>
+<p>e.g. <code>edit 2 n/James Lee p/87654321 rp/1700 t/MRT t/Park</code></p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Tenant:<br></p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>edit INDEX [n/NAME] [p/PHONE_NUMBER] [e/EMAIL] [r/REMARKS]</code><br></p>
+</li>
+<li>
+<p>e.g. <code>edit 2 n/James Lee p/87654321 r/</code></p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Exit</strong> : <code>exit</code></p>
 </li>
 <li>
 <p><strong>Find</strong> : <code>find KEYWORD [KEYWORD]&#8230;&#8203;</code></p>
 <div class="ulist">
 <ul>
 <li>
-<p><code>KEYWORD</code> List: <code>n/NAME</code>, <code>p/PHONE_NUMBER</code>, <code>e/EMAIL</code>, <code>c/CUSTOMER_TYPE</code>, <code>a/ADDRESS</code>, <code>f/PRICE_OF_PROPERTY</code>, <code>t/TAG</code></p>
+<p><code>KEYWORD</code> List: <code>c/CUSTOMER_TYPE</code>, <code>n/NAME</code>, <code>p/PHONE_NUMBER</code>, <code>e/EMAIL</code>, <code>a/ADDRESS</code>, <code>rp/RENTAL_PRICE_OF_PROPERTY</code>, <code>sp/SELLING_PRICE_OF_PROPERTY</code>, <code>t/TAG</code></p>
 </li>
 <li>
 <p>e.g. <code>find n/James n/Tan n/Young</code></p>
@@ -904,6 +1084,39 @@ There is no need to save manually.</p>
 </li>
 <li>
 <p><strong>History</strong> : <code>history</code></p>
+</li>
+<li>
+<p><strong>Match</strong> :</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Buyer:<br></p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>match INDEX_BUYER INDEX_SELLER</code><br></p>
+</li>
+<li>
+<p>e.g. <code>match 1 8</code></p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Tenant:<br></p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>match INDEX_TENANT INDEX_LANDLORD</code><br></p>
+</li>
+<li>
+<p>e.g. <code>match 3 10</code></p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
 </li>
 <li>
 <p><strong>List</strong> : <code>list</code></p>
@@ -932,14 +1145,17 @@ There is no need to save manually.</p>
 </div>
 </li>
 <li>
-<p><strong>Sort</strong> : <code>sort CATEGORY</code></p>
+<p><strong>Sort</strong> : <code>sort CATEGORY ORDER</code></p>
 <div class="ulist">
 <ul>
 <li>
-<p><code>CATEGORY</code> List: <code>NAME</code>, <code>CUSTOMER_TYPE</code>, <code>PRICE_OF_PROPERTY</code></p>
+<p><code>CATEGORY</code> List: <code>n</code>, <code>sp</code>, <code>rp</code></p>
 </li>
 <li>
-<p>e.g. <code>sort CUSTOMER_TYPE</code></p>
+<p><code>ORDER</code> List: <code>increasing</code>, <code>decreasing</code></p>
+</li>
+<li>
+<p>e.g. <code>sort n increasing</code></p>
 </li>
 </ul>
 </div>
@@ -970,4 +1186,4 @@ There is no need to save manually.</p>
 </ul>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-03-08 16:25:09 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-03-11 04:14:24 UTC</div></div></div></body></html>
