@@ -1,12 +1,13 @@
 package seedu.address.model;
 
-import java.nio.file.Path;
-import java.util.function.Predicate;
-
 import javafx.beans.property.ReadOnlyProperty;
 import javafx.collections.ObservableList;
 import seedu.address.commons.core.GuiSettings;
 import seedu.address.model.person.Person;
+import seedu.address.model.person.Remark;
+
+import java.nio.file.Path;
+import java.util.function.Predicate;
 
 /**
  * The API of the Model component.
@@ -59,6 +60,10 @@ public interface Model {
     boolean hasPerson(Person person);
 
     /**
+     * Returns true if a has remark
+     */
+    boolean hasRemark(Remark remark);
+    /**
      * Deletes the given person.
      * The person must exist in the address book.
      */
@@ -75,6 +80,12 @@ public interface Model {
      * {@code person} must not already exist in the address book.
      */
     void addPerson(Person person);
+
+    /**
+     * Adds the given remark.
+     * {@code person} must not already exist in the address book.
+     */
+    void addRemark(Remark remark);
 
     /**
      * Replaces the given person {@code target} with {@code editedPerson}.
