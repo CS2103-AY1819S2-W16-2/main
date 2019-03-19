@@ -10,11 +10,7 @@ import seedu.address.commons.util.ConfigUtil;
 import seedu.address.commons.util.StringUtil;
 import seedu.address.logic.Logic;
 import seedu.address.logic.LogicManager;
-<<<<<<< HEAD
-import seedu.address.model.*;
-import seedu.address.model.util.SampleDataUtil;
-import seedu.address.storage.*;
-=======
+
 import seedu.address.model.AddressBook;
 import seedu.address.model.ArchiveBook;
 import seedu.address.model.Model;
