@@ -1,73 +1,44 @@
 package seedu.address.model.person;
 
-import seedu.address.model.tag.Tag;
+import static seedu.address.commons.util.CollectionUtil.requireAllNonNull;
 
 import java.util.Collections;
 import java.util.HashSet;
 import java.util.Objects;
 import java.util.Set;
 
-<<<<<<< HEAD
-import static seedu.address.commons.util.CollectionUtil.requireAllNonNull;
-=======
 import seedu.address.model.property.Price;
 import seedu.address.model.tag.Tag;
->>>>>>> e31db734bb29858436d77f8ad915c45027f196d6
 
 /**
  * Represents a Person in the address book.
  * Guarantees: details are present and not null, field values are validated, immutable.
  */
-public class Person {
+public class NewPerson {
 
     // Identity fields
     private final Name name;
     private final Phone phone;
     private final Email email;
-    private final Remark remark;
-<<<<<<< HEAD
-=======
-
-    public Remark getRemark() {
-        return remark;
-    }
 
     // Data fields
     private final Address address;
     private final Set<Tag> tags = new HashSet<>();
->>>>>>> 4079fee88b83a2e40c3ef0b881bccccc555d35de
 
     /**
      * Every field must be present and not null.
      */
-<<<<<<< HEAD
-    public Person(Name name, Phone phone, Email email, Address address, Set<Tag> tags, Remark remark) {
-=======
-    public Person(Name name, Phone phone, Email email, Address address, Set<Tag> tags,Remark remark) {
->>>>>>> 4079fee88b83a2e40c3ef0b881bccccc555d35de
+    public NewPerson(Name name, Phone phone, Email email, Address address, Set<Tag> tags) {
         requireAllNonNull(name, phone, email, address, tags);
         this.name = name;
         this.phone = phone;
         this.email = email;
         this.address = address;
         this.tags.addAll(tags);
-<<<<<<< HEAD
-        this.remark = remark;
     }
 
-    // Data fields
-    private final Address address;
-    private final Set<Tag> tags = new HashSet<>();
-
-    public Remark getRemark() {
-        return remark;
-=======
-        this.remark=remark;
->>>>>>> 4079fee88b83a2e40c3ef0b881bccccc555d35de
-    }
-
-    public Person(Name name, Phone phone, Email email) {
-        requireAllNonNull(name, phone, email);
+    public NewPerson(Name name, Phone phone, Email email) {
+        requireAllNonNull(name);
         this.name = name;
         this.phone = phone;
         this.email = email;
@@ -91,14 +62,12 @@ public class Person {
     }
 
     public Price getSellingPrice() {
-        return new Price("0");
+        return new Price("1");
     }
 
     public Price getRentalPrice() {
-        return new Price("0");
+        return new Price("1");
     }
-
-
 
     /**
      * Returns an immutable tag set, which throws {@code UnsupportedOperationException}
@@ -112,7 +81,7 @@ public class Person {
      * Returns true if both persons of the same name have at least one other identity field that is the same.
      * This defines a weaker notion of equality between two persons.
      */
-    public boolean isSamePerson(Person otherPerson) {
+    public boolean isSamePerson(NewPerson otherPerson) {
         if (otherPerson == this) {
             return true;
         }
@@ -141,7 +110,6 @@ public class Person {
                 && otherPerson.getPhone().equals(getPhone())
                 && otherPerson.getEmail().equals(getEmail())
                 && otherPerson.getAddress().equals(getAddress())
-                && otherPerson.getRemark().equals(getRemark())
                 && otherPerson.getTags().equals(getTags());
     }
 
@@ -161,8 +129,6 @@ public class Person {
                 .append(getEmail())
                 .append(" Address: ")
                 .append(getAddress())
-                .append(" Remark: ")
-                .append(getRemark())
                 .append(" Tags: ");
         getTags().forEach(builder::append);
         return builder.toString();
