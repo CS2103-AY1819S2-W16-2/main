@@ -1,5 +1,13 @@
 package seedu.address.logic.commands;
 
+<<<<<<< HEAD
+=======
+import static seedu.address.logic.commands.CommandTestUtil.assertCommandFailure;
+import static seedu.address.logic.commands.CommandTestUtil.assertCommandSuccess;
+import static seedu.address.testutil.TypicalPersons.getTypicalAddressBook;
+import static seedu.address.testutil.TypicalPersons.getTypicalArchiveBook;
+
+>>>>>>> 9be1c895c54ada063db055dc4b099ac35b753363
 import org.junit.Before;
 import org.junit.Test;
 import seedu.address.logic.CommandHistory;
@@ -23,16 +31,17 @@ public class AddCommandIntegrationTest {
 
     @Before
     public void setUp() {
-        model = new ModelManager(getTypicalAddressBook(), new UserPrefs());
+        model = new ModelManager(getTypicalAddressBook(), getTypicalArchiveBook(), new UserPrefs());
     }
 
     @Test
     public void execute_newPerson_success() {
         Person validPerson = new PersonBuilder().build();
 
-        Model expectedModel = new ModelManager(model.getAddressBook(), new UserPrefs());
+        Model expectedModel = new ModelManager(model.getAddressBook(), model.getArchiveBook(), new UserPrefs());
         expectedModel.addPerson(validPerson);
         expectedModel.commitAddressBook();
+        expectedModel.commitArchiveBook();
 
         assertCommandSuccess(new AddCommand(validPerson), model, commandHistory,
                 String.format(AddCommand.MESSAGE_SUCCESS, validPerson), expectedModel);

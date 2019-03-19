@@ -1,5 +1,12 @@
 package seedu.address.logic.commands;
 
+<<<<<<< HEAD
+=======
+import static seedu.address.logic.commands.CommandTestUtil.assertCommandSuccess;
+import static seedu.address.testutil.TypicalPersons.getTypicalAddressBook;
+import static seedu.address.testutil.TypicalPersons.getTypicalArchiveBook;
+
+>>>>>>> 9be1c895c54ada063db055dc4b099ac35b753363
 import org.junit.Test;
 import seedu.address.logic.CommandHistory;
 import seedu.address.model.AddressBook;
@@ -19,16 +26,18 @@ public class ClearCommandTest {
         Model model = new ModelManager();
         Model expectedModel = new ModelManager();
         expectedModel.commitAddressBook();
+        expectedModel.commitArchiveBook();
 
         assertCommandSuccess(new ClearCommand(), model, commandHistory, ClearCommand.MESSAGE_SUCCESS, expectedModel);
     }
 
     @Test
     public void execute_nonEmptyAddressBook_success() {
-        Model model = new ModelManager(getTypicalAddressBook(), new UserPrefs());
-        Model expectedModel = new ModelManager(getTypicalAddressBook(), new UserPrefs());
+        Model model = new ModelManager(getTypicalAddressBook(), getTypicalArchiveBook(), new UserPrefs());
+        Model expectedModel = new ModelManager(getTypicalAddressBook(), getTypicalArchiveBook(), new UserPrefs());
         expectedModel.setAddressBook(new AddressBook());
         expectedModel.commitAddressBook();
+        expectedModel.commitArchiveBook();
 
         assertCommandSuccess(new ClearCommand(), model, commandHistory, ClearCommand.MESSAGE_SUCCESS, expectedModel);
     }

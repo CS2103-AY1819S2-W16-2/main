@@ -1,5 +1,14 @@
 package seedu.address.logic.commands;
 
+<<<<<<< HEAD
+=======
+import static seedu.address.logic.commands.CommandTestUtil.assertCommandSuccess;
+import static seedu.address.logic.commands.CommandTestUtil.showPersonAtIndex;
+import static seedu.address.testutil.TypicalIndexes.INDEX_FIRST_PERSON;
+import static seedu.address.testutil.TypicalPersons.getTypicalAddressBook;
+import static seedu.address.testutil.TypicalPersons.getTypicalArchiveBook;
+
+>>>>>>> 9be1c895c54ada063db055dc4b099ac35b753363
 import org.junit.Before;
 import org.junit.Test;
 import seedu.address.logic.CommandHistory;
@@ -23,8 +32,8 @@ public class ListCommandTest {
 
     @Before
     public void setUp() {
-        model = new ModelManager(getTypicalAddressBook(), new UserPrefs());
-        expectedModel = new ModelManager(model.getAddressBook(), new UserPrefs());
+        model = new ModelManager(getTypicalAddressBook(), getTypicalArchiveBook(), new UserPrefs());
+        expectedModel = new ModelManager(model.getAddressBook(), model.getArchiveBook(), new UserPrefs());
     }
 
     @Test
