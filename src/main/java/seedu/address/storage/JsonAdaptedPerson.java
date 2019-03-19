@@ -12,6 +12,16 @@ import java.util.List;
 import java.util.Set;
 import java.util.stream.Collectors;
 
+<<<<<<< HEAD
+=======
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonProperty;
+
+import seedu.address.commons.exceptions.IllegalValueException;
+import seedu.address.model.person.*;
+import seedu.address.model.tag.Tag;
+
+>>>>>>> 4079fee88b83a2e40c3ef0b881bccccc555d35de
 /**
  * Jackson-friendly version of {@link Person}.
  */
@@ -31,8 +41,13 @@ class JsonAdaptedPerson {
      */
     @JsonCreator
     public JsonAdaptedPerson(@JsonProperty("name") String name, @JsonProperty("phone") String phone,
+<<<<<<< HEAD
                              @JsonProperty("email") String email, @JsonProperty("address") String address,
                              @JsonProperty("tagged") List<JsonAdaptedTag> tagged, @JsonProperty("remark") String remark) {
+=======
+            @JsonProperty("email") String email, @JsonProperty("address") String address,
+            @JsonProperty("tagged") List<JsonAdaptedTag> tagged,@JsonProperty("remark")String remark) {
+>>>>>>> 4079fee88b83a2e40c3ef0b881bccccc555d35de
         this.name = name;
         this.phone = phone;
         this.email = email;
@@ -102,7 +117,11 @@ class JsonAdaptedPerson {
         final Remark modelRemark = new Remark(remark);
 
         final Set<Tag> modelTags = new HashSet<>(personTags);
+<<<<<<< HEAD
         return new Person(modelName, modelPhone, modelEmail, modelAddress, modelTags, modelRemark);
+=======
+        return new Person(modelName, modelPhone, modelEmail, modelAddress, modelTags,modelRemark);
+>>>>>>> 4079fee88b83a2e40c3ef0b881bccccc555d35de
     }
 
 }

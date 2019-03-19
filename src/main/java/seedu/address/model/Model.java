@@ -5,9 +5,12 @@ import javafx.collections.ObservableList;
 import seedu.address.commons.core.GuiSettings;
 import seedu.address.model.person.Person;
 import seedu.address.model.person.Remark;
+<<<<<<< HEAD
 
 import java.nio.file.Path;
 import java.util.function.Predicate;
+=======
+>>>>>>> 4079fee88b83a2e40c3ef0b881bccccc555d35de
 
 /**
  * The API of the Model component.
@@ -76,7 +79,10 @@ public interface Model {
      * Returns true if a person with the same identity as {@code person} exists in the address book.
      */
     boolean hasPerson(Person person);
-
+    /**
+     * Returns true if a has remark
+     */
+    boolean hasRemark(Remark remark);
     /**
      * Returns true if a has remark
      */
@@ -98,6 +104,11 @@ public interface Model {
      * {@code person} must not already exist in the address book.
      */
     void addPerson(Person person);
+    /**
+     * Adds the given remark.
+     * {@code person} must not already exist in the address book.
+     */
+    void addRemark(Remark remark);
 
     /**
      * Adds the given remark.

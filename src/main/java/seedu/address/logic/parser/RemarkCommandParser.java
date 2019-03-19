@@ -1,5 +1,6 @@
 package seedu.address.logic.parser;
 
+<<<<<<< HEAD
 import seedu.address.commons.core.index.Index;
 import seedu.address.logic.commands.EditCommand;
 import seedu.address.logic.commands.RemarkCommand;
@@ -70,4 +71,7 @@ public class RemarkCommandParser {
 //        Collection<String> tagSet = tags.size() == 1 && tags.contains("") ? Collections.emptySet() : tags;
 //        return Optional.of(ParserUtil.parseTags(tagSet));
 //    }
+=======
+public class RemarkCommandParser {
+>>>>>>> 4079fee88b83a2e40c3ef0b881bccccc555d35de
 }

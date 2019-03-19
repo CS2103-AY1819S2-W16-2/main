@@ -4,6 +4,7 @@ import seedu.address.model.AddressBook;
 import seedu.address.model.ArchiveBook;
 import seedu.address.model.ReadOnlyAddressBook;
 <<<<<<< HEAD
+<<<<<<< HEAD
 import seedu.address.model.person.*;
 =======
 import seedu.address.model.ReadOnlyArchiveBook;
@@ -13,6 +14,9 @@ import seedu.address.model.person.Name;
 import seedu.address.model.person.Person;
 import seedu.address.model.person.Phone;
 >>>>>>> 9be1c895c54ada063db055dc4b099ac35b753363
+=======
+import seedu.address.model.person.*;
+>>>>>>> 4079fee88b83a2e40c3ef0b881bccccc555d35de
 import seedu.address.model.tag.Tag;
 
 import java.util.Arrays;
@@ -27,6 +31,7 @@ public class SampleDataUtil {
         return new Person[] {
             new Person(new Name("Alex Yeoh"), new Phone("87438807"), new Email("alexyeoh@example.com"),
                 new Address("Blk 30 Geylang Street 29, #06-40"),
+<<<<<<< HEAD
                     getTagSet("friends"), new Remark("hi hello")),
             new Person(new Name("Bernice Yu"), new Phone("99272758"), new Email("berniceyu@example.com"),
                 new Address("Blk 30 Lorong 3 Serangoon Gardens, #07-18"),
@@ -57,6 +62,24 @@ public class SampleDataUtil {
             new Person(new Name("Ricky Young"), new Phone("91827364"), new Email("rickyoung@example.com"),
                     new Address("10 Ocean Drive"),
                     getTagSet("family")),
+=======
+                getTagSet("friends"),new Remark("hi hello")),
+            new Person(new Name("Bernice Yu"), new Phone("99272758"), new Email("berniceyu@example.com"),
+                new Address("Blk 30 Lorong 3 Serangoon Gardens, #07-18"),
+                getTagSet("colleagues", "friends"),new Remark("hi hello")),
+            new Person(new Name("Charlotte Oliveiro"), new Phone("93210283"), new Email("charlotte@example.com"),
+                new Address("Blk 11 Ang Mo Kio Street 74, #11-04"),
+                getTagSet("neighbours"),new Remark("hi hello")),
+            new Person(new Name("David Li"), new Phone("91031282"), new Email("lidavid@example.com"),
+                new Address("Blk 436 Serangoon Gardens Street 26, #16-43"),
+                getTagSet("family"),new Remark("hi hello")),
+            new Person(new Name("Irfan Ibrahim"), new Phone("92492021"), new Email("irfan@example.com"),
+                new Address("Blk 47 Tampines Street 20, #17-35"),
+                getTagSet("classmates"),new Remark("hi hello")),
+            new Person(new Name("Roy Balakrishnan"), new Phone("92624417"), new Email("royb@example.com"),
+                new Address("Blk 45 Aljunied Street 85, #11-31"),
+                getTagSet("colleagues"),new Remark("hi hello"))
+>>>>>>> 4079fee88b83a2e40c3ef0b881bccccc555d35de
         };
     }
 

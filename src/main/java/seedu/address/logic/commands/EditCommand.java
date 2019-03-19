@@ -91,7 +91,11 @@ public class EditCommand extends Command {
         Remark remark = editPersonDescriptor.getRemark();
         Set<Tag> updatedTags = editPersonDescriptor.getTags().orElse(personToEdit.getTags());
 
+<<<<<<< HEAD
         return new Person(updatedName, updatedPhone, updatedEmail, updatedAddress, updatedTags, remark);
+=======
+        return new Person(updatedName, updatedPhone, updatedEmail, updatedAddress, updatedTags,remark);
+>>>>>>> 4079fee88b83a2e40c3ef0b881bccccc555d35de
     }
 
     @Override
@@ -122,6 +126,21 @@ public class EditCommand extends Command {
         private Email email;
         private Address address;
         private Remark remark;
+<<<<<<< HEAD
+=======
+
+        public Remark getRemark() {
+            return remark;
+        }
+
+        public void setRemark(Remark remark) {
+            this.remark = remark;
+        }
+
+        private Set<Tag> tags;
+
+        public EditPersonDescriptor() {}
+>>>>>>> 4079fee88b83a2e40c3ef0b881bccccc555d35de
 
         /**
          * Copy constructor.
@@ -134,6 +153,7 @@ public class EditCommand extends Command {
             setAddress(toCopy.address);
             setTags(toCopy.tags);
             setRemark(toCopy.remark);
+<<<<<<< HEAD
         }
 
         public Remark getRemark() {
@@ -147,6 +167,8 @@ public class EditCommand extends Command {
 
         public void setRemark(Remark remark) {
             this.remark = remark;
+=======
+>>>>>>> 4079fee88b83a2e40c3ef0b881bccccc555d35de
         }
 
         /**

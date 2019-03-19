@@ -20,17 +20,33 @@ public class Person {
     private final Phone phone;
     private final Email email;
     private final Remark remark;
+<<<<<<< HEAD
+=======
+
+    public Remark getRemark() {
+        return remark;
+    }
+
+    // Data fields
+    private final Address address;
+    private final Set<Tag> tags = new HashSet<>();
+>>>>>>> 4079fee88b83a2e40c3ef0b881bccccc555d35de
 
     /**
      * Every field must be present and not null.
      */
+<<<<<<< HEAD
     public Person(Name name, Phone phone, Email email, Address address, Set<Tag> tags, Remark remark) {
+=======
+    public Person(Name name, Phone phone, Email email, Address address, Set<Tag> tags,Remark remark) {
+>>>>>>> 4079fee88b83a2e40c3ef0b881bccccc555d35de
         requireAllNonNull(name, phone, email, address, tags);
         this.name = name;
         this.phone = phone;
         this.email = email;
         this.address = address;
         this.tags.addAll(tags);
+<<<<<<< HEAD
         this.remark = remark;
     }
 
@@ -40,6 +56,9 @@ public class Person {
 
     public Remark getRemark() {
         return remark;
+=======
+        this.remark=remark;
+>>>>>>> 4079fee88b83a2e40c3ef0b881bccccc555d35de
     }
 
     public Name getName() {
