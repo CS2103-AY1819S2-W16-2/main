@@ -16,11 +16,11 @@
 <li><a href="#viewing-help-code-help-code">3.1. Viewing help : <code>help</code></a></li>
 <li><a href="#adding-a-contact-code-add-code">3.2. Adding a contact : <code>add</code></a></li>
 <li><a href="#listing-all-contacts-code-list-code">3.3. Listing all contacts : <code>list</code></a></li>
-<li><a href="#displaying-a-sorted-list-of-contacts-by-specified-category-code-sort-code">3.4. Displaying a sorted list of contacts by specified category : <code>sort</code></a></li>
+<li><a href="#displaying-a-sorted-list-of-contacts-by-specified-category-code-sort-code-code-coming-in-v2-0-code">3.4. Displaying a sorted list of contacts by specified category : <code>sort</code> <code>[coming in v2.0]</code></a></li>
 <li><a href="#finding-contact-s-by-keyword-s-code-find-code">3.5. Finding contact(s) by keyword(s) : <code>find</code></a></li>
 <li><a href="#selecting-a-contact-code-select-code">3.6. Selecting a contact : <code>select</code></a></li>
 <li><a href="#editing-a-contact-code-edit-code">3.7. Editing a contact : <code>edit</code></a></li>
-<li><a href="#matching-a-contact-to-a-property-code-match-code">3.8. Matching a contact to a property: <code>match</code></a></li>
+<li><a href="#matching-a-contact-to-a-property-code-match-code-code-coming-in-v2-0-code">3.8. Matching a contact to a property: <code>match</code> <code>[coming in v2.0]</code></a></li>
 <li><a href="#deleting-a-contact-code-delete-code">3.9. Deleting a contact : <code>delete</code></a></li>
 <li><a href="#pinning-a-contact-code-pin-code">3.10. Pinning a contact : <code>pin</code></a></li>
 <li><a href="#unpinning-a-contact-code-unpin-code">3.11. Unpinning a contact : <code>unpin</code></a></li>
@@ -32,11 +32,12 @@
 <li><a href="#undoing-previous-command-code-undo-code">3.17. Undoing previous command : <code>undo</code></a></li>
 <li><a href="#redoing-the-previously-undone-command-code-redo-code">3.18. Redoing the previously undone command : <code>redo</code></a></li>
 <li><a href="#clearing-all-entries-code-clear-code">3.19. Clearing all entries : <code>clear</code></a></li>
-<li><a href="#exiting-the-app-code-exit-code">3.20. Exiting the app : <code>exit</code></a></li>
-<li><a href="#saving-the-data">3.21. Saving the data</a></li>
-<li><a href="#displaying-location-on-google-maps-code-coming-in-v2-0-code">3.22. Displaying location on Google Maps <code>[coming in v2.0]</code></a></li>
-<li><a href="#encrypting-data-files-code-coming-in-v2-0-code">3.23. Encrypting data files <code>[coming in v2.0]</code></a></li>
-<li><a href="#password-protected-login-code-coming-in-v2-0-code">3.24. Password-protected login <code>[coming in v2.0]</code></a></li>
+<li><a href="#clearing-all-entries-code-archiveclear-code">3.20. Clearing all entries : <code>archiveclear</code></a></li>
+<li><a href="#exiting-the-app-code-exit-code">3.21. Exiting the app : <code>exit</code></a></li>
+<li><a href="#saving-the-data">3.22. Saving the data</a></li>
+<li><a href="#displaying-location-on-google-maps-code-coming-in-v2-0-code">3.23. Displaying location on Google Maps <code>[coming in v2.0]</code></a></li>
+<li><a href="#encrypting-data-files-code-coming-in-v2-0-code">3.24. Encrypting data files <code>[coming in v2.0]</code></a></li>
+<li><a href="#password-protected-login-code-coming-in-v2-0-code">3.25. Password-protected login <code>[coming in v2.0]</code></a></li>
 </ul>
 </li>
 <li><a href="#faq">4. FAQ</a></li>
@@ -206,7 +207,7 @@ Format: <code>list</code></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="displaying-a-sorted-list-of-contacts-by-specified-category-code-sort-code"><a class="link" href="#displaying-a-sorted-list-of-contacts-by-specified-category-code-sort-code">3.4. Displaying a sorted list of contacts by specified category : <code>sort</code></a></h3>
+<h3 id="displaying-a-sorted-list-of-contacts-by-specified-category-code-sort-code-code-coming-in-v2-0-code"><a class="link" href="#displaying-a-sorted-list-of-contacts-by-specified-category-code-sort-code-code-coming-in-v2-0-code">3.4. Displaying a sorted list of contacts by specified category : <code>sort</code> <code>[coming in v2.0]</code></a></h3>
 <div class="paragraph">
 <p>Shows a list of all contacts in the address book, sorted according to a specified category.<br>
 Format: <code>sort CATEGORY ORDER</code></p>
@@ -450,7 +451,7 @@ Example: <code>edit 2 n/James Lee p/87654321 r/</code></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="matching-a-contact-to-a-property-code-match-code"><a class="link" href="#matching-a-contact-to-a-property-code-match-code">3.8. Matching a contact to a property: <code>match</code></a></h3>
+<h3 id="matching-a-contact-to-a-property-code-match-code-code-coming-in-v2-0-code"><a class="link" href="#matching-a-contact-to-a-property-code-match-code-code-coming-in-v2-0-code">3.8. Matching a contact to a property: <code>match</code> <code>[coming in v2.0]</code></a></h3>
 <div class="paragraph">
 <p>Matches a buyer to a seller’s property or a tenant to a landlord’s property.<br>
 Both buyer and seller, or both tenant and landlord, must be listed prior to matching.</p>
@@ -855,37 +856,46 @@ The <code>redo</code> command fails as there are no <code>undo</code> commands e
 <h3 id="clearing-all-entries-code-clear-code"><a class="link" href="#clearing-all-entries-code-clear-code">3.19. Clearing all entries : <code>clear</code></a></h3>
 <div class="paragraph">
 <p>Clears all entries from the address book.<br>
+Address book contact list must be displayed prior to clearing.<br>
 Format: <code>clear</code></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="exiting-the-app-code-exit-code"><a class="link" href="#exiting-the-app-code-exit-code">3.20. Exiting the app : <code>exit</code></a></h3>
+<h3 id="clearing-all-entries-code-archiveclear-code"><a class="link" href="#clearing-all-entries-code-archiveclear-code">3.20. Clearing all entries : <code>archiveclear</code></a></h3>
+<div class="paragraph">
+<p>Clears all entries from the archive book.<br>
+Archived contact list must be displayed prior to clearing.<br>
+Format: <code>archiveclear</code></p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="exiting-the-app-code-exit-code"><a class="link" href="#exiting-the-app-code-exit-code">3.21. Exiting the app : <code>exit</code></a></h3>
 <div class="paragraph">
 <p>Exits the app.<br>
 Format: <code>exit</code></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="saving-the-data"><a class="link" href="#saving-the-data">3.21. Saving the data</a></h3>
+<h3 id="saving-the-data"><a class="link" href="#saving-the-data">3.22. Saving the data</a></h3>
 <div class="paragraph">
 <p>Address book data are saved in the hard disk automatically after any command that changes the data.<br>
 There is no need to save manually.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="displaying-location-on-google-maps-code-coming-in-v2-0-code"><a class="link" href="#displaying-location-on-google-maps-code-coming-in-v2-0-code">3.22. Displaying location on Google Maps <code>[coming in v2.0]</code></a></h3>
+<h3 id="displaying-location-on-google-maps-code-coming-in-v2-0-code"><a class="link" href="#displaying-location-on-google-maps-code-coming-in-v2-0-code">3.23. Displaying location on Google Maps <code>[coming in v2.0]</code></a></h3>
 <div class="paragraph">
 <p>Double-clicking the contact will bring up the the address location of the associated property on the Google Maps window panel.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="encrypting-data-files-code-coming-in-v2-0-code"><a class="link" href="#encrypting-data-files-code-coming-in-v2-0-code">3.23. Encrypting data files <code>[coming in v2.0]</code></a></h3>
+<h3 id="encrypting-data-files-code-coming-in-v2-0-code"><a class="link" href="#encrypting-data-files-code-coming-in-v2-0-code">3.24. Encrypting data files <code>[coming in v2.0]</code></a></h3>
 <div class="paragraph">
 <p>The database will be saved in an encrypted format.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="password-protected-login-code-coming-in-v2-0-code"><a class="link" href="#password-protected-login-code-coming-in-v2-0-code">3.24. Password-protected login <code>[coming in v2.0]</code></a></h3>
+<h3 id="password-protected-login-code-coming-in-v2-0-code"><a class="link" href="#password-protected-login-code-coming-in-v2-0-code">3.25. Password-protected login <code>[coming in v2.0]</code></a></h3>
 <div class="paragraph">
 <p>User can set a password, which will be required when logging into the app.</p>
 </div>
@@ -974,6 +984,9 @@ There is no need to save manually.</p>
 </li>
 </ul>
 </div>
+</li>
+<li>
+<p><strong>Archive clear</strong> : <code>archiveclear</code></p>
 </li>
 <li>
 <p><strong>Archive list</strong> : <code>archivelist</code></p>
@@ -1186,4 +1199,4 @@ There is no need to save manually.</p>
 </ul>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-03-26 15:30:35 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-03-28 11:23:38 UTC</div></div></div></body></html>
