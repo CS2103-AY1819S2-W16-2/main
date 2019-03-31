@@ -7,24 +7,19 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import seedu.address.logic.commands.AddCommand;
-import seedu.address.logic.commands.ArchiveClearCommand;
-import seedu.address.logic.commands.ArchiveCommand;
-import seedu.address.logic.commands.ArchiveListCommand;
 import seedu.address.logic.commands.ClearCommand;
 import seedu.address.logic.commands.Command;
 import seedu.address.logic.commands.DeleteCommand;
 import seedu.address.logic.commands.EditCommand;
+import seedu.address.logic.commands.RemarkCommand;
 import seedu.address.logic.commands.ExitCommand;
 import seedu.address.logic.commands.FindCommand;
 import seedu.address.logic.commands.HelpCommand;
 import seedu.address.logic.commands.HistoryCommand;
 import seedu.address.logic.commands.ListCommand;
-import seedu.address.logic.commands.PinCommand;
 import seedu.address.logic.commands.RedoCommand;
 import seedu.address.logic.commands.SelectCommand;
-import seedu.address.logic.commands.UnarchiveCommand;
 import seedu.address.logic.commands.UndoCommand;
-import seedu.address.logic.commands.UnpinCommand;
 import seedu.address.logic.parser.exceptions.ParseException;
 
 /**
@@ -60,14 +55,14 @@ public class AddressBookParser {
         case EditCommand.COMMAND_WORD:
             return new EditCommandParser().parse(arguments);
 
+        case RemarkCommand.COMMAND_WORD:
+            return new RemarkCommandParser().parse(arguments);
+
         case SelectCommand.COMMAND_WORD:
             return new SelectCommandParser().parse(arguments);
 
         case DeleteCommand.COMMAND_WORD:
             return new DeleteCommandParser().parse(arguments);
-
-        case PinCommand.COMMAND_WORD:
-            return new PinCommandParser().parse(arguments);
 
         case ClearCommand.COMMAND_WORD:
             return new ClearCommand();
@@ -77,18 +72,6 @@ public class AddressBookParser {
 
         case ListCommand.COMMAND_WORD:
             return new ListCommand();
-
-        case ArchiveCommand.COMMAND_WORD:
-            return new ArchiveCommandParser().parse(arguments);
-
-        case ArchiveListCommand.COMMAND_WORD:
-            return new ArchiveListCommand();
-
-        case ArchiveClearCommand.COMMAND_WORD:
-            return new ArchiveClearCommand();
-
-        case UnarchiveCommand.COMMAND_WORD:
-            return new UnarchiveCommandParser().parse(arguments);
 
         case HistoryCommand.COMMAND_WORD:
             return new HistoryCommand();
@@ -101,9 +84,6 @@ public class AddressBookParser {
 
         case UndoCommand.COMMAND_WORD:
             return new UndoCommand();
-
-        case UnpinCommand.COMMAND_WORD:
-            return new UnpinCommandParser().parse(arguments);
 
         case RedoCommand.COMMAND_WORD:
             return new RedoCommand();

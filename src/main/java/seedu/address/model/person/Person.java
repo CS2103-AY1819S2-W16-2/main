@@ -7,7 +7,6 @@ import java.util.HashSet;
 import java.util.Objects;
 import java.util.Set;
 
-import seedu.address.model.property.Price;
 import seedu.address.model.tag.Tag;
 
 /**
@@ -24,25 +23,19 @@ public class Person {
     // Data fields
     private final Address address;
     private final Set<Tag> tags = new HashSet<>();
+    private final Remark remark;
 
     /**
-     * Every field must be present and not null.
+     * Every field must be present and not null. Except Remark
      */
-    public Person(Name name, Phone phone, Email email, Address address, Set<Tag> tags) {
+    public Person(Name name, Phone phone, Email email, Address address, Set<Tag> tags, Remark remark) {
         requireAllNonNull(name, phone, email, address, tags);
         this.name = name;
         this.phone = phone;
         this.email = email;
         this.address = address;
         this.tags.addAll(tags);
-    }
-
-    public Person(Name name, Phone phone, Email email) {
-        requireAllNonNull(name, phone, email);
-        this.name = name;
-        this.phone = phone;
-        this.email = email;
-        this.address = new Address("dummy");
+        this.remark = remark;
     }
 
     public Name getName() {
@@ -61,15 +54,7 @@ public class Person {
         return address;
     }
 
-    public Price getSellingPrice() {
-        return new Price("0");
-    }
-
-    public Price getRentalPrice() {
-        return new Price("0");
-    }
-
-
+    public Remark getRemark() { return remark; }
 
     /**
      * Returns an immutable tag set, which throws {@code UnsupportedOperationException}
@@ -112,13 +97,14 @@ public class Person {
                 && otherPerson.getPhone().equals(getPhone())
                 && otherPerson.getEmail().equals(getEmail())
                 && otherPerson.getAddress().equals(getAddress())
-                && otherPerson.getTags().equals(getTags());
+                && otherPerson.getTags().equals(getTags())
+                && otherPerson.getRemark().equals(getRemark());
     }
 
     @Override
     public int hashCode() {
         // use this method for custom fields hashing instead of implementing your own
-        return Objects.hash(name, phone, email, address, tags);
+        return Objects.hash(name, phone, email, address, tags, remark);
     }
 
     @Override
@@ -133,6 +119,8 @@ public class Person {
                 .append(getAddress())
                 .append(" Tags: ");
         getTags().forEach(builder::append);
+        builder.append(" Remark: ")
+                .append(getRemark());
         return builder.toString();
     }
 
