@@ -20,26 +20,56 @@
 <div class="ulist">
 <ul>
 <li>
-<p><strong>Major enhancement</strong>: added <strong>the ability to undo/redo previous commands</strong></p>
+<p><strong>Major Enhancement</strong>: Added the ability to <strong>archive/unarchive contacts</strong></p>
 <div class="ulist">
 <ul>
 <li>
-<p>What it does: allows the user to undo all previous commands one at a time. Preceding undo commands can be reversed by using the redo command.</p>
-</li>
+<p>What it does:</p>
+<div class="ulist">
+<ul>
 <li>
-<p>Justification: This feature improves the product significantly because a user can make mistakes in commands and the app should provide a convenient way to rectify them.</p>
-</li>
-<li>
-<p>Highlights: This enhancement affects existing commands and commands to be added in future. It required an in-depth analysis of design alternatives. The implementation too was challenging as it required changes to existing commands.</p>
-</li>
-<li>
-<p>Credits: <em>{mention here if you reused any code/ideas from elsewhere or if a third-party library is heavily used in the feature so that a reader can make a more accurate judgement of how much effort went into the feature}</em></p>
+<p>Allows the user to archive existing contacts which are deleted from the main working contact list, but kept as storage which can be displayed or even unarchived when needed.</p>
 </li>
 </ul>
 </div>
 </li>
 <li>
-<p><strong>Minor enhancement</strong>: added a history command that allows the user to navigate to previous commands using up/down keys.</p>
+<p>Justification:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>This feature improves the product significantly because users who want to remove their contacts can remove them from their main address book without permanently deleting them.</p>
+</li>
+<li>
+<p>They can keep these contacts in a separate archive storage in case of future need, and these archived contacts can be restored back into the main address book when needed.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Highlights:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>This enhancement affects almost all existing commands and commands to be added in future. Each command has be to defined whether the main address book list or the archive list should be displayed before the execution of the command and/or would be displayed after.</p>
+</li>
+<li>
+<p>It required an in-depth analysis of design alternatives.</p>
+</li>
+<li>
+<p>The implementation too was challenging as it required changes to existing commands, especially the undo/redo commands.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Credits: Existing ideas of the AddressBook storage in AddressBook-Level4 was used to create the ArchiveBook storage.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Minor Enhancement</strong>: Added a Google Maps query in the browser panel that allows the user to view the location of a selected contact&#8217;s address on Google Maps.</p>
 </li>
 <li>
 <p><strong>Code contributed</strong>: [<a href="https://nus-cs2103-ay1819s2.github.io/cs2103-dashboard/#=undefined&amp;search=yongxiang1095">Project Code Dashboard</a>]</p>
@@ -53,7 +83,10 @@
 <div class="ulist">
 <ul>
 <li>
-<p>Managed releases <code>v1.3</code> - <code>v1.5rc</code> (3 releases) on GitHub</p>
+<p>Managed releases <code>v1.1</code> - <code>v1.3</code> (3 releases) on GitHub</p>
+</li>
+<li>
+<p>Tracked issues and milestones on GitHub</p>
 </li>
 </ul>
 </div>
@@ -63,10 +96,7 @@
 <div class="ulist">
 <ul>
 <li>
-<p>Updated the GUI color scheme (Pull requests <a href="https://github.com">#33</a>, <a href="https://github.com">#34</a>)</p>
-</li>
-<li>
-<p>Wrote additional tests for existing features to increase coverage from 88% to 92% (Pull requests <a href="https://github.com">#36</a>, <a href="https://github.com">#38</a>)</p>
+<p>Updated the GUI color scheme: <a href="https://github.com/CS2103-AY1819S2-W16-2/main/pull/86">#86</a></p>
 </li>
 </ul>
 </div>
@@ -76,39 +106,13 @@
 <div class="ulist">
 <ul>
 <li>
-<p>Did cosmetic tweaks to existing contents of the User Guide: <a href="https://github.com">#14</a></p>
-</li>
-</ul>
-</div>
+<p>Ported all commands (basic form) and the command summary into the User Guide: <a href="https://github.com/CS2103-AY1819S2-W16-2/main/pull/16">#16</a>, <a href="https://github.com/CS2103-AY1819S2-W16-2/main/pull/23">#23</a>, <a href="https://github.com/CS2103-AY1819S2-W16-2/main/pull/34">#34</a></p>
 </li>
 <li>
-<p>Community:</p>
-<div class="ulist">
-<ul>
-<li>
-<p>PRs reviewed (with non-trivial review comments): <a href="https://github.com">#12</a>, <a href="https://github.com">#32</a>, <a href="https://github.com">#19</a>, <a href="https://github.com">#42</a></p>
+<p>Ported all User Stories and Use Cases into the Developer Guide: <a href="https://github.com/CS2103-AY1819S2-W16-2/main/pull/16">#16</a>, <a href="https://github.com/CS2103-AY1819S2-W16-2/main/pull/17">#17</a>, <a href="https://github.com/CS2103-AY1819S2-W16-2/main/pull/23">#23</a>, <a href="https://github.com/CS2103-AY1819S2-W16-2/main/pull/34">#34</a></p>
 </li>
 <li>
-<p>Contributed to forum discussions (examples:  <a href="https://github.com">1</a>, <a href="https://github.com">2</a>, <a href="https://github.com">3</a>, <a href="https://github.com">4</a>)</p>
-</li>
-<li>
-<p>Reported bugs and suggestions for other teams in the class (examples:  <a href="https://github.com">1</a>, <a href="https://github.com">2</a>, <a href="https://github.com">3</a>)</p>
-</li>
-<li>
-<p>Some parts of the history feature I added was adopted by several other class mates (<a href="https://github.com">1</a>, <a href="https://github.com">2</a>)</p>
-</li>
-</ul>
-</div>
-</li>
-<li>
-<p>Tools:</p>
-<div class="ulist">
-<ul>
-<li>
-<p>Integrated a third party library (Natty) to the project (<a href="https://github.com">#42</a>)</p>
-</li>
-<li>
-<p>Integrated a new Github plugin (CircleCI) to the team repo</p>
+<p>Set up 'About Us', 'Contact Us' and 'README': <a href="https://github.com/CS2103-AY1819S2-W16-2/main/pull/3">#3</a>, <a href="https://github.com/CS2103-AY1819S2-W16-2/main/pull/15">#15</a></p>
 </li>
 </ul>
 </div>
@@ -117,9 +121,6 @@
 </div>
 </li>
 </ul>
-</div>
-<div class="paragraph">
-<p><em>{you can add/remove categories in the list above}</em></p>
 </div>
 </div>
 </div>
@@ -1213,11 +1214,11 @@ Format: <code>archiveclear</code></p>
 </div>
 </li>
 <li>
-<p>3b. There are already five people in the pinned list.</p>
+<p>3b. There are already 5 contacts in the pinned list.</p>
 <div class="ulist none">
 <ul class="none">
 <li>
-<p>3a1. TheRealApp shows an error message.</p>
+<p>3b1. TheRealApp shows an error message.</p>
 <div class="paragraph">
 <p>Use case ends.</p>
 </div>
@@ -1588,4 +1589,4 @@ Format: <code>archiveclear</code></p>
 <div class="sectionbody">
 <hr>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-04-02 14:07:47 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-04-02 14:31:20 UTC</div></div></div></body></html>
