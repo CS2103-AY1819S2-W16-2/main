@@ -635,6 +635,57 @@ Format: <code>archiveclear</code></p>
 </tr>
 </tbody>
 </table>
+<div class="sect2">
+<h3 id="archive-feature"><a class="link" href="#archive-feature">Archive feature</a></h3>
+<div class="sect3">
+<h4 id="current-implementation"><a class="link" href="#current-implementation">Current Implementation</a></h4>
+<div class="paragraph">
+<p>This section explains the implementation of all archive related features.</p>
+</div>
+<div class="sect4">
+<h5 id="archive-unarchive"><a class="link" href="#archive-unarchive">Archive/Unarchive</a></h5>
+<div class="paragraph">
+<p>The following sequence diagram shows how the archive operation works:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/ArchiveSequenceDiagram.png" alt="ArchiveSequenceDiagram" width="800">
+</div>
+</div>
+<div class="paragraph">
+<p>The <code>unarchive</code> command does the opposite&#8201;&#8212;&#8201;it calls <code>addPerson(p)</code> of the <code>versionedArchiveBook</code> and <code>removePerson(p)</code> of the <code>versionedAddressBook</code> instead.</p>
+</div>
+</div>
+<div class="sect4">
+<h5 id="archive-list"><a class="link" href="#archive-list">Archive List</a></h5>
+<div class="paragraph">
+<p>The <code>archivelist</code> command displays the archive list. This has to be carefully implemented to work hand-in-hand  with <code>list</code>. More importantly, to implement a separate archive list that can be swapped with the main list requires careful designing.  <em>{To be added}</em></p>
+</div>
+</div>
+<div class="sect4">
+<h5 id="archive-select"><a class="link" href="#archive-select">Archive Select</a></h5>
+<div class="paragraph">
+<p>The <code>archiveselect</code> command is implemented the same as 'select'.</p>
+</div>
+<div class="paragraph">
+<p>When <code>unarchive</code> is performed on a person that has been selected by <code>archiveselect</code>, <code>archiveselect</code> is set to be <code>null</code>, so no person will be selected.</p>
+</div>
+<div class="paragraph">
+<p><em>{To be added}</em></p>
+</div>
+</div>
+<div class="sect4">
+<h5 id="archive-clear"><a class="link" href="#archive-clear">Archive Clear</a></h5>
+<div class="paragraph">
+<p>The <code>archiveclear</code> command is implemented the same as <code>clear</code> where a new empty <code>archiveBook</code> is created by calling <code>Model#setArchiveBook(new AddressBook())</code>.</p>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="design-considerations"><a class="link" href="#design-considerations">Design Considerations</a></h4>
+
+</div>
+</div>
 </div>
 </div>
 <div class="sect1">
@@ -685,12 +736,6 @@ Format: <code>archiveclear</code></p>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>* * *</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">sloppy user</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">add and edit a contact in the app without having to specify certain information (i.e. some fields are optional)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">add and edit a contact even if I do not have the complete contact information</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* * *</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">real estate agent</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">add property information to each contact</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">link my customers to the property that they buying/selling/renting</p></td>
@@ -700,6 +745,18 @@ Format: <code>archiveclear</code></p>
 <td class="tableblock halign-left valign-top"><p class="tableblock">real estate agent</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">search and filter contacts by the address of their associated property</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">find all properties within the same area, e.g. search for "Woodlands" should return all contacts with "Woodlands" in their address</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* * *</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">real estate agent</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">add and update financial information of properties that can be bought/sold/rented</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">use the information to better determine which properties to buy/sell based on price, and match customers who are looking for certain prices</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* * *</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">efficient user</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">search and filter by financial information of properties</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">see which properties can meet my customers' expectation, as well as my own, in terms of price</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>* * *</code></p></td>
@@ -720,28 +777,28 @@ Format: <code>archiveclear</code></p>
 <td class="tableblock halign-left valign-top"><p class="tableblock">see which contacts are the most important for me to attend to</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* *</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">efficient user</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">display contacts sorted by specific categories</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">locate contacts and/or properties easily</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* * *</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">user who prefers visuals</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">select a contact and see the address (if any) of the contact on the Google Map applet within the app</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">visualise the location of the property and search for directions to the location</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>* *</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">real estate agent</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">add and update financial information of properties that can be bought/sold/rented</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">use the information to better determine which properties to buy/sell based on price, and match customers who are looking for certain prices</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* *</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">efficient user</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">search and filter by financial information of properties</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">see which properties can meet my customers' expectation, as well as my own, in terms of price</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">sloppy user</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">add and edit a contact in the app without having to specify certain information (i.e. some fields are optional)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">add and edit a contact even if I do not have the complete contact information</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>* *</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">forgetful user</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">add rental period information for tenants</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">be reminded when the rental agreement is expiring</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* *</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">efficient user</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">display contacts sorted by specific categories</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">locate contacts and/or properties easily</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>* *</code></p></td>
@@ -760,12 +817,6 @@ Format: <code>archiveclear</code></p>
 <td class="tableblock halign-left valign-top"><p class="tableblock">efficient user</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">search for properties with address within a 1 km radius of a specific address</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">filter out properties near a given location</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* *</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">user who prefers visuals</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">select a contact and see the address (if any) of the contact on the Google Map applet within the app</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">visualise the location of the property and search for directions to the location</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>*</code></p></td>
@@ -840,7 +891,7 @@ Format: <code>archiveclear</code></p>
 <p>User requests to add contact, with any additional information.</p>
 </li>
 <li>
-<p>TheRealApp adds contact into the contact list.</p>
+<p>TheRealApp adds contact into the contact list and displays the added contact in the displayed contact list.</p>
 <div class="paragraph">
 <p>Use case ends.</p>
 </div>
@@ -858,6 +909,25 @@ Format: <code>archiveclear</code></p>
 <ul class="none">
 <li>
 <p>1a1. The RealApp shows an error message.</p>
+<div class="paragraph">
+<p>Use case resumes at step 1.</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>1b. The list displayed is invalid.</p>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>1b1. TheRealApp shows an error message.</p>
+</li>
+<li>
+<p>1b2. User requests for the valid list.</p>
+</li>
+<li>
+<p>1b3. TheRealApp displays the requested list.</p>
 <div class="paragraph">
 <p>Use case resumes at step 1.</p>
 </div>
@@ -932,6 +1002,25 @@ Format: <code>archiveclear</code></p>
 </ul>
 </div>
 </li>
+<li>
+<p>1b. The list displayed is invalid.</p>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>1b1. TheRealApp shows an error message.</p>
+</li>
+<li>
+<p>1b2. User requests for the valid list.</p>
+</li>
+<li>
+<p>1b3. TheRealApp displays the requested list.</p>
+<div class="paragraph">
+<p>Use case resumes at step 1.</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
 </ul>
 </div>
 <h3 id="use-case-display-contact-list-sorted-in-a-specific-category" class="discrete">Use case: Display contact list sorted in a specific category</h3>
@@ -975,6 +1064,25 @@ Format: <code>archiveclear</code></p>
 </ul>
 </div>
 </li>
+<li>
+<p>1c. The list displayed is invalid.</p>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>1c1. TheRealApp shows an error message.</p>
+</li>
+<li>
+<p>1c2. User requests for the valid list.</p>
+</li>
+<li>
+<p>1c3. TheRealApp displays the requested list.</p>
+<div class="paragraph">
+<p>Use case resumes at step 1.</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
 </ul>
 </div>
 <h3 id="use-case-find-contact" class="discrete">Use case: Find contact</h3>
@@ -1007,6 +1115,25 @@ Format: <code>archiveclear</code></p>
 <p>1a1. The RealApp shows an error message.</p>
 <div class="paragraph">
 <p>Use case resumes from step 1.</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>1b. The list displayed is invalid.</p>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>1b1. TheRealApp shows an error message.</p>
+</li>
+<li>
+<p>1b2. User requests for the valid list.</p>
+</li>
+<li>
+<p>1b3. TheRealApp displays the requested list.</p>
+<div class="paragraph">
+<p>Use case resumes at step 1.</p>
 </div>
 </li>
 </ul>
@@ -1055,6 +1182,25 @@ Format: <code>archiveclear</code></p>
 <ul class="none">
 <li>
 <p>1b1. TheRealApp shows an error message.</p>
+<div class="paragraph">
+<p>Use case resumes at step 1.</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>1c. The list displayed is invalid.</p>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>1c1. TheRealApp shows an error message.</p>
+</li>
+<li>
+<p>1c2. User requests for the valid list.</p>
+</li>
+<li>
+<p>1c3. TheRealApp displays the requested list.</p>
 <div class="paragraph">
 <p>Use case resumes at step 1.</p>
 </div>
@@ -1192,6 +1338,29 @@ Format: <code>archiveclear</code></p>
 </li>
 </ol>
 </div>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>1a. The list displayed is invalid.</p>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>1a1. TheRealApp shows an error message.</p>
+</li>
+<li>
+<p>1a2. User requests for the valid list.</p>
+</li>
+<li>
+<p>1a3. TheRealApp displays the requested list.</p>
+<div class="paragraph">
+<p>Use case resumes at step 1.</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
 <h3 id="use-case-pin-contact" class="discrete">Use case: Pin contact</h3>
 <div class="paragraph">
 <p><strong>MSS</strong></p>
@@ -1288,6 +1457,25 @@ Format: <code>archiveclear</code></p>
 <ul class="none">
 <li>
 <p>1b1. TheRealApp shows an error message.</p>
+<div class="paragraph">
+<p>Use case resumes at step 1.</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>1c. The list displayed is invalid.</p>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>1c1. TheRealApp shows an error message.</p>
+</li>
+<li>
+<p>1c2. User requests for the valid list.</p>
+</li>
+<li>
+<p>1c3. TheRealApp displays the requested list.</p>
 <div class="paragraph">
 <p>Use case resumes at step 1.</p>
 </div>
@@ -1411,6 +1599,25 @@ Format: <code>archiveclear</code></p>
 </ul>
 </div>
 </li>
+<li>
+<p>1b. The list displayed is invalid.</p>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>1b1. TheRealApp shows an error message.</p>
+</li>
+<li>
+<p>1b2. User requests for the valid list.</p>
+</li>
+<li>
+<p>1b3. TheRealApp displays the requested list.</p>
+<div class="paragraph">
+<p>Use case resumes at step 1.</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
 </ul>
 </div>
 <h3 id="use-case-find-archived-contact" class="discrete">Use case: Find archived contact</h3>
@@ -1443,6 +1650,25 @@ Format: <code>archiveclear</code></p>
 <p>1a1. The RealApp shows an error message.</p>
 <div class="paragraph">
 <p>Use case resumes from step 1.</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>1b. The list displayed is invalid.</p>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>1b1. TheRealApp shows an error message.</p>
+</li>
+<li>
+<p>1b2. User requests for the valid list.</p>
+</li>
+<li>
+<p>1b3. TheRealApp displays the requested list.</p>
+<div class="paragraph">
+<p>Use case resumes at step 1.</p>
 </div>
 </li>
 </ul>
@@ -1512,6 +1738,29 @@ Format: <code>archiveclear</code></p>
 <p>TheRealApp clears the entire archived contact list.</p>
 <div class="paragraph">
 <p>Use case ends.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>1a. The list displayed is invalid.</p>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>1a1. TheRealApp shows an error message.</p>
+</li>
+<li>
+<p>1a2. User requests for the valid list.</p>
+</li>
+<li>
+<p>1a3. TheRealApp displays the requested list.</p>
+<div class="paragraph">
+<p>Use case resumes at step 1.</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
 </div>
 </li>
 </ol>
@@ -1633,4 +1882,4 @@ Format: <code>archiveclear</code></p>
 <div class="sectionbody">
 <hr>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-04-13 18:35:45 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-04-14 02:17:21 UTC</div></div></div></body></html>
