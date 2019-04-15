@@ -628,170 +628,123 @@ The <code>Person</code> class has been modified to only contain the following 4 
 <p>Given below is an example scenario of how client information can be added into the model via the 2 ways described above.<br></p>
 </div>
 <div class="paragraph">
-<p>Step 1. The user launches the application for the first time. The <code>VersionedAddressBook</code> will be initialized with the initial address book state, and the <code>currentStatePointer</code> pointing to that single address book state.</p>
+<p><strong>From storage</strong></p>
+</div>
+<div class="paragraph">
+<p>Step 1. The user launches the application.</p>
+</div>
+<div class="paragraph">
+<p>Step 2. <code>MainApp</code> will find the <code>addressbook</code>, <code>archivebook</code> and <code>pinbook</code> json files in the data folder and get them as <code>JsonAddressBookStorage</code> objects.</p>
+</div>
+<div class="paragraph">
+<p>Step 3. The <code>JsonAddressBookStorage</code> objects are used to initialise <code>StorageManager</code>.</p>
+</div>
+<div class="paragraph">
+<p>Step 4. The <code>MainApp</code> calls <code>initModelManager</code> method which will eventually return a <code>ModelManager</code> object.</p>
+</div>
+<div class="paragraph">
+<p>Step 5. To build the model, the <code>StorageManager</code> will build three <code>AddressBook</code> objects which are collections of all the <code>Person</code> objects stored in the <code>addressbook</code>, <code>archivebook</code> and <code>pinbook</code> json files.</p>
+</div>
+<div class="paragraph">
+<p>Step 6. The three <code>AddressBook</code> objects are used to initialise the <code>ModelManager</code>, which creates the model.</p>
+</div>
+<div class="paragraph">
+<p>The following sequence diagram summarizes how the model is created from json files when a user launches The Real App:</p>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/UndoRedoStartingStateListDiagram.png" alt="UndoRedoStartingStateListDiagram" width="800">
+<img src="images/LaunchSequenceDiagram.png" alt="LaunchSequenceDiagram" width="800">
 </div>
 </div>
 <div class="paragraph">
-<p>Step 2. The user executes <code>delete 5</code> command to delete the 5th person in the address book. The <code>delete</code> command calls <code>Model#commitAddressBook()</code>, causing the modified state of the address book after the <code>delete 5</code> command executes to be saved in the <code>addressBookStateList</code>, and the <code>currentStatePointer</code> is shifted to the newly inserted address book state.</p>
+<p><strong>Through add command</strong></p>
+</div>
+<div class="paragraph">
+<p>Step 1. The user launches the application.</p>
+</div>
+<div class="paragraph">
+<p>Step 2. The user enters the <code>add</code> command with the correct parameters into the Command Box.<br>
+e.g. <code>add c/seller n/James Tan p/97652456 e/jamestan@example.com r/need to sell by April 2018 a/Blk 345 Clementi Ave 5, #04-04, S120345 sp/500000 t/MRT t/newlyRenovated</code></p>
+</div>
+<div class="paragraph">
+<p>Step 3. The <code>LogicManager</code> handles the user input and creates an <code>AddCommand</code> object.</p>
+</div>
+<div class="paragraph">
+<p>Step 4. The <code>AddCommand</code> object is executed by the <code>LogicManager</code>.</p>
+</div>
+<div class="paragraph">
+<p>Step 5. The <code>ModelManager</code> updates the model to add the contact into the <code>AddressBook</code>.</p>
+</div>
+<div class="paragraph">
+<p>The following sequence diagram summarizes how a contact is added to the <code>AddressBook</code> using the <code>add</code> command:</p>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/UndoRedoNewCommand1StateListDiagram.png" alt="UndoRedoNewCommand1StateListDiagram" width="800">
-</div>
-</div>
-<div class="paragraph">
-<p>Step 3. The user executes <code>add n/David &#8230;&#8203;</code> to add a new person. The <code>add</code> command also calls <code>Model#commitAddressBook()</code>, causing another modified address book state to be saved into the <code>addressBookStateList</code>.</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="images/UndoRedoNewCommand2StateListDiagram.png" alt="UndoRedoNewCommand2StateListDiagram" width="800">
-</div>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-If a command fails its execution, it will not call <code>Model#commitAddressBook()</code>, so the address book state will not be saved into the <code>addressBookStateList</code>.
-</td>
-</tr>
-</table>
-</div>
-<div class="paragraph">
-<p>Step 4. The user now decides that adding the person was a mistake, and decides to undo that action by executing the <code>undo</code> command. The <code>undo</code> command will call <code>Model#undoAddressBook()</code>, which will shift the <code>currentStatePointer</code> once to the left, pointing it to the previous address book state, and restores the address book to that state.</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="images/UndoRedoExecuteUndoStateListDiagram.png" alt="UndoRedoExecuteUndoStateListDiagram" width="800">
-</div>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-If the <code>currentStatePointer</code> is at index 0, pointing to the initial address book state, then there are no previous address book states to restore. The <code>undo</code> command uses <code>Model#canUndoAddressBook()</code> to check if this is the case. If so, it will return an error to the user rather than attempting to perform the undo.
-</td>
-</tr>
-</table>
-</div>
-<div class="paragraph">
-<p>The following sequence diagram shows how the undo operation works:</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="images/UndoRedoSequenceDiagram.png" alt="UndoRedoSequenceDiagram" width="800">
-</div>
-</div>
-<div class="paragraph">
-<p>The <code>redo</code> command does the opposite&#8201;&#8212;&#8201;it calls <code>Model#redoAddressBook()</code>, which shifts the <code>currentStatePointer</code> once to the right, pointing to the previously undone state, and restores the address book to that state.</p>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-If the <code>currentStatePointer</code> is at index <code>addressBookStateList.size() - 1</code>, pointing to the latest address book state, then there are no undone address book states to restore. The <code>redo</code> command uses <code>Model#canRedoAddressBook()</code> to check if this is the case. If so, it will return an error to the user rather than attempting to perform the redo.
-</td>
-</tr>
-</table>
-</div>
-<div class="paragraph">
-<p>Step 5. The user then decides to execute the command <code>list</code>. Commands that do not modify the address book, such as <code>list</code>, will usually not call <code>Model#commitAddressBook()</code>, <code>Model#undoAddressBook()</code> or <code>Model#redoAddressBook()</code>. Thus, the <code>addressBookStateList</code> remains unchanged.</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="images/UndoRedoNewCommand3StateListDiagram.png" alt="UndoRedoNewCommand3StateListDiagram" width="800">
-</div>
-</div>
-<div class="paragraph">
-<p>Step 6. The user executes <code>clear</code>, which calls <code>Model#commitAddressBook()</code>. Since the <code>currentStatePointer</code> is not pointing at the end of the <code>addressBookStateList</code>, all address book states after the <code>currentStatePointer</code> will be purged. We designed it this way because it no longer makes sense to redo the <code>add n/David &#8230;&#8203;</code> command. This is the behavior that most modern desktop applications follow.</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="images/UndoRedoNewCommand4StateListDiagram.png" alt="UndoRedoNewCommand4StateListDiagram" width="800">
-</div>
-</div>
-<div class="paragraph">
-<p>The following activity diagram summarizes what happens when a user executes a new command:</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="images/UndoRedoActivityDiagram.png" alt="UndoRedoActivityDiagram" width="650">
+<img src="images/AddSequenceDiagram.png" alt="AddSequenceDiagram" width="800">
 </div>
 </div>
 </div>
 <div class="sect3">
-<h4 id="design-considerations"><a class="link" href="#design-considerations">3.1.2. Design Considerations</a></h4>
+<h4 id="other-improvements"><a class="link" href="#other-improvements">3.1.2. Other Improvements</a></h4>
+<div class="paragraph">
+<p>To allow for modification and retrieval of information, the <code>edit</code> and <code>search</code> commands have been expanded to fit the new model.</p>
+</div>
+<div class="paragraph">
+<p><strong>Edit command</strong></p>
+</div>
+<div class="paragraph">
+<p>Edit command has been improved to handle the different types of contacts safely.
+Object type checking is done during the execution of the command to ensure that only the correct information associated with the customer type is edited. This also ensures that the returned object is the same class as the original object being edited.</p>
+</div>
+<div class="paragraph">
+<p><strong>Search command</strong></p>
+</div>
+<div class="paragraph">
+<p>The original <code>find</code> command in AB4 has been renamed to <code>search</code> command to better reflect its new functionality. <code>search</code> command can now search through multiple information fields to look for matches to the input keywords.
+This allows users to quickly retrieve contacts using whatever limited information they may have at hand.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="design-considerations"><a class="link" href="#design-considerations">3.1.3. Design Considerations</a></h4>
 <div class="sect4">
-<h5 id="aspect-how-undo-redo-executes"><a class="link" href="#aspect-how-undo-redo-executes">Aspect: How undo &amp; redo executes</a></h5>
+<h5 id="aspect-abstraction-of-different-customer-types"><a class="link" href="#aspect-abstraction-of-different-customer-types">Aspect: Abstraction of different customer types</a></h5>
 <div class="ulist">
 <ul>
 <li>
-<p><strong>Alternative 1 (current choice):</strong> Saves the entire address book.</p>
+<p><strong>Alternative 1 (current choice):</strong> The four customer types are abstracted as sub-classes which extends the <code>Person</code> class</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Allows for subclass polymorphism.</p>
+</li>
+<li>
+<p>Cons: Legacy code from AB4 is not optimised for runtime polymorphism.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Alternative 2:</strong> Encapsulate customer type information in <code>Person</code> class using a <code>CustomerType</code> class.</p>
 <div class="ulist">
 <ul>
 <li>
 <p>Pros: Easy to implement.</p>
 </li>
 <li>
-<p>Cons: May have performance issues in terms of memory usage.</p>
+<p>Cons: Requires rigorous checking of customer type to ensure each contact is handled appropriately.</p>
 </li>
 </ul>
 </div>
 </li>
 <li>
-<p><strong>Alternative 2:</strong> Individual command knows how to undo/redo by itself.</p>
+<p><strong>Alternative 3:</strong> Refactor <code>Person</code> class into an abstract class and extend the 4 subclasses from it</p>
 <div class="ulist">
 <ul>
 <li>
-<p>Pros: Will use less memory (e.g. for <code>delete</code>, just save the person being deleted).</p>
+<p>Pros: Prevents the initialisation of a <code>Person</code> object, which is not required in our application.</p>
 </li>
 <li>
-<p>Cons: We must ensure that the implementation of each individual command are correct.</p>
-</li>
-</ul>
-</div>
-</li>
-</ul>
-</div>
-</div>
-<div class="sect4">
-<h5 id="aspect-data-structure-to-support-the-undo-redo-commands"><a class="link" href="#aspect-data-structure-to-support-the-undo-redo-commands">Aspect: Data structure to support the undo/redo commands</a></h5>
-<div class="ulist">
-<ul>
-<li>
-<p><strong>Alternative 1 (current choice):</strong> Use a list to store the history of address book states.</p>
-<div class="ulist">
-<ul>
-<li>
-<p>Pros: Easy for new Computer Science student undergraduates to understand, who are likely to be the new incoming developers of our project.</p>
-</li>
-<li>
-<p>Cons: Logic is duplicated twice. For example, when a new command is executed, we must remember to update both <code>HistoryManager</code> and <code>VersionedAddressBook</code>.</p>
-</li>
-</ul>
-</div>
-</li>
-<li>
-<p><strong>Alternative 2:</strong> Use <code>HistoryManager</code> for undo/redo</p>
-<div class="ulist">
-<ul>
-<li>
-<p>Pros: We do not need to maintain a separate list, and just reuse what is already in the codebase.</p>
-</li>
-<li>
-<p>Cons: Requires dealing with commands that have already been undone: We must remember to skip these commands. Violates Single Responsibility Principle and Separation of Concerns as <code>HistoryManager</code> now needs to do two different things.</p>
+<p>Cons: Much of the legacy code of AB4 has strong dependence on the instantiation of the <code>Person</code> objects.</p>
 </li>
 </ul>
 </div>
@@ -948,7 +901,7 @@ If the <code>currentStatePointer</code> is at index <code>addressBookStateList.s
 <div class="sect3">
 <h4 id="design-considerations-2"><a class="link" href="#design-considerations-2">3.2.2. Design Considerations</a></h4>
 <div class="sect4">
-<h5 id="aspect-how-undo-redo-executes-2"><a class="link" href="#aspect-how-undo-redo-executes-2">Aspect: How undo &amp; redo executes</a></h5>
+<h5 id="aspect-how-undo-redo-executes"><a class="link" href="#aspect-how-undo-redo-executes">Aspect: How undo &amp; redo executes</a></h5>
 <div class="ulist">
 <ul>
 <li>
@@ -981,7 +934,7 @@ If the <code>currentStatePointer</code> is at index <code>addressBookStateList.s
 </div>
 </div>
 <div class="sect4">
-<h5 id="aspect-data-structure-to-support-the-undo-redo-commands-2"><a class="link" href="#aspect-data-structure-to-support-the-undo-redo-commands-2">Aspect: Data structure to support the undo/redo commands</a></h5>
+<h5 id="aspect"><a class="link" href="#aspect">Aspect:</a></h5>
 <div class="ulist">
 <ul>
 <li>
@@ -1162,7 +1115,7 @@ If the <code>currentStatePointer</code> of AddressBook is at index 0, pointing t
 </div>
 </div>
 <div class="sect4">
-<h5 id="aspect-data-structure-to-support-the-undo-redo-commands-3"><a class="link" href="#aspect-data-structure-to-support-the-undo-redo-commands-3">Aspect: Data structure to support the undo/redo commands</a></h5>
+<h5 id="aspect-data-structure-to-support-the-undo-redo-commands"><a class="link" href="#aspect-data-structure-to-support-the-undo-redo-commands">Aspect: Data structure to support the undo/redo commands</a></h5>
 <div class="ulist">
 <ul>
 <li>
@@ -3206,4 +3159,4 @@ Expected: Similar to previous.</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-04-15 13:51:13 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-04-15 15:12:00 UTC</div></div></div></body></html>
