@@ -24,11 +24,14 @@
 <div class="ulist">
 <ul>
 <li>
+<p>Related commands: <code>archive</code>, <code>archivelist</code>, <code>archiveselect</code>, <code>archiveclear</code>, <code>unarchive</code></p>
+</li>
+<li>
 <p>What it does:</p>
 <div class="ulist">
 <ul>
 <li>
-<p>Allows the user to archive existing contacts which are deleted from the main working contact list, but kept as storage which can be displayed or even unarchived when needed.</p>
+<p>Allows the user to archive existing contacts which are deleted from the main working contact book, but kept as storage which can be displayed, or even unarchived when needed in the future.</p>
 </li>
 </ul>
 </div>
@@ -38,10 +41,10 @@
 <div class="ulist">
 <ul>
 <li>
-<p>This feature improves the product significantly because users who want to remove their contacts can remove them from their main address book without permanently deleting them.</p>
+<p>This feature improves the product significantly because users who want to remove their contacts can remove them from their main contact book without permanently deleting them.</p>
 </li>
 <li>
-<p>They can keep these contacts in a separate archive storage in case of future need, and these archived contacts can be restored back into the main address book when needed.</p>
+<p>They can keep these contacts in a separate archive storage in case of future need, and these archived contacts can be restored back into the main contact book when needed.</p>
 </li>
 </ul>
 </div>
@@ -51,7 +54,7 @@
 <div class="ulist">
 <ul>
 <li>
-<p>This enhancement affects almost all existing commands and commands to be added in future. Each command has be to defined whether the main address book list or the archive list should be displayed before the execution of the command and/or would be displayed after.</p>
+<p>This enhancement affects almost all existing commands and new commands to be added in future. Each command has be to defined whether the main address book list or the archive list is displayed before and/or after the execution of the command.</p>
 </li>
 <li>
 <p>It required an in-depth analysis of design alternatives.</p>
@@ -83,7 +86,7 @@
 <p>Added a Google Maps query in the browser panel that allows the user to view the location of a selected contact&#8217;s address on Google Maps.</p>
 </li>
 <li>
-<p>Refine selection of contacts.</p>
+<p>Refined the selection of contacts across all features.</p>
 </li>
 </ul>
 </div>
@@ -142,9 +145,6 @@
 <div class="ulist">
 <ul>
 <li>
-<p>PRs reviewed: <a href="https://github.com/CS2103-AY1819S2-W16-2/main/pull/90">#90</a>, <a href="https://github.com/CS2103-AY1819S2-W16-2/main/pull/127">#127</a></p>
-</li>
-<li>
 <p>Reported bugs and suggestions for other teams in the class (examples:  <a href="https://github.com/CS2103-AY1819S2-W17-1/main/issues/129">1</a>, <a href="https://github.com/CS2103-AY1819S2-W17-1/main/issues/130">2</a>, <a href="https://github.com/CS2103-AY1819S2-W17-1/main/issues/137">3</a>)</p>
 </li>
 </ul>
@@ -166,7 +166,7 @@
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><em>Given below are sections I contributed to the User Guide. They showcase my ability to write documentation targeting end-users.</em></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>Given below are sections I contributed to the User Guide. They showcase my ability to write documentation targeting end-users. The following only contains an abbreviated version of the <code>archive</code> and <code>select</code> related features. Refer to the full User Guide for more details.</em></p></td>
 </tr>
 </tbody>
 </table>
@@ -486,21 +486,24 @@ Selects the 3rd contact in the results of the <code>search</code> command.</p>
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><em>Given below are sections I contributed to the Developer Guide. They showcase my ability to write technical documentation and the technical depth of my contributions to the project.</em></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>Given below are sections I contributed to the Developer Guide. They showcase my ability to write technical documentation and the technical depth of my contributions to the project. The following only shows extracts of the User Stories and Use Cases related to the features I implemented. I also added Instructions for Manual Testing in Appendix F. Refer to the full Developer Guide for more details.</em></p></td>
 </tr>
 </tbody>
 </table>
 <div class="sect2">
-<h3 id="archive-feature"><a class="link" href="#archive-feature">Archive feature</a></h3>
+<h3 id="archive-features"><a class="link" href="#archive-features">Archive features</a></h3>
 <div class="sect3">
 <h4 id="current-implementation"><a class="link" href="#current-implementation">Current Implementation</a></h4>
 <div class="paragraph">
 <p>This section explains the implementation of all archive related features.</p>
 </div>
+<div class="paragraph">
+<p>To implement the archive features, an <code>archiveBook</code> is created in the <code>Model</code> and <code>Storage</code> to facilitate the archiving of contacts. The <code>archiveBook</code> implements the <code>AddressBook</code> class in the <code>Model</code> since it works similarly, and has its own <code>ArchiveBookStorage</code> class in the <code>Storage</code> to facilitate the storage of a separate data file.</p>
+</div>
 <div class="sect4">
 <h5 id="archive-unarchive"><a class="link" href="#archive-unarchive">Archive/Unarchive</a></h5>
 <div class="paragraph">
-<p>The following sequence diagram shows how the archive operation works:</p>
+<p>The following sequence diagram shows how the <code>archive</code> command operation works:</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -508,13 +511,16 @@ Selects the 3rd contact in the results of the <code>search</code> command.</p>
 </div>
 </div>
 <div class="paragraph">
-<p>The <code>unarchive</code> command does the opposite&#8201;&#8212;&#8201;it calls <code>addPerson(p)</code> of the <code>versionedArchiveBook</code> and <code>removePerson(p)</code> of the <code>versionedAddressBook</code> instead.</p>
+<p>The <code>unarchive</code> command does the opposite&#8201;&#8212;&#8201;it calls <code>addPerson(p)</code> of the <code>versionedAddressBook</code> and <code>removePerson(p)</code> of the <code>versionedArchiveBook</code> instead.</p>
 </div>
 </div>
 <div class="sect4">
 <h5 id="archive-list"><a class="link" href="#archive-list">Archive List</a></h5>
 <div class="paragraph">
-<p>The <code>archivelist</code> command displays the archive list. This has to be carefully implemented to work hand-in-hand  with <code>list</code>. More importantly, to implement a separate archive list that can be swapped with the main list requires careful designing.  <em>{To be added}</em></p>
+<p>The <code>archivelist</code> command displays the list of persons in the <code>archiveBook</code>. This has to be carefully implemented to work hand-in-hand with the list of persons in the <code>addressBook</code>, as well as the <code>list</code> command.</p>
+</div>
+<div class="paragraph">
+<p>More importantly, to have a separate archive list that can be swapped back and forth with the main list in the UI display requires careful designs and implementations in the <code>Logic</code> and <code>Ui</code> components.</p>
 </div>
 </div>
 <div class="sect4">
@@ -524,9 +530,6 @@ Selects the 3rd contact in the results of the <code>search</code> command.</p>
 </div>
 <div class="paragraph">
 <p>When <code>unarchive</code> is performed on a person that has been selected by <code>archiveselect</code>, <code>archiveselect</code> is set to be <code>null</code>, so no person will be selected.</p>
-</div>
-<div class="paragraph">
-<p><em>{To be added}</em></p>
 </div>
 </div>
 <div class="sect4">
@@ -543,16 +546,44 @@ Selects the 3rd contact in the results of the <code>search</code> command.</p>
 </div>
 <div class="sect2">
 <h3 id="select-feature"><a class="link" href="#select-feature">Select feature</a></h3>
-<table class="tableblock frame-all grid-all spread">
-<colgroup>
-<col style="width: 100%;">
-</colgroup>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><em>I ported in all the <strong>User Stories</strong> into the Developer Guide. Given below is an extract related to the features I implemented.</em></p></td>
-</tr>
-</tbody>
-</table>
+<div class="sect3">
+<h4 id="current-implementation-2"><a class="link" href="#current-implementation-2">Current Implementation</a></h4>
+<div class="paragraph">
+<p>The select feature requires careful implementation:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>As there are 3 separate lists (main contact list, archive list, pin list) that can be selected from, having a unique command for each list (i.e. <code>select</code>, <code>archiveselect</code>, <code>pinselect</code>) ensures that the person is selected from the correct list.</p>
+</li>
+<li>
+<p>Only at most 1 person can be selected at any point in time from each list.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>However, having 3 separate lists means that there will be overlapping selections which will cause errors in the <code>Ui</code> component in displaying the browser panel.</p>
+</li>
+<li>
+<p>To avoid overlapping of selections from each of the select commands, previous selections from another list are set to null.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Adding and editing a person will select that person.</p>
+</li>
+<li>
+<p>Deleting, archiving and unarchiving a selected contact will set the selection to null.</p>
+</li>
+<li>
+<p>Changing lists will set the selected person in the list that is swapped away to be set to null.</p>
+</li>
+<li>
+<p>Selection of a pinned person will remain regardless of which of the two lists are displayed.</p>
+</li>
+</ul>
+</div>
+</div>
 </div>
 </div>
 </div>
@@ -595,16 +626,6 @@ Selects the 3rd contact in the results of the <code>search</code> command.</p>
 <td class="tableblock halign-left valign-top"><p class="tableblock">real estate agent</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">unarchive contacts</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">retrieve contacts which I need again</p></td>
-</tr>
-</tbody>
-</table>
-<table class="tableblock frame-all grid-all spread">
-<colgroup>
-<col style="width: 100%;">
-</colgroup>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><em>I ported in all the <strong>Use Cases</strong> into the Developer Guide. Given below is an extract related to the features I implemented.</em></p></td>
 </tr>
 </tbody>
 </table>
@@ -896,54 +917,6 @@ Selects the 3rd contact in the results of the <code>search</code> command.</p>
 </li>
 </ol>
 </div>
-<table class="tableblock frame-all grid-all spread">
-<colgroup>
-<col style="width: 100%;">
-</colgroup>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><em>Given below are the <strong>Instructions for Manual Testing</strong> for the features I implemented.</em></p></td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
-<div class="sect1">
-<h2 id="instructions-for-manual-testing"><a class="link" href="#instructions-for-manual-testing">Appendix C: Instructions for Manual Testing</a></h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>Given below are instructions to test the app manually.</p>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-These instructions only provide a starting point for testers to work on; testers are expected to do more <em>exploratory</em> testing.
-</td>
-</tr>
-</table>
-</div>
-<div class="sect2">
-<h3 id="selecting-a-person"><a class="link" href="#selecting-a-person">Selecting a person</a></h3>
-<div class="paragraph">
-<p><em>{ more test cases &#8230;&#8203; }</em></p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="archiving-a-person"><a class="link" href="#archiving-a-person">Archiving a person</a></h3>
-<div class="paragraph">
-<p><em>{ more test cases &#8230;&#8203; }</em></p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="unarchiving-a-person"><a class="link" href="#unarchiving-a-person">Unarchiving a person</a></h3>
-<div class="paragraph">
-<p><em>{ more test cases &#8230;&#8203; }</em></p>
-</div>
-</div>
 </div>
 </div>
 <div class="sect1">
@@ -951,4 +924,4 @@ These instructions only provide a starting point for testers to work on; testers
 <div class="sectionbody">
 <hr>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-04-15 16:04:09 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-04-15 16:05:38 UTC</div></div></div></body></html>

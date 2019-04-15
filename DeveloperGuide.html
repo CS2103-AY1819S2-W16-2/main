@@ -32,7 +32,7 @@
 <li><a href="#transformation-of-addressbook4-to-the-real-app">3.1. Transformation of AddressBook4 to The Real App</a></li>
 <li><a href="#undo-redo-feature">3.2. Undo/Redo feature</a></li>
 <li><a href="#pin-unpin-feature">3.3. Pin/Unpin feature</a></li>
-<li><a href="#archive-feature">3.4. Archive feature</a></li>
+<li><a href="#archive-features">3.4. Archive features</a></li>
 <li><a href="#select-feature">3.5. Select feature</a></li>
 <li><a href="#logging">3.6. Logging</a></li>
 <li><a href="#Implementation-Configuration">3.7. Configuration</a></li>
@@ -80,10 +80,11 @@
 <li><a href="#deleting-a-person">F.6. Deleting a person</a></li>
 <li><a href="#selecting-a-person">F.7. Selecting a person</a></li>
 <li><a href="#archiving-a-person">F.8. Archiving a person</a></li>
-<li><a href="#unarchiving-a-person">F.9. Unarchiving a person</a></li>
-<li><a href="#pinning-a-person">F.10. Pinning a person</a></li>
-<li><a href="#unpinning-a-person">F.11. Unpinning a person</a></li>
-<li><a href="#selecting-a-person-in-the-pin-list">F.12. Selecting a person in the pin list</a></li>
+<li><a href="#selecting-an-archived-person">F.9. Selecting an archived person</a></li>
+<li><a href="#unarchiving-a-person">F.10. Unarchiving a person</a></li>
+<li><a href="#pinning-a-person">F.11. Pinning a person</a></li>
+<li><a href="#unpinning-a-person">F.12. Unpinning a person</a></li>
+<li><a href="#selecting-a-person-in-the-pin-list">F.13. Selecting a person in the pin list</a></li>
 </ul>
 </li>
 </ul>
@@ -790,7 +791,7 @@ Additionally, it implements the following operations:</p>
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-The archiveBook and pinBook use the VersionedAddressBook as well to facilitate the undo/redo mechanism by running in parallel with Address Book.
+The archiveBook and pinBook use the VersionedAddressBook as well to facilitate the undo/redo mechanism by running in parallel with addressBook.
 </td>
 </tr>
 </table>
@@ -1113,16 +1114,19 @@ If the <code>currentStatePointer</code> is at index <code>addressBookStateList.s
 </div>
 </div>
 <div class="sect2">
-<h3 id="archive-feature"><a class="link" href="#archive-feature">3.4. Archive feature</a></h3>
+<h3 id="archive-features"><a class="link" href="#archive-features">3.4. Archive features</a></h3>
 <div class="sect3">
 <h4 id="current-implementation-4"><a class="link" href="#current-implementation-4">3.4.1. Current Implementation</a></h4>
 <div class="paragraph">
 <p>This section explains the implementation of all archive related features.</p>
 </div>
+<div class="paragraph">
+<p>To implement the archive features, an <code>archiveBook</code> is created in the <code>Model</code> and <code>Storage</code> to facilitate the archiving of contacts. The <code>archiveBook</code> implements the <code>AddressBook</code> class in the <code>Model</code> since it works similarly, and has its own <code>ArchiveBookStorage</code> class in the <code>Storage</code> to facilitate the storage of a separate data file.</p>
+</div>
 <div class="sect4">
 <h5 id="archive-unarchive"><a class="link" href="#archive-unarchive">Archive/Unarchive</a></h5>
 <div class="paragraph">
-<p>The following sequence diagram shows how the archive operation works:</p>
+<p>The following sequence diagram shows how the <code>archive</code> command operation works:</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -1130,13 +1134,16 @@ If the <code>currentStatePointer</code> is at index <code>addressBookStateList.s
 </div>
 </div>
 <div class="paragraph">
-<p>The <code>unarchive</code> command does the opposite&#8201;&#8212;&#8201;it calls <code>addPerson(p)</code> of the <code>versionedArchiveBook</code> and <code>removePerson(p)</code> of the <code>versionedAddressBook</code> instead.</p>
+<p>The <code>unarchive</code> command does the opposite&#8201;&#8212;&#8201;it calls <code>addPerson(p)</code> of the <code>versionedAddressBook</code> and <code>removePerson(p)</code> of the <code>versionedArchiveBook</code> instead.</p>
 </div>
 </div>
 <div class="sect4">
 <h5 id="archive-list"><a class="link" href="#archive-list">Archive List</a></h5>
 <div class="paragraph">
-<p>The <code>archivelist</code> command displays the archive list. This has to be carefully implemented to work hand-in-hand  with <code>list</code>. More importantly, to implement a separate archive list that can be swapped with the main list requires careful designing.  <em>{To be added}</em></p>
+<p>The <code>archivelist</code> command displays the list of persons in the <code>archiveBook</code>. This has to be carefully implemented to work hand-in-hand with the list of persons in the <code>addressBook</code>, as well as the <code>list</code> command.</p>
+</div>
+<div class="paragraph">
+<p>More importantly, to have a separate archive list that can be swapped back and forth with the main list in the UI display requires careful designs and implementations in the <code>Logic</code> and <code>Ui</code> components.</p>
 </div>
 </div>
 <div class="sect4">
@@ -1146,9 +1153,6 @@ If the <code>currentStatePointer</code> is at index <code>addressBookStateList.s
 </div>
 <div class="paragraph">
 <p>When <code>unarchive</code> is performed on a person that has been selected by <code>archiveselect</code>, <code>archiveselect</code> is set to be <code>null</code>, so no person will be selected.</p>
-</div>
-<div class="paragraph">
-<p><em>{To be added}</em></p>
 </div>
 </div>
 <div class="sect4">
@@ -1165,7 +1169,44 @@ If the <code>currentStatePointer</code> is at index <code>addressBookStateList.s
 </div>
 <div class="sect2">
 <h3 id="select-feature"><a class="link" href="#select-feature">3.5. Select feature</a></h3>
-
+<div class="sect3">
+<h4 id="current-implementation-5"><a class="link" href="#current-implementation-5">3.5.1. Current Implementation</a></h4>
+<div class="paragraph">
+<p>The select feature requires careful implementation:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>As there are 3 separate lists (main contact list, archive list, pin list) that can be selected from, having a unique command for each list (i.e. <code>select</code>, <code>archiveselect</code>, <code>pinselect</code>) ensures that the person is selected from the correct list.</p>
+</li>
+<li>
+<p>Only at most 1 person can be selected at any point in time from each list.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>However, having 3 separate lists means that there will be overlapping selections which will cause errors in the <code>Ui</code> component in displaying the browser panel.</p>
+</li>
+<li>
+<p>To avoid overlapping of selections from each of the select commands, previous selections from another list are set to null.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Adding and editing a person will select that person.</p>
+</li>
+<li>
+<p>Deleting, archiving and unarchiving a selected contact will set the selection to null.</p>
+</li>
+<li>
+<p>Changing lists will set the selected person in the list that is swapped away to be set to null.</p>
+</li>
+<li>
+<p>Selection of a pinned person will remain regardless of which of the two lists are displayed.</p>
+</li>
+</ul>
+</div>
+</div>
 </div>
 <div class="sect2">
 <h3 id="logging"><a class="link" href="#logging">3.6. Logging</a></h3>
@@ -3123,7 +3164,7 @@ Expected: First contact is deleted from the list. Details of the deleted contact
 Expected: No person is deleted. Error details shown in the status message. Status bar remains the same.</p>
 </li>
 <li>
-<p>Other incorrect delete commands to try: <code>delete</code>, <code>delete x</code> (where x is larger than the list size), <code>delete James</code>, <code>delete list</code><br>
+<p>Other incorrect delete commands to try: <code>delete</code>, <code>delete one</code>, <code>delete x</code> (where x is larger than the list size), <code>delete n</code> (where n is a name of an existing contact), <code>delete .</code>, <code>delete list</code><br>
 Expected: Similar to previous.</p>
 </li>
 </ol>
@@ -3134,24 +3175,210 @@ Expected: Similar to previous.</p>
 </div>
 <div class="sect2">
 <h3 id="selecting-a-person"><a class="link" href="#selecting-a-person">F.7. Selecting a person</a></h3>
-<div class="paragraph">
-<p><em>{ more test cases &#8230;&#8203; }</em></p>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Selecting a person while all persons are listed</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Prerequisites: List all persons using the <code>list</code> command. Multiple persons in the list.</p>
+</li>
+<li>
+<p>Test case: <code>select 2</code><br>
+Expected: 2nd contact in the list is selected. Address location of the selected contact is displayed on the Google Maps&#8482; browser window panel (if applicable).</p>
+</li>
+<li>
+<p>Test case: <code>select 0</code><br>
+Expected: No person is selected. Error details shown in the status message.</p>
+</li>
+<li>
+<p>Other incorrect select commands to try: <code>select</code>, <code>select one</code>, <code>select x</code> (where x is larger than the list size), <code>select n</code> (where n is a name of an existing contact), <code>select .</code><br>
+Expected: Similar to previous.</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Selecting a person from a search command result</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Prerequisites: Enter <code>list</code>. Search for persons using the <code>search</code> command. Persons that match the search are displayed in the list.</p>
+</li>
+<li>
+<p>Test case: <code>select 1</code><br>
+Expected: 1st contact in the list is selected. Address location of the selected contact is displayed on the Google Maps&#8482; browser window panel (if applicable).</p>
+</li>
+<li>
+<p>Test case: <code>select 0</code><br>
+Expected: No person is selected. Error details shown in the status message.</p>
+</li>
+<li>
+<p>Other incorrect select commands to try: <code>select</code>, <code>select one</code>, <code>select x</code> (where x is larger than the list size), <code>select n</code> (where n is a name of an existing contact), <code>select .</code><br>
+Expected: Similar to previous.</p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
 </div>
 </div>
 <div class="sect2">
 <h3 id="archiving-a-person"><a class="link" href="#archiving-a-person">F.8. Archiving a person</a></h3>
-<div class="paragraph">
-<p><em>{ more test cases &#8230;&#8203; }</em></p>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Archiving a person while all persons are listed</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Prerequisites: List all persons using the <code>list</code> command. Multiple persons in the list.</p>
+</li>
+<li>
+<p>Test case: <code>archive 2</code><br>
+Expected: 2nd contact in the list is selected. Details of the archived contact shown in the status message. Timestamp in the status bar is updated.</p>
+</li>
+<li>
+<p>Test case: <code>archive 0</code><br>
+Expected: No person is archived. Error details shown in the status message. Status bar remains the same.</p>
+</li>
+<li>
+<p>Other incorrect archive commands to try: <code>archive</code>, <code>archive one</code>, <code>archive x</code> (where x is larger than the list size), <code>archive n</code> (where n is a name of an existing contact), <code>archive .</code><br>
+Expected: Similar to previous.</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Archiving a person from a search command result</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Prerequisites: Enter <code>list</code>. Search for persons using the <code>search</code> command. Persons that match the search are displayed in the list.</p>
+</li>
+<li>
+<p>Test case: <code>archive 1</code><br>
+Expected: 1st contact in the list is archived. Details of the archived contact shown in the status message. Timestamp in the status bar is updated.</p>
+</li>
+<li>
+<p>Test case: <code>archive 0</code><br>
+Expected: No person is archived. Error details shown in the status message. Status bar remains the same.</p>
+</li>
+<li>
+<p>Other incorrect archive commands to try: <code>archive</code>, <code>archive one</code>, <code>archive x</code> (where x is larger than the list size), <code>archive n</code> (where n is a name of an existing contact), <code>archive .</code><br>
+Expected: Similar to previous.</p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
 </div>
 </div>
 <div class="sect2">
-<h3 id="unarchiving-a-person"><a class="link" href="#unarchiving-a-person">F.9. Unarchiving a person</a></h3>
-<div class="paragraph">
-<p><em>{ more test cases &#8230;&#8203; }</em></p>
+<h3 id="selecting-an-archived-person"><a class="link" href="#selecting-an-archived-person">F.9. Selecting an archived person</a></h3>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Selecting a person while all <strong>archived</strong> persons are listed</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Prerequisites: List all archived persons using the <code>archivelist</code> command. Multiple persons in the list.</p>
+</li>
+<li>
+<p>Test case: <code>archiveselect 2</code><br>
+Expected: 2nd contact in the list is selected. Address location of the selected contact is displayed on the Google Maps&#8482; browser window panel (if applicable).</p>
+</li>
+<li>
+<p>Test case: <code>archiveselect 0</code><br>
+Expected: No person is selected. Error details shown in the status message.</p>
+</li>
+<li>
+<p>Other incorrect archiveselect commands to try: <code>archiveselect</code>, <code>archiveselect one</code>, <code>archiveselect x</code> (where x is larger than the list size), <code>archiveselect n</code> (where n is a name of an existing archived contact), <code>archiveselect .</code><br>
+Expected: Similar to previous.</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Selecting a person from an archivesearch command result</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Prerequisites: Enter <code>archivelist</code>. Search for archived persons using the <code>archivesearch</code> command. Persons that match the search are displayed in the list.</p>
+</li>
+<li>
+<p>Test case: <code>archiveselect 1</code><br>
+Expected: 1st contact in the list is selected. Address location of the selected contact is displayed on the Google Maps&#8482; browser window panel (if applicable).</p>
+</li>
+<li>
+<p>Test case: <code>archiveselect 0</code><br>
+Expected: No person is selected. Error details shown in the status message.</p>
+</li>
+<li>
+<p>Other incorrect archiveselect commands to try: <code>archiveselect</code>, <code>archiveselect one</code>, <code>archiveselect x</code> (where x is larger than the list size), <code>archiveselect n</code> (where n is a name of an existing archived contact), <code>archiveselect .</code><br>
+Expected: Similar to previous.</p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
 </div>
 </div>
 <div class="sect2">
-<h3 id="pinning-a-person"><a class="link" href="#pinning-a-person">F.10. Pinning a person</a></h3>
+<h3 id="unarchiving-a-person"><a class="link" href="#unarchiving-a-person">F.10. Unarchiving a person</a></h3>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Unrchiving a person while all <strong>archived</strong> persons are listed</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Prerequisites: List all archived persons using the <code>archivelist</code> command. Multiple persons in the list.</p>
+</li>
+<li>
+<p>Test case: <code>unarchive 2</code><br>
+Expected: 2nd contact in the list is unarchived. Details of the unarchived contact shown in the status message. Timestamp in the status bar is updated.</p>
+</li>
+<li>
+<p>Test case: <code>unarchive 0</code><br>
+Expected: No person is unarchived. Error details shown in the status message. Status bar remains the same.</p>
+</li>
+<li>
+<p>Other incorrect unarchive commands to try: <code>unarchive</code>, <code>unarchive x</code> (where x is larger than the list size), <code>unarchive n</code> (where n is a name of an existing contact), <code>unarchive .</code><br>
+Expected: Similar to previous.</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Unarchiving a person from an archivesearch command result</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Prerequisites: Enter <code>archivelist</code>. Search for archived persons using the <code>archivesearch</code> command. Persons that match the search are displayed in the list.</p>
+</li>
+<li>
+<p>Test case: <code>unarchive 1</code><br>
+Expected: 1st contact in the list is unarchived. Details of the unarchived contact shown in the status message. Timestamp in the status bar is updated.</p>
+</li>
+<li>
+<p>Test case: <code>unarchive 0</code><br>
+Expected: No person is unarchived. Error details shown in the status message. Status bar remains the same.</p>
+</li>
+<li>
+<p>Other incorrect unarchive commands to try: <code>unarchive</code>, <code>unarchive x</code> (where x is larger than the list size), <code>unarchive n</code> (where n is a name of an existing contact), <code>unarchive .</code><br>
+Expected: Similar to previous.</p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="pinning-a-person"><a class="link" href="#pinning-a-person">F.11. Pinning a person</a></h3>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -3180,7 +3407,7 @@ Expected: Similar to previous.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="unpinning-a-person"><a class="link" href="#unpinning-a-person">F.11. Unpinning a person</a></h3>
+<h3 id="unpinning-a-person"><a class="link" href="#unpinning-a-person">F.12. Unpinning a person</a></h3>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -3209,7 +3436,7 @@ Expected: Similar to previous.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="selecting-a-person-in-the-pin-list"><a class="link" href="#selecting-a-person-in-the-pin-list">F.12. Selecting a person in the pin list</a></h3>
+<h3 id="selecting-a-person-in-the-pin-list"><a class="link" href="#selecting-a-person-in-the-pin-list">F.13. Selecting a person in the pin list</a></h3>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -3238,4 +3465,4 @@ Expected: Similar to previous.</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-04-15 16:04:09 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-04-15 16:05:38 UTC</div></div></div></body></html>
