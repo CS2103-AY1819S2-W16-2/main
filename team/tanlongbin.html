@@ -152,9 +152,9 @@
 <td class="content">
 <div class="paragraph">
 <p>Accepted customer types: <code>seller</code>, <code>buyer</code>, <code>landlord</code>, <code>tenant</code><br>
-<code>NAME</code>, <code>PHONE</code>, <code>EMAIL</code> &amp; <code>REMARK</code> ARE compulsory for all customers.<br>
-<code>ADDRESS</code> &amp; <code>SELLINGPRICE</code> of property are compulsory for sellers.<br>
-<code>ADDRESS</code> &amp; <code>RENTALPRICE</code> of property are compulsory for landlords.</p>
+<code>NAME</code>, <code>PHONE</code>, <code>EMAIL</code> &amp; <code>REMARK</code> are compulsory for all customers.<br>
+<code>ADDRESS</code> &amp; <code>SELLING_PRICE</code> of property are compulsory for sellers.<br>
+<code>ADDRESS</code> &amp; <code>RENTAL_PRICE</code> of property are compulsory for landlords.</p>
 </div>
 </td>
 </tr>
@@ -177,22 +177,22 @@ A <strong>property</strong> can have any number of <code>TAG</code> (including 0
 <li>
 <p><strong>Seller:</strong><br>
 Format: <code>add c/seller n/NAME p/PHONE_NUMBER e/EMAIL r/REMARKS a/ADDRESS sp/SELLING_PRICE_OF_PROPERTY [t/TAG]&#8230;&#8203;</code><br>
-Example: <code>add c/seller n/James Ho p/98765432 e/jamesho@example.com r/need to sell by April 2018 a/Blk 345 Clementi Ave 5, #04-04, S120345 sp/500000 t/MRT t/newlyRenovated</code></p>
+Example: <code>add c/seller n/James Tan p/97652456 e/jamestan@example.com r/need to sell by April 2018 a/Blk 345 Clementi Ave 5, #04-04, S120345 sp/500000 t/MRT t/newlyRenovated</code></p>
 </li>
 <li>
 <p><strong>Buyer:</strong><br>
 Format: <code>add c/buyer n/NAME p/PHONE_NUMBER e/EMAIL r/REMARKS</code><br>
-Example: <code>add c/buyer n/James Ho p/98765432 e/jamesho@example.com r/looking for 3-room apartment</code></p>
+Example: <code>add c/buyer n/James Ho p/87657252 e/jamesho@example.com r/looking for 3-room apartment</code></p>
 </li>
 <li>
 <p><strong>Landlord:</strong><br>
 Format: <code>add c/landlord n/NAME p/PHONE_NUMBER e/EMAIL r/REMARKS a/ADDRESS rp/RENTAL_PRICE_OF_PROPERTY [t/TAG]&#8230;&#8203;</code><br>
-Example: <code>add c/landlord n/James Ho p/98765432 e/jamesho@example.com r/family friend  a/Blk 345 Clementi Ave 5, #04-04, S120345 rp/1500 t/MRT t/newlyRenovated</code></p>
+Example: <code>add c/landlord n/Hans Tan p/90826522 e/hanstan@example.com r/family friend  a/Blk 345 Woodlands Street 32, #04-04, S730345 rp/1500 t/MRT t/newlyRenovated</code></p>
 </li>
 <li>
 <p><strong>Tenant:</strong><br>
 Format: <code>add c/tenant n/NAME p/PHONE_NUMBER e/EMAIL r/REMARKS</code><br>
-Example: <code>add c/tenant n/James Ho p/98765432 e/jamesho@example.com r/looking for 4-room apartment</code></p>
+Example: <code>add c/tenant n/Bo Yang p/86541526 e/boyang@example.com r/looking for 4-room apartment</code></p>
 </li>
 </ul>
 </div>
@@ -209,6 +209,33 @@ Example: <code>add c/tenant n/James Ho p/98765432 e/jamesho@example.com r/lookin
 </td>
 </tr>
 </table>
+</div>
+<div class="paragraph">
+<p>Screenshots for 1st example:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Enter <code>add c/seller n/James Tan p/97652456 e/jamestan@example.com r/need to sell by April 2018 a/Blk 345 Clementi Ave 5, #04-04, S120345 sp/500000 t/MRT t/newlyRenovated</code>:</p>
+</li>
+</ul>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/add_screenshot_1.png" alt="add screenshot 1" width="790">
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Client James Tan is successfully added, the contact list is updated and the newly added contact is selected:</p>
+</li>
+</ul>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/add_screenshot_2.png" alt="add screenshot 2" width="790">
+</div>
 </div>
 </div>
 <div class="sect2">
@@ -320,17 +347,44 @@ Format: <code>search KEYWORD [KEYWORD]&#8230;&#8203;</code></p>
 <ul>
 <li>
 <p><code>search James</code><br>
-Returns <code>James Lee</code> and <code>John James</code></p>
+Returns <code>James Tan</code> and <code>James Ho</code></p>
 </li>
 <li>
-<p><code>search James Tan Young</code><br>
-Returns any contact with information matching <code>James</code>, <code>Tan</code>, or <code>Young</code></p>
+<p><code>search James Tan Yang</code><br>
+Returns any contact with information matching <code>James</code>, <code>Tan</code>, or <code>Yang</code></p>
 </li>
 <li>
 <p><code>search Woodlands Landlord</code><br>
 Returns any contact with information matching <code>Woodlands</code> or <code>Landlord</code></p>
 </li>
 </ul>
+</div>
+<div class="paragraph">
+<p>Screenshots for 1st example:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Enter <code>search James</code>:</p>
+</li>
+</ul>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/search_screenshot_1.png" alt="search screenshot 1" width="790">
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>The search is executed successfully and the contact list is updated to show <code>James Tan</code> and <code>James Ho</code>.</p>
+</li>
+</ul>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/search_screenshot_2.png" alt="search screenshot 2" width="790">
+</div>
 </div>
 </div>
 <div class="sect2">
@@ -366,11 +420,11 @@ Returns any contact with information matching <code>Woodlands</code> or <code>La
 <li>
 <p><strong>Seller:</strong><br>
 Format: <code>edit INDEX_SELLER [n/NAME] [p/PHONE_NUMBER] [e/EMAIL] [r/REMARKS] [a/ADDRESS] [sp/SELLING_PRICE_OF_PROPERTY] [t/TAG]&#8230;&#8203;</code><br>
-Example: <code>edit 2 n/James Lee e/jameslee@example.com sp/450000 t/</code></p>
+Example: <code>edit 2 n/James Li e/jamesli@example.com sp/450000 t/</code></p>
 <div class="ulist">
 <ul>
 <li>
-<p>Edits the name and email address of the 2nd contact to be <code>James Lee</code> and <code>jameslee@example.com</code> respectively. Edits selling price of the associated property to be <code>450000</code> and clears all existing tags.</p>
+<p>Edits the name and email address of the 2nd contact to be <code>James Li</code> and <code>jamesli@example.com</code> respectively. Edits selling price of the associated property to be <code>450000</code> and clears all existing tags.</p>
 </li>
 </ul>
 </div>
@@ -378,11 +432,11 @@ Example: <code>edit 2 n/James Lee e/jameslee@example.com sp/450000 t/</code></p>
 <li>
 <p><strong>Buyer:</strong><br>
 Format: <code>edit INDEX_BUYER [n/NAME] [p/PHONE_NUMBER] [e/EMAIL] [r/REMARKS]</code><br>
-Example: <code>edit 2 n/James Lee e/jameslee@example.com r/looking for houses in Woodlands</code><br></p>
+Example: <code>edit 2 n/James Han e/jameshan@example.com r/looking for houses in Woodlands</code><br></p>
 <div class="ulist">
 <ul>
 <li>
-<p>Edits the name, email address and remarks of the 2nd contact to be <code>James Lee</code>, <code>jameslee@example.com</code> and <code>looking for houses in Woodlands</code> respectively.</p>
+<p>Edits the name, email address and remarks of the 2nd contact to be <code>James Tan</code>, <code>jamestan@example.com</code> and <code>looking for houses in Woodlands</code> respectively.</p>
 </li>
 </ul>
 </div>
@@ -390,11 +444,11 @@ Example: <code>edit 2 n/James Lee e/jameslee@example.com r/looking for houses in
 <li>
 <p><strong>Landlord:</strong><br>
 Format: <code>edit INDEX_LANDLORD [n/NAME] [p/PHONE_NUMBER] [e/EMAIL] [r/REMARKS] [a/ADDRESS] [rp/RENTAL_PRICE_OF_PROPERTY] [t/TAG]&#8230;&#8203;</code><br>
-Example: <code>edit 2 n/James Lee p/87654321 rp/1700 t/MRT t/Park</code></p>
+Example: <code>edit 2 n/Jim Lee p/87654321 rp/1700 t/MRT t/Park</code></p>
 <div class="ulist">
 <ul>
 <li>
-<p>Edits the name and phone number of the 2nd contact to be <code>James Lee</code> and <code>87654321</code> respectively. Edits rental price of the associated property to be <code>1700</code>, clears all existing tags and adds new tags <code>MRT</code> and <code>Park</code>.</p>
+<p>Edits the name and phone number of the 2nd contact to be <code>Jim Lee</code> and <code>87654321</code> respectively. Edits rental price of the associated property to be <code>1700</code>, clears all existing tags and adds new tags <code>MRT</code> and <code>Park</code>.</p>
 </li>
 </ul>
 </div>
@@ -402,11 +456,11 @@ Example: <code>edit 2 n/James Lee p/87654321 rp/1700 t/MRT t/Park</code></p>
 <li>
 <p><strong>Tenant:</strong><br>
 Format: <code>edit INDEX_TENANT [n/NAME] [p/PHONE_NUMBER] [e/EMAIL] [r/REMARKS]</code><br>
-Example: `edit 2 n/James Lee p/87654321 `</p>
+Example: <code>edit 2 n/James p/87654322</code></p>
 <div class="ulist">
 <ul>
 <li>
-<p>Edits the name and phone number of the 2nd contact to be <code>James Lee</code> and <code>87654321</code> respectively.</p>
+<p>Edits the name and phone number of the 2nd contact to be <code>James</code> and <code>87654322</code> respectively.</p>
 </li>
 </ul>
 </div>
@@ -440,6 +494,58 @@ Example: `edit 2 n/James Lee p/87654321 `</p>
 </td>
 </tr>
 </table>
+</div>
+<div class="paragraph">
+<p>Screenshots for 1st example:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Enter <code>list</code>:</p>
+</li>
+</ul>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/archive_screenshot_1.png" alt="archive screenshot 1" width="790">
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Main contact list is displayed:</p>
+</li>
+</ul>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/edit_screenshot_1.png" alt="edit screenshot 1" width="790">
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Make sure that the contact at index 2 is a seller, otherwise choose the correct index corresponding to a seller.<br>
+Enter <code>edit 2 n/James Li e/jamesli@example.com sp/450000 t/</code>:</p>
+</li>
+</ul>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/edit_screenshot_2.png" alt="edit screenshot 2" width="790">
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Contact at index 2 is now edited to <code>James Li</code> and the information are updated accordingly. The contact is also selected upon successful execution of the <code>edit</code> command:</p>
+</li>
+</ul>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/edit_screenshot_3.png" alt="edit screenshot 3" width="790">
+</div>
 </div>
 </div>
 </div>
@@ -512,4 +618,4 @@ As a more OOP model, we can store a <code>Tag</code> list in <code>Address Book<
 <p><em>{Optionally, you may include other projects in your portfolio.}</em></p>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-04-15 08:59:28 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-04-15 11:30:22 UTC</div></div></div></body></html>
