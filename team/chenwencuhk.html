@@ -155,6 +155,57 @@ Selects the 3rd contact in the results of the <code>search</code> command.</p>
 </li>
 </ul>
 </div>
+<div class="paragraph">
+<p>Screenshots for 1st example:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Enter <code>list</code>:</p>
+</li>
+</ul>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/pin_screenshot_1.png" alt="pin screenshot 1" width="800">
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Main contact list is displayed:</p>
+</li>
+</ul>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/pin_screenshot_2.png" alt="pin screenshot 2" width="800">
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Enter <code>pin 2</code>:</p>
+</li>
+</ul>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/pin_screenshot_3.png" alt="pin screenshot 3" width="800">
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>2nd contact has been successfully pinned:</p>
+</li>
+</ul>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/pin_screenshot_4.png" alt="pin screenshot 4" width="800">
+</div>
+</div>
 </div>
 <div class="sect2">
 <h3 id="unpinning-a-contact-code-unpin-code"><a class="link" href="#unpinning-a-contact-code-unpin-code">Unpinning a contact : <code>unpin</code></a></h3>
@@ -234,10 +285,37 @@ Format: <code>pinselect INDEX</code></p>
 <div class="ulist">
 <ul>
 <li>
-<p><code>pinselect 2</code><br>
-Selects the 2nd contact in the pin book.</p>
+<p><code>pinselect 3</code><br>
+Selects the 3rd contact in the pin book.</p>
 </li>
 </ul>
+</div>
+<div class="paragraph">
+<p>Screenshots for the example:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Enter <code>pinselect 3</code>:</p>
+</li>
+</ul>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/pinselect_screenshot_1.png" alt="pinselect screenshot 1" width="800">
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>3rd contact in the pin list has been successfully selected:</p>
+</li>
+</ul>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/pinselect_screenshot_2.png" alt="pinselect screenshot 2" width="800">
+</div>
 </div>
 </div>
 </div>
@@ -261,16 +339,13 @@ Selects the 2nd contact in the pin book.</p>
 <h4 id="current-implementation"><a class="link" href="#current-implementation">Current Implementation</a></h4>
 <div class="paragraph">
 <p>The pin/unpin mechanism is facilitated by <code>VersionedAddressBook</code>.
-It extends <code>PinBook</code> with an pin/unpin history, stored internally as an <code>pinBookStateList</code>.
+It extends <code>AddressBook</code> with an pin/unpin history, stored internally as an <code>pinBookStateList</code>.
 Additionally, it implements the following operations:</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
 <p><code>VersionedPinBook#commit()</code>&#8201;&#8212;&#8201;Saves the current pin book state in its history.</p>
-</li>
-<li>
-<p><code>VersionedPinBook#undo()</code>&#8201;&#8212;&#8201;Restores the previous pin book state from its history.</p>
 </li>
 </ul>
 </div>
@@ -281,7 +356,7 @@ Additionally, it implements the following operations:</p>
 <p>Given below is an example usage scenario and how the pin/unpin mechanism behaves at each step.</p>
 </div>
 <div class="paragraph">
-<p>Step 1. The user launches the application for the first time. The <code>VersionedPinBook</code> will be initialized with the initial pin book state, and the <code>currentStatePointer</code> pointing to that single pin book state.</p>
+<p>Step 1. The user launches the application for the first time. The <code>VersionedAddressBook</code> will be initialized with the initial pin book state, and the <code>currentStatePointer</code> pointing to that single pin book state.</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -289,7 +364,7 @@ Additionally, it implements the following operations:</p>
 </div>
 </div>
 <div class="paragraph">
-<p>Step 2. The user executes <code>pin 5</code> command to pin the 5th person in the address book. The <code>pin</code> command calls <code>Model#commitAddressBook()</code> and <code>Model#commitPinBook()</code>, causing the modified state of the address book and pin book after the <code>pin 5</code> command executes to be saved in the <code>addressBookStateList</code> and <code>pinBookStateList</code>, and the <code>currentStatePointer</code> is shifted to the newly inserted address book and pin book state.</p>
+<p>Step 2. The user executes <code>pin 5</code> command to pin the 5th person in the address book. The <code>pin</code> command calls <code>Model#commitBooks()</code>, causing the modified state of the address book and pin book after the <code>pin 5</code> command executes to be saved in the <code>addressBookStateList</code> and <code>pinBookStateList</code>, and the <code>currentStatePointer</code> is shifted to the newly inserted address book and pin book state.</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -353,7 +428,7 @@ If the <code>currentStatePointer</code> of AddressBook is at index 0, pointing t
 </div>
 </div>
 <div class="paragraph">
-<p>Step 6. The user executes <code>clear</code>, which calls on;y <code>Model#commitAddressBook()</code> and make no influence to <code>VersionedPinBook</code>.</p>
+<p>Step 6. The user executes <code>clear</code>, which calls only <code>Model#commitAddressBook()</code> and make no influence to <code>VersionedPinBook</code>.</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -440,4 +515,4 @@ If the <code>currentStatePointer</code> of AddressBook is at index 0, pointing t
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-04-15 08:35:27 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-04-15 08:59:28 UTC</div></div></div></body></html>
