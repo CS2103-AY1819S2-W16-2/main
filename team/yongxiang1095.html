@@ -115,6 +115,9 @@
 <li>
 <p>Updated the GUI color scheme: <a href="https://github.com/CS2103-AY1819S2-W16-2/main/pull/86">#86</a></p>
 </li>
+<li>
+<p>Wrote tests for new and existing features to increase coverage from 79% to 86% (Pull requests <a href="https://github.com/CS2103-AY1819S2-W16-2/main/pull/144">#144</a>, <a href="https://github.com/CS2103-AY1819S2-W16-2/main/pull/147">#147</a>, <a href="https://github.com/CS2103-AY1819S2-W16-2/main/pull/149">#149</a>)</p>
+</li>
 </ul>
 </div>
 </li>
@@ -231,12 +234,90 @@ Archives the 3rd contact in the results of the <code>search</code> command.</p>
 </li>
 </ul>
 </div>
+<div class="paragraph">
+<p>Screenshots for 1st example:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Enter <code>list</code>:</p>
+</li>
+</ul>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/archive_screenshot_1.png" alt="archive screenshot 1" width="790">
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Main contact list is displayed:</p>
+</li>
+</ul>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/archive_screenshot_2.png" alt="archive screenshot 2" width="790">
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Enter <code>archive 2</code>:</p>
+</li>
+</ul>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/archive_screenshot_3.png" alt="archive screenshot 3" width="790">
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>2nd contact has been successfully archived:</p>
+</li>
+</ul>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/archive_screenshot_4.png" alt="archive screenshot 4" width="790">
+</div>
+</div>
 </div>
 <div class="sect2">
 <h3 id="listing-all-archived-contacts-code-archivelist-code"><a class="link" href="#listing-all-archived-contacts-code-archivelist-code">Listing all archived contacts : <code>archivelist</code></a></h3>
 <div class="paragraph">
 <p>Lists all the contacts in the archive.<br>
 Format: <code>archivelist</code></p>
+</div>
+<div class="paragraph">
+<p>Screenshots:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Enter <code>archivelist</code>:</p>
+</li>
+</ul>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/archive_screenshot_5.png" alt="archive screenshot 5" width="790">
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>The archive list is displayed (the contact archived in the 1st example of <code>archive</code> can be found):</p>
+</li>
+</ul>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/archive_screenshot_6.png" alt="archive screenshot 6" width="790">
+</div>
 </div>
 </div>
 <div class="sect2">
@@ -273,7 +354,7 @@ Format: <code>archiveselect INDEX</code></p>
 </td>
 <td class="content">
 <div class="paragraph">
-<p>Go to <a href="#GoogleMaps">[GoogleMaps]</a> for more details of the Google Maps&#8482; display.</p>
+<p>Go to <a href="#GoogleMaps">Displaying location on Google Maps&#8482;</a> for more details of the Google Maps&#8482; display.</p>
 </div>
 </td>
 </tr>
@@ -376,6 +457,94 @@ Archived contact list must be displayed prior to clearing.<br>
 Format: <code>archiveclear</code></p>
 </div>
 </div>
+<div class="sect2">
+<h3 id="selecting-a-contact-code-select-code"><a class="link" href="#selecting-a-contact-code-select-code">Selecting a contact : <code>select</code></a></h3>
+<div class="paragraph">
+<p>Selects the contact identified by the index number used in the displayed contact list.<br>
+Format: <code>select INDEX</code></p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>Selects the contact at the specified <code>INDEX</code> and displays all the contact and any associated property information, as well as the address location of the associated property (if applicable) on the Google Maps&#8482; window panel.</p>
+</li>
+<li>
+<p>The index refers to the index number shown in the displayed contact list.</p>
+</li>
+<li>
+<p>The index <strong>must be a positive integer</strong> <code>1, 2, 3, &#8230;&#8203;</code></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Go to <a href="#GoogleMaps">Displaying location on Google Maps&#8482;</a> for more details of the Google Maps&#8482; display.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>list</code><br>
+<code>select 2</code><br>
+Selects the 2nd contact in the contact book.</p>
+</li>
+<li>
+<p><code>search James</code><br>
+<code>select 1</code><br>
+Selects the 1st contact in the results of the <code>search</code> command.</p>
+</li>
+<li>
+<p><code>search seller</code><br>
+<code>select 3</code><br>
+Selects the 3rd contact in the results of the <code>search</code> command.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="GoogleMaps"><a class="link" href="#GoogleMaps">Displaying location on Google Maps&#8482;</a></h3>
+<div class="paragraph">
+<p>Double-clicking the contact will also select and bring up the the address location of the associated property on the Google Maps&#8482; window panel.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>As of <code>v1.4</code>, Google Maps&#8482; will search for the location of any address provided. If it is an invalid address that cannot be found on Google Maps&#8482;, Google Maps&#8482; will simply return that the location cannot be found, just like in the browser version.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>The screenshot below shows how selecting a contact using any of the <code>select</code> commands works:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/select_screenshot.png" alt="select screenshot" width="790">
+</div>
+</div>
+</div>
 </div>
 </div>
 <div class="sect1">
@@ -439,16 +608,30 @@ Format: <code>archiveclear</code></p>
 </div>
 <div class="sect3">
 <h4 id="design-considerations"><a class="link" href="#design-considerations">Design Considerations</a></h4>
+
+</div>
+</div>
+<div class="sect2">
+<h3 id="select-feature"><a class="link" href="#select-feature">Select feature</a></h3>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
 <col style="width: 100%;">
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><em>I ported in all the User Stories into the Developer Guide. Given below is an extract related to the features I implemented.</em></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>I ported in all the <strong>User Stories</strong> into the Developer Guide. Given below is an extract related to the features I implemented.</em></p></td>
 </tr>
 </tbody>
 </table>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="user-stories"><a class="link" href="#user-stories">Appendix A: User Stories</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Priorities: High (must have) - <code>* * *</code>, Medium (nice to have) - <code>* *</code>, Low (unlikely to have) - <code>*</code></p>
+</div>
 <table class="tableblock frame-all grid-all" style="width: 59%;">
 <colgroup>
 <col style="width: 22%;">
@@ -491,10 +674,18 @@ Format: <code>archiveclear</code></p>
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><em>I ported in all the Use Cases into the Developer Guide. Given below is an extract related to the features I implemented.</em></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>I ported in all the <strong>Use Cases</strong> into the Developer Guide. Given below is an extract related to the features I implemented.</em></p></td>
 </tr>
 </tbody>
 </table>
+</div>
+</div>
+<div class="sect1">
+<h2 id="use-cases"><a class="link" href="#use-cases">Appendix B: Use Cases</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>(For all use cases below, the <strong>System</strong> is the <code>TheRealApp</code> and the <strong>Actor</strong> is the <code>User</code>, unless specified otherwise)</p>
+</div>
 <h3 id="use-case-archive-contact" class="discrete">Use case: Archive contact</h3>
 <div class="paragraph">
 <p><strong>MSS</strong></p>
@@ -775,6 +966,52 @@ Format: <code>archiveclear</code></p>
 </li>
 </ol>
 </div>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 100%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>Given below are the <strong>Instructions for Manual Testing</strong> for the features I implemented.</em></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="sect1">
+<h2 id="instructions-for-manual-testing"><a class="link" href="#instructions-for-manual-testing">Appendix C: Instructions for Manual Testing</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Given below are instructions to test the app manually.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+These instructions only provide a starting point for testers to work on; testers are expected to do more <em>exploratory</em> testing.
+</td>
+</tr>
+</table>
+</div>
+<div class="sect2">
+<h3 id="selecting-a-person"><a class="link" href="#selecting-a-person">Selecting a person</a></h3>
+<div class="paragraph">
+<p><em>{ more test cases &#8230;&#8203; }</em></p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="archiving-a-person"><a class="link" href="#archiving-a-person">Archiving a person</a></h3>
+<div class="paragraph">
+<p><em>{ more test cases &#8230;&#8203; }</em></p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="unarchiving-a-person"><a class="link" href="#unarchiving-a-person">Unarchiving a person</a></h3>
+<div class="paragraph">
+<p><em>{ more test cases &#8230;&#8203; }</em></p>
 </div>
 </div>
 </div>
@@ -784,4 +1021,4 @@ Format: <code>archiveclear</code></p>
 <div class="sectionbody">
 <hr>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-04-15 06:48:29 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-04-15 08:35:27 UTC</div></div></div></body></html>
